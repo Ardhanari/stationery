@@ -42,7 +42,22 @@ def login(request):
 
 def signup(request):
     """Returns sign up form"""
+    if request.user.is_authenticated:
+        return redirect(reverse('index')) 
 
-    signup_form = SignUpNewUserForm()
+    if request.method == 'POST':
+        signup_form = SignUpNewUserForm(request.POST)
+
+        if signup_form.is_valid():
+            signup_form.save()
+
+            user = auth.authenticate(username=request.POST['username'], password=request.POST['password1'])
+            if user:
+                auth.login(user=user, request=request)
+                messages.success(request, "Account created")
+            else:
+                messages.error(request, "Couldn't create your account this time, try again later")
+    else:
+        signup_form = SignUpNewUserForm()
 
     return render(request, 'signup.html', {'signup_form': signup_form})
