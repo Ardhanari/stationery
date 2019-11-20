@@ -16,9 +16,11 @@ def logout(request):
 def login(request):
     """Logs user in"""
 
-    messages.success(request, "Login succesful")
-    return redirect(reverse('index'))
+    # messages.success(request, "Login succesful")
+    return render(request, 'login.html')
 
 def register(request):
-    return
+    """Returns sign up form"""
+
+    return render(request, 'signup.html')
     
