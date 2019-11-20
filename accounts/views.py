@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, reverse
+from django.contrib import auth, messages
 
 def index(request):
     """Return index.html file"""
@@ -6,10 +7,17 @@ def index(request):
     return render(request, 'index.html')
 
 def logout(request):
-    return
+    """Logs user out"""
+
+    auth.logout(request)
+    messages.success(request, "Logout succesful")
+    return redirect(reverse('index'))
 
 def login(request):
-    return
+    """Logs user in"""
+
+    messages.success(request, "Login succesful")
+    return redirect(reverse('index'))
 
 def register(request):
     return

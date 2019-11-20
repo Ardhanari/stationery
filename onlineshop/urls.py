@@ -19,7 +19,7 @@ from accounts.views import index, logout, login, register
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', index),
+    url(r'^$', index, name="index"),
     url(r'^logout/$', logout, name="logout"),
     url(r'^register/$', register, name="register"),
     url(r'$login/$', login, name="login")
