@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, reverse
 from django.contrib import auth, messages
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 from accounts.forms import UserLoginForm, SignUpNewUserForm
 
 def index(request):
@@ -61,3 +62,10 @@ def signup(request):
         signup_form = SignUpNewUserForm()
 
     return render(request, 'signup.html', {'signup_form': signup_form})
+
+def user_profile(request):
+    """
+    Render user profile page. Displays user data based on email stored in db
+    """
+    user = User.objects.get(email=request.user.email)
+    return render(request, 'userprofile.html', {"profile": user})
