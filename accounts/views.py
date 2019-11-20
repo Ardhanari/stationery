@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, reverse
 from django.contrib import auth, messages
 from django.contrib.auth.decorators import login_required
-from accounts.forms import UserLoginForm
+from accounts.forms import UserLoginForm, SignUpNewUserForm
 
 def index(request):
     """Return index.html file"""
@@ -43,4 +43,6 @@ def login(request):
 def signup(request):
     """Returns sign up form"""
 
-    return render(request, 'signup.html')
+    signup_form = SignUpNewUserForm()
+
+    return render(request, 'signup.html', {'signup_form': signup_form})
