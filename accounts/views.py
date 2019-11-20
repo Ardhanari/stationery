@@ -19,7 +19,7 @@ def login(request):
     # messages.success(request, "Login succesful")
     return render(request, 'login.html')
 
-def register(request):
+def signup(request):
     """Returns sign up form"""
 
     return render(request, 'signup.html')
