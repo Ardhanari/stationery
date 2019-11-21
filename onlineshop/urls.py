@@ -16,6 +16,7 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from accounts.views import index, logout, login, signup, user_profile
+from products.views import all_products, add_to_cart
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -23,5 +24,7 @@ urlpatterns = [
     url(r'^accounts/logout/$', logout, name="logout"),
     url(r'^accounts/signup/$', signup, name="signup"),
     url(r'^accounts/login/$', login, name="login"),
-    url(r'^accounts/profile/$', user_profile, name="userprofile")
+    url(r'^accounts/profile/$', user_profile, name="userprofile"),
+    url(r'^products/allproducts/$', all_products, name="allproducts"),
+    url(r'^products/addtocart/$', add_to_cart, name="addtocart")
 ]
