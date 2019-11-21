@@ -9,3 +9,6 @@ def add_to_cart(request):
         return redirect(reverse('allproducts'))
     # else: 
         # return redirect(reverse('allproducts'))
+
+def edit_cart(request, id):
+    return redirect(reverse('view_cart'))

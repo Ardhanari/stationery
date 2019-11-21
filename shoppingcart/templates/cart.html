@@ -1,0 +1,50 @@
+{% extends 'base.html' %} 
+
+{% block page_title %}Shopping cart{% endblock %} 
+
+{% block page_heading %}Shopping cart{% endblock %}
+
+{% block content %}
+
+<div class="row row flex">
+
+    {% for item in cart_items %}
+                <!-- add materialize classes-->
+    <div class="display panel panel-default">
+        <div class="panel-body">
+            <div class="product" style="background-image: url('{{ MEDIA_URL }}{{ product.image }}')"></div>
+            <img src="{{ MEDIA_URL }}{{ product.image }}">
+
+
+            <div class="caption">
+                <h3>{{ item.product.name }} - {{ item.product.variant }}</h3>
+                <p class="product-description">{{ item.product.description }}</p>
+                <p>{{ item.product.price }}</p>
+                <p>
+                    
+                    <form class="form-inline" method="post" action="{% url 'adjust_cart' item.id %}">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="exampleInputAmount" class="sr-only">New Qty</label>
+                            <div class="input-group">
+                                <div class="input-group-addon">Qty</div>
+                                <input name="quantity" type="number" min="0" max="{{ item.product.quantity }}" class="form-control">
+                                <div class="input-group-addon">{{ item.quantity }}</div>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Edit</button>
+                    </form>
+                </p>
+            </div>
+        </div>
+    </div>  
+    <div class="row">
+        <p>Total</p>
+        <p>{{ total }}</p>
+        <a href="#" class="btn btn-success" role="button"></span>Complete order</a>
+    </div>
+    {% endfor %}
+
+</div>
+
+{%endblock %}
