@@ -4,9 +4,3 @@ from .models import Product
 def all_products(request):
     products = Product.objects.all()
     return render(request, 'allproducts.html', {'products': products})
-
-def add_to_cart(request):
-    # if request.user.is_authenticated:
-        return redirect(reverse('allproducts'))
-    # else: 
-        # return redirect(reverse('allproducts'))
