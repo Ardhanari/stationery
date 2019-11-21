@@ -6,7 +6,7 @@ def all_products(request):
     return render(request, 'allproducts.html', {'products': products})
 
 def add_to_cart(request):
-    if request.user.is_authenticated:
-        return
-    else: 
+    # if request.user.is_authenticated:
         return redirect(reverse('allproducts'))
+    # else: 
+        # return redirect(reverse('allproducts'))
