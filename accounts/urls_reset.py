@@ -9,3 +9,13 @@ urlpatterns = [
         {'post_reset_redirect': reverse_lazy('password_reset_complete')}, name='password_reset_confirm'),
     url('^complete/$', password_reset_complete, name='password_reset_complete')
 ]
+
+# consider adding custom templates for email? 
+# url('^password_reset/$', auth_views.password_reset,
+#         {
+#             'template_name': 'accounts/reset_password.html',
+#             'email_template_name': 'email/password_reset/password_reset.txt',
+#             'html_email_template_name': 'email/password_reset/password_reset.html',
+#             'subject_template_name': 'email/password_reset/password_reset_subject.txt'
+#         },
+#         name='password_reset'),
