@@ -1,4 +1,6 @@
 from django.db import models
+from django.contrib.auth.models import User
+from django.core.validators import MaxValueValidator, MinValueValidator
 
 class ProductCategory(models.Model):
     """Category of the product"""
@@ -28,3 +30,10 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name    
+
+class ProductReview(models.Model):
+    """Defines reviews given by users to products they purchased"""
+    title = models.CharField(max_length=254, default='', blank=False)
+    review_text = models.TextField(blank=False)
+    rating = models.PositiveIntegerField(validators=[MaxValueValidator(5), MinValueValidator(1)])
+    author = models.ForeignKey(User)
