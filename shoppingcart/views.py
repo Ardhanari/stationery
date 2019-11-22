@@ -5,7 +5,7 @@ def view_cart(request):
     """Renders the cart contents page """
     return render(request, "cart.html")
 
-def add_to_cart(request):
+def add_to_cart(request, id):
     quantity = int(request.POST.get('quantity'))
     cart = request.session.get('cart', {})
     cart[id] = cart.get(id, quantity)
@@ -13,7 +13,7 @@ def add_to_cart(request):
     request.session['cart'] = cart
 
     messages.success(request, "Product added to your cart")
-    return redirect(reverse('allproducts')) # make it just reload page user is on?
+    return redirect(reverse('viewcart')) # make it just reload page user is on?
 
 def edit_cart(request, id):
     quantity = int(request.POST.get('quantity'))
@@ -27,4 +27,4 @@ def edit_cart(request, id):
     request.session['cart'] = cart
 
     messages.success(request, "Cart updated")
-    return redirect(reverse('view_cart'))
+    return redirect(reverse('viewcart'))
