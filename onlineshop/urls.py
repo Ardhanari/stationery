@@ -13,9 +13,10 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url
+from django.conf.urls import url, include
 from django.contrib import admin
 from accounts.views import index, logout, login, signup, user_profile
+from accounts import urls_reset
 from products.views import all_products
 from shoppingcart.views import view_cart, add_to_cart, edit_cart
 from django.views import static
@@ -28,6 +29,7 @@ urlpatterns = [
     url(r'^accounts/signup/$', signup, name="signup"),
     url(r'^accounts/login/$', login, name="login"),
     url(r'^accounts/profile/$', user_profile, name="userprofile"),
+    url(r'^password-reset/', include(urls_reset)),
     url(r'^products/allproducts/$', all_products, name="allproducts"),
     url(r'^shoppingcart/addtocart/(?P<id>\d+)$', add_to_cart, name="addtocart"),
     url(r'^shoppingcart/viewcart/$', view_cart, name="viewcart"),
