@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
+import env
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -20,13 +21,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '2j#8fl$4m2o7hvlgm$ne0_m*uww8*e$7iqjf0(#2^26#!0p%w='
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '8000-dc8b42a9-d69b-4e73-a992-1e7beb13a12c.ws-eu01.gitpod.io',
+    os.getenv('HOST')
 ]
 
 
@@ -139,3 +140,6 @@ else:
     EMAIL_PORT = 587
 
 MESSAGE_STORAGE = "django.contrib.messages.storage.session.SessionStorage"
+
+STRIPE_PUBLISHABLE = os.getenv('STRIPE_PUBLISHABLE')
+STRIPE_SECRET = os.getenv('STRIPE_SECRETKEY')
