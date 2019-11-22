@@ -17,12 +17,12 @@
 
 
             <div class="caption">
-                <h3>{{ item.product.name }} - {{ item.product.variant }}</h3>
+                <h3>{{ item.product.name }} {{ item.product.variant }}</h3>
                 <p class="product-description">{{ item.product.description }}</p>
                 <p>{{ item.product.price }}</p>
                 <p>
                     
-                    <form class="form-inline" method="post" action="{% url 'adjust_cart' item.id %}">
+                    <form class="form-inline" method="post" action="{% url 'editcart' item.id %}">
                         {% csrf_token %}
                         <div class="form-group">
                             <label for="exampleInputAmount" class="sr-only">New Qty</label>
@@ -41,7 +41,7 @@
     <div class="row">
         <p>Total</p>
         <p>{{ total }}</p>
-        <a href="#" class="btn btn-success" role="button"></span>Complete order</a>
+        <a href="{% url 'checkout' %}" class="btn btn-success" role="button"></span>Complete order</a>
     </div>
     {% endfor %}
 

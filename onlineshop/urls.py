@@ -19,6 +19,7 @@ from accounts.views import index, logout, login, signup, user_profile
 from accounts import urls_reset
 from products.views import all_products
 from shoppingcart.views import view_cart, add_to_cart, edit_cart
+from checkout.views import checkout
 from django.views import static
 from .settings import MEDIA_ROOT
 
@@ -34,5 +35,6 @@ urlpatterns = [
     url(r'^shoppingcart/addtocart/(?P<id>\d+)$', add_to_cart, name="addtocart"),
     url(r'^shoppingcart/viewcart/$', view_cart, name="viewcart"),
     url(r'^shoppingcart/editcart/(?P<id>\d+)$', edit_cart, name="editcart"),
+    url(r'^checkout/$', checkout, name="checkout"),
     url(r'^media/(?P<path>.*)$', static.serve, {'document_root': MEDIA_ROOT}),
 ]
