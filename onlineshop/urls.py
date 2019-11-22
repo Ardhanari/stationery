@@ -29,8 +29,8 @@ urlpatterns = [
     url(r'^accounts/login/$', login, name="login"),
     url(r'^accounts/profile/$', user_profile, name="userprofile"),
     url(r'^products/allproducts/$', all_products, name="allproducts"),
-    url(r'^shoppingcart/addtocart/$', add_to_cart, name="addtocart"),
+    url(r'^shoppingcart/addtocart/(?P<id>\d+)$', add_to_cart, name="addtocart"),
     url(r'^shoppingcart/viewcart/$', view_cart, name="viewcart"),
-    url(r'^shoppingcart/editcart/$', edit_cart, name="editcart"),
+    url(r'^shoppingcart/editcart/(?P<id>\d+)$', edit_cart, name="editcart"),
     url(r'^media/(?P<path>.*)$', static.serve, {'document_root': MEDIA_ROOT}),
 ]
