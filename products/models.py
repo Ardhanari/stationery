@@ -5,7 +5,7 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 class ProductCategory(models.Model):
     """Category of the product"""
 
-    name = models.CharField(max_length=254, default='All')
+    name = models.CharField(max_length=254)
 
     class Meta:
         verbose_name = 'Product category'
@@ -19,12 +19,12 @@ class Product(models.Model):
     name = models.CharField(max_length=254, default='', blank=False)
     image = models.ImageField(upload_to='images')
     description = models.TextField()
-    variant = models.CharField(max_length=20)
+    variant = models.CharField(max_length=20, blank=True)
     price = models.DecimalField(max_digits=6, decimal_places=2)
     quantity = models.PositiveIntegerField()
     # status
-    # created_at
-    discount = models.DecimalField(max_digits=2, decimal_places=0)
+    created_at = models.DateField()
+    discount = models.DecimalField(max_digits=2, decimal_places=1, default=0)
     category = models.ForeignKey(ProductCategory)
     is_digital = models.BooleanField(default=False)
 
