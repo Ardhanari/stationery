@@ -23,7 +23,7 @@ class Product(models.Model):
     price = models.DecimalField(max_digits=6, decimal_places=2)
     quantity = models.PositiveIntegerField()
     # status
-    created_at = models.DateField()
+    # created_at = models.DateField()
     discount = models.DecimalField(max_digits=2, decimal_places=1, default=0)
     category = models.ForeignKey(ProductCategory)
     is_digital = models.BooleanField(default=False)
