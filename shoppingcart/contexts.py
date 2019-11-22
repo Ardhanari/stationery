@@ -8,7 +8,7 @@ def cart_content(request):
     total = 0
     product_count = 0
 
-    for id, quantity in cart_items:
+    for id, quantity in cart.items():
         product = get_object_or_404(Product, pk=id)
         total += quantity * product.price
         product_count += quantity
