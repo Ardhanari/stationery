@@ -15,7 +15,7 @@ class Order(models.Model):
     # date = models.DateField()
 
     def __str__(self):
-        return "{0}-{1}-{2}-{3}".format(self.id, self.id, self.full_name, self.country)
+        return "({0}) {1} - {2}".format(self.id, self.full_name, self.country)
 
 
 class OrderLineItem(models.Model):
@@ -24,4 +24,4 @@ class OrderLineItem(models.Model):
     quantity = models.IntegerField(blank=False)
 
     def __str__(self):
-        return "{0} {1} @ {2}".format(self.quantity, self.product.name, self.product.price)
+        return "{0}x {1} @ {2}".format(self.quantity, self.product.name, self.product.price)
