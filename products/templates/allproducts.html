@@ -23,6 +23,7 @@
                     <!-- <p>{{ product.variant }}</p>  -->
                     <p class="product-description">{{ product.description }}</p>
                     <p>{{ product.price }}</p>
+                    <!-- if quantity < 3, display low stock! -->
 
                     <form method="POST" action="{% url 'addtocart' product.id %}">
                         {% csrf_token %}
