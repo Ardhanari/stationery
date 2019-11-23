@@ -4,6 +4,7 @@ from django.contrib import messages
 from .forms import MakePaymentForm, OrderForm
 from .models import OrderLineItem
 from django.conf import settings
+from django.utils import timezone
 from products.models import Product
 import stripe
 
@@ -17,7 +18,7 @@ def checkout(request):
 
         if order_form.is_valid() and payment_form.is_valid():
             order = order_form.save(commit=False)
-            # order.date = timezone.now()
+            order.date = timezone.now()
             order.save()
 
             cart = request.session.get('cart', {})
