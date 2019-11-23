@@ -14,6 +14,9 @@ class MakePaymentForm(forms.Form):
 
 class OrderForm(forms.ModelForm):
 
+    # username = user.username
+    user = forms.CharField(widget=forms.HiddenInput, required=False)
+
     class Meta:
         model = Order
         fields = ('full_name', 'phone_number', 'country', 'postcode',

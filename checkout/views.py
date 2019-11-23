@@ -16,9 +16,12 @@ def checkout(request):
         order_form = OrderForm(request.POST)
         payment_form = MakePaymentForm(request.POST)
 
+        user = request.user.username
+
         if order_form.is_valid() and payment_form.is_valid():
             order = order_form.save(commit=False)
             order.date = timezone.now()
+            order.user = user
             order.save()
 
             cart = request.session.get('cart', {})

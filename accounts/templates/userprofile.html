@@ -6,6 +6,18 @@
 
 {% block content %}
 
+    Orders 
+<br>
+    {{ orders }}
+    <br>
+    Addresses
+<br>
+    {{ user.address }}
+<br>
+    Change password
+<br>
+    If you want to change your password <a href="">request password change</a>. Link to set new password will be sent tou your account email address ({{ user.email }})
+<br>
     <!-- <p>{{ user.email }}</p>
     <p>{{ user.username }}</p> -->
 
@@ -13,3 +25,4 @@
     <p>{{ profile.username }}</p>
 
 {%endblock %}
+

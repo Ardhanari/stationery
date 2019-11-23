@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, reverse
 from django.contrib import auth, messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from checkout.models import Order, OrderLineItem
 from accounts.forms import UserLoginForm, SignUpNewUserForm
 
 def index(request):
@@ -68,4 +69,5 @@ def user_profile(request):
     Render user profile page. Displays user data based on email stored in db
     """
     user = User.objects.get(email=request.user.email)
-    return render(request, 'userprofile.html', {"profile": user})
+    orders = Order.objects.get(user=request.user.username)
+    return render(request, 'userprofile.html', {"profile": user, 'orders': orders})
