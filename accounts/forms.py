@@ -2,6 +2,7 @@ from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.core.exceptions import ValidationError
+from .models import ShippingAddress
 
 class UserLoginForm(forms.Form):
     """Log in form"""
@@ -36,3 +37,10 @@ class SignUpNewUserForm(UserCreationForm):
         
         if password1 != password2:
             raise ValidationError("Passwords must match")
+
+class AddShippingAddressForm(forms.Form):
+
+    class Meta:
+        model = ShippingAddress
+        fields = ['full_name', 'company', 'street_address1', 'street_address2', 
+                  'postcode', 'town_or_city', 'county', 'country', 'phone_number']
