@@ -26,7 +26,6 @@
                     <form class="form-inline" method="post" action="{% url 'editcart' item.id %}">
                         {% csrf_token %}
                         <div class="form-group">
-                            <label for="exampleInputAmount" class="sr-only">New Qty</label>
                             <div class="input-group">
                                 <div class="input-group-addon">Qty</div>
                                 <input name="quantity" type="number" min="0" max="{{ item.product.quantity }}" class="form-control">
