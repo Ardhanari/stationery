@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, reverse
+from django.http import HttpResponseRedirect
 from django.contrib import messages
 
 def view_cart(request):
@@ -6,6 +7,8 @@ def view_cart(request):
     return render(request, "cart.html")
 
 def add_to_cart(request, id):
+    # current_page = request.path_info # it gets url for add_to_cart. I need URL of the page it was launched from :|
+    previous_url = request.META.get('HTTP_REFERER')
     quantity = int(request.POST.get('quantity'))
     cart = request.session.get('cart', {})
     
@@ -17,7 +20,11 @@ def add_to_cart(request, id):
     request.session['cart'] = cart
 
     messages.success(request, "Product added to your cart")
-    return redirect(reverse('viewcart')) # make it just reload page user is on?
+    # return redirect(reverse('viewcart')) # make it just reload page user is on?
+    # return HttpResponseRedirect(request.path_info)
+    # return HttpResponseRedirect("")
+    return redirect(previous_url)
+    # return redirect(reverse(current_page))
 
 def edit_cart(request, id):
     quantity = int(request.POST.get('quantity'))
