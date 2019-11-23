@@ -7,9 +7,7 @@ from django.conf import settings
 from products.models import Product
 import stripe
 
-# Create your views here.
 stripe.api_key = settings.STRIPE_SECRET
-
 
 @login_required()
 def checkout(request):
@@ -46,10 +44,15 @@ def checkout(request):
             
             if customer.paid:
                 messages.success(request, "You have successfully paid for the order")
+                for id, quantity in cart.items():
+                    product = get_object_or_404(Product, pk=id)
+                    product.quantity -= quantity
+                    product.save()
                 request.session['cart'] = {}
-                return redirect(reverse('products'))
+                return redirect(reverse('allproducts'))
             else:
                 messages.error(request, "Unable to take payment at this time")
+                return redirect(reverse('checkout'))
         else:
             print(payment_form.errors)
             messages.error(request, "We were unable to take a payment with that card!")
