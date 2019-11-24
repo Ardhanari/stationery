@@ -72,7 +72,7 @@ def user_profile(request):
     user = User.objects.get(email=request.user.email)
     
     try: 
-        orders = Order.objects.get(user=request.user.username)
+        orders = list(Order.objects.all().filter(user=request.user.username))
         return render(request, 'userprofile.html', {"profile": user, 'orders': orders})
     except: 
         return render(request, 'userprofile.html', {"profile": user})

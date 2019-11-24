@@ -8,15 +8,17 @@
 
     Orders 
 <br>
-    
-    {% if orders > 1 %}
-    {% for order in orders %}
-    
-        {{ order.full_name }} <a href=" 'vieworder' order.id %}">{{ order.id }}{{ order.date }}</a>
 
-    {% endfor %}
-    {%else %}
-    <a href="{% url 'vieworder' orders.id %}">{{ orders.id }}{{ orders.date }}</a>
+    {% if orders %}
+        {% for order in orders %}
+            {% if forloop.counter <= orders|length %}        
+                <p>
+                    <a href="{% url 'vieworder' order.id %}">{{ order.id }}: {{ order.date }}</a>
+                </p>
+            {% endif %}
+        {% endfor %}
+    {% else %}
+    <p>No orders found!</p>
     {% endif %}
 
     <br>
