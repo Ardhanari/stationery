@@ -69,5 +69,9 @@ def user_profile(request):
     Render user profile page. Displays user data based on email stored in db
     """
     user = User.objects.get(email=request.user.email)
-    orders = Order.objects.get(user=request.user.username)
-    return render(request, 'userprofile.html', {"profile": user, 'orders': orders})
+    
+    try: 
+        orders = Order.objects.get(user=request.user.username)
+        return render(request, 'userprofile.html', {"profile": user, 'orders': orders})
+    except: 
+        return render(request, 'userprofile.html', {"profile": user})
