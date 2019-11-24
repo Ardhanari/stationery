@@ -36,6 +36,15 @@
         <a class="nav-link"  href="{% url 'viewcart' %}">Your cart</a>
     </nav>
     
+    <div class="container">
+        <div class="display">
+            <form action="{% url 'searchresult' %}" method="get">
+                <input type="text" name="query">
+                <button type="search">Search</button>
+            </form>
+        </div>
+    </div>
+
     <div class="main-content-container">
 
         <h1>

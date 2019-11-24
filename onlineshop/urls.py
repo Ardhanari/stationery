@@ -18,7 +18,7 @@ from django.contrib import admin
 from accounts.views import index, logout, login, signup, user_profile
 from accounts import urls_reset
 from products.views import all_products, single_product
-from search.view import search_for_product
+from search.views import search_for_product
 from shoppingcart.views import view_cart, add_to_cart, edit_cart
 from checkout.views import checkout
 from django.views import static
@@ -34,7 +34,7 @@ urlpatterns = [
     url(r'^password-reset/', include(urls_reset)),
     url(r'^products/all/$', all_products, name="allproducts"),
     url(r'^products/product/(?P<id>\d+)$', single_product, name="singleproduct"),
-    url(r'^search/searchresult/$', search_for_product, name="searchresult"),
+    url(r'^products/searchresult/$', search_for_product, name="searchresult"),
     url(r'^shoppingcart/addtocart/(?P<id>\d+)$', add_to_cart, name="addtocart"),
     url(r'^shoppingcart/viewcart/$', view_cart, name="viewcart"),
     url(r'^shoppingcart/editcart/(?P<id>\d+)$', edit_cart, name="editcart"),
