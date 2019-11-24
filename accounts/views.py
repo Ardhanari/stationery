@@ -82,11 +82,16 @@ def view_order(request, id):
     Renders overview of an order placed by the user 
     Allows to write the review 
     """
-    user = User.objects.get(email=request.user.email)
-    selectedorder = Order.objects.get(id=id)
+    # user = User.objects.get(email=request.user.email)
+    selected_order = Order.objects.get(id=id)
+    order_items = OrderLineItem.objects.get(order=selected_order)
     review_form = ProductReviewForm()
+    # review_form.fields['author'].initial = request.user.username
+    
+    # for OrderLineItem in selectedorder:
+    #     print('Hello')
 
-    return render(request, 'vieworder.html', {'selected_order': selectedorder, 'review_form': review_form })
+    return render(request, 'vieworder.html', {'selected_order': selected_order, 'order_items': order_items, 'review_form': review_form })
 
 
 

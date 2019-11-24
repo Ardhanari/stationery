@@ -4,7 +4,7 @@ from .models import ProductReview
 
 class ProductReviewForm(forms.ModelForm):
 
-    author = User.username
+    author = forms.CharField(widget=forms.HiddenInput)
 
     class Meta:
         model = ProductReview
