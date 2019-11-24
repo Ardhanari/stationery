@@ -7,7 +7,10 @@ def view_cart(request):
     return render(request, "cart.html")
 
 def add_to_cart(request, id):
-    # current_page = request.path_info # it gets url for add_to_cart. I need URL of the page it was launched from :|
+    """
+    Adds product to cart
+    Upon completion redirects to the page it was used on 
+    """
     previous_url = request.META.get('HTTP_REFERER')
     quantity = int(request.POST.get('quantity'))
     cart = request.session.get('cart', {})
@@ -20,13 +23,13 @@ def add_to_cart(request, id):
     request.session['cart'] = cart
 
     messages.success(request, "Product added to your cart")
-    # return redirect(reverse('viewcart')) # make it just reload page user is on?
-    # return HttpResponseRedirect(request.path_info)
-    # return HttpResponseRedirect("")
     return redirect(previous_url)
-    # return redirect(reverse(current_page))
 
 def edit_cart(request, id):
+    """
+    Allows user to edit quantity of the product in the cart
+    if quantity = 0, product is removed from the cart
+    """
     quantity = int(request.POST.get('quantity'))
     cart = request.session.get('cart', {})
 
