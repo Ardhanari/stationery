@@ -8,27 +8,25 @@
 
 <div class="row row flex">
 
-    {% for product in products %}
-
     <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 display panel panel-default"> 
     <!-- Hey! It crashed and didn't save materialize grid last time, adjust it when styling -->
                 <div class="panel-body">
-                    <div class="product" style="background-image: url('{{ MEDIA_URL }}{{ product.image }}')"></div>
-                    <img src="{{ MEDIA_URL }}{{ product.image }}">
+                    <div class="product" style="background-image: url('{{ MEDIA_URL }}{{ chosen_product.image }}')"></div>
+                    <img src="{{ MEDIA_URL }}{{ chosen_product.image }}">
 
-                    <a href="{% url 'singleproduct' product.id %}"><h3>{{ product.name }}</h3></a>
+                    <h3>{{ chosen_product.name }}</h3>
                     <!-- In all products page - variant not present (probably? TBC) 
                     Variant needs expanding on on a single product page - if present - allow selection, 
                     if null hide whole variant section -->
                     <!-- <p>{{ product.variant }}</p>  -->
-                    <p class="product-description">{{ product.description }}</p>
-                    <p>{{ product.price }}</p>
+                    <p class="product-description">{{ chosen_product.description }}</p>
+                    <p>{{ chosen_product.price }}</p>
                     <!-- if quantity < 3, display low stock! -->
 
-                    <form method="POST" action="{% url 'addtocart' product.id %}">
+                    <form method="POST" action="{% url 'addtocart' chosen_product.id %}">
                         {% csrf_token %}
                         <div class="input-group">
-                            <input id="quantity" name="quantity" type="number" min="1" max="{{ product.quantity }}" class="form-control" value="1" placeholder="Quantity">
+                            <input id="quantity" name="quantity" type="number" min="1" max="{{ chosen_product.quantity }}" class="form-control" value="1" placeholder="Quantity">
                             <span class="input-group-btn">
                                 <button class="btn btn-success" type="submit">Add to cart</button>
                             </span>
@@ -36,8 +34,6 @@
                     </form>
                 </div>
             </div>
-
-    {% endfor %}
 </div>
 
 {%endblock %}
