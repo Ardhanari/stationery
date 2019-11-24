@@ -1,9 +1,8 @@
 from django.db import models
 from django_countries.fields import CountryField
 
-# Create your models here.
-
 class ShippingAddress(models.Model):
+    user = models.CharField(max_length=50, blank=False, null=True)
     full_name = models.CharField(max_length=50, blank=False)
     company = models.CharField(max_length=50, blank=True)
     street_address1 = models.CharField(max_length=40, blank=False)

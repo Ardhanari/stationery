@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from checkout.models import Order, OrderLineItem
 from accounts.forms import UserLoginForm, SignUpNewUserForm
+from products.forms import ProductReviewForm
 
 def index(request):
     """Return index.html file"""
@@ -66,7 +67,7 @@ def signup(request):
 
 def user_profile(request):
     """
-    Render user profile page. Displays user data based on email stored in db
+    Renders user profile page. Displays user data based on email stored in db
     """
     user = User.objects.get(email=request.user.email)
     
@@ -75,3 +76,17 @@ def user_profile(request):
         return render(request, 'userprofile.html', {"profile": user, 'orders': orders})
     except: 
         return render(request, 'userprofile.html', {"profile": user})
+
+def view_order(request, id):
+    """
+    Renders overview of an order placed by the user 
+    Allows to write the review 
+    """
+    user = User.objects.get(email=request.user.email)
+    selectedorder = Order.objects.get(id=id)
+    review_form = ProductReviewForm()
+
+    return render(request, 'vieworder.html', {'selected_order': selectedorder, 'review_form': review_form })
+
+
+
