@@ -15,6 +15,15 @@
 </head>
 
 <body>
+
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h2 class="display-3"> 
+                Stationery shop
+            </h2>
+        </div>
+    </div>
+    
     <nav class="nav">
         {% if user.is_authenticated %}
         <a class="nav-link" href="{% url 'userprofile' %}">Profile</a>
@@ -26,17 +35,18 @@
         <a class="nav-link"  href="{% url 'allproducts' %}">Products</a>
         <a class="nav-link"  href="{% url 'viewcart' %}">Your cart</a>
     </nav>
-
-    <h1>
-        {% block page_heading %}{% endblock %}
-    </h1>
-    <hr> 
     
     <div class="main-content-container">
+
+        <h1>
+            {% block page_heading %}{% endblock %}
+        </h1>
+        <hr> 
+
         <div class="row">
             <div class="col-lg-1"> . </div>
             <div class="col-lg-3">
-                {% block left-menu %}{% endblock %}
+                {% block left-column %}{% endblock %}
             </div>
             <div class="col-lg-7">
 

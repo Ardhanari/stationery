@@ -1,0 +1,22 @@
+h2 {
+    text-align: center;
+}
+
+nav {
+    justify-content: center;
+}
+
+.img-thumbnail {
+    max-width: 200px;
+    max-height: auto;
+}
+
+/* Why it's still so tiny? */
+.full-picture {
+    display: block;
+    max-width: 400px;
+    max-height: 400px;
+    /* Remember to move it to a breakpoint */
+    background-repeat: no-repeat;
+    background-size: contain;
+}
