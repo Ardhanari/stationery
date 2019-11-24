@@ -4,8 +4,6 @@ from .models import ProductReview
 
 class ProductReviewForm(forms.ModelForm):
 
-    author = forms.CharField(widget=forms.HiddenInput)
-
     class Meta:
         model = ProductReview
-        fields = ('title', 'review_text', 'rating')
+        fields = ('title', 'review_text', 'author')
