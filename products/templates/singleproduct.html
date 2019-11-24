@@ -8,7 +8,9 @@
 {% block left-column %}
 <!-- <div class="row">
     <div class="col-xs-10 display"> -->
-        <div class="full-picture" style="background-image: url('{{ MEDIA_URL }}{{ chosen_product.image }}')"></div>
+        <div style="background-image: url('{{ MEDIA_URL }}{{ chosen_product.image }}')" class="full-picture">
+        &nbsp;
+        </div>
     <!-- </div>
 </div> -->
 {% endblock %}
@@ -16,10 +18,10 @@
 
 {% block content %}
 
-<div class="row row flex">
+<div class="row">
 
-    <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 display panel panel-default"> 
-                <div class="panel-body">
+    <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-12 col-md-12"> 
+                <div class="product-desc">
 
                     <h3>{{ chosen_product.name }}</h3>
                     
@@ -33,16 +35,17 @@
                             <p>Hurry up, only {{ chosen_product.quantity}} copies left!</p>
                         {% endif %}
                     {% endif %}
-
-                    <form method="POST" action="{% url 'addtocart' chosen_product.id %}">
-                        {% csrf_token %}
-                        <div class="input-group">
-                            <input id="quantity" name="quantity" type="number" min="1" max="{{ chosen_product.quantity }}" class="form-control" value="1" placeholder="Quantity">
-                            <span class="input-group-btn">
-                                <button class="btn btn-success" type="submit">Add to cart</button>
-                            </span>
-                        </div>
-                    </form>
+                    <div class="row">
+                        <form method="POST" action="{% url 'addtocart' chosen_product.id %}">
+                            {% csrf_token %}
+                            <div class="input-group col-md-12">
+                                <input id="quantity" name="quantity" type="number" min="1" max="{{ chosen_product.quantity }}" class="form-control" value="1" placeholder="Quantity">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-success" type="submit">Add to cart</button>
+                                </span>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
 </div>
