@@ -41,4 +41,5 @@ urlpatterns = [
     url(r'^shoppingcart/editcart/(?P<id>\d+)$', edit_cart, name="editcart"),
     url(r'^checkout/$', checkout, name="checkout"),
     url(r'^media/(?P<path>.*)$', static.serve, {'document_root': MEDIA_ROOT}),
+    url(r'^ratings/', include('star_ratings.urls', namespace='ratings', app_name='ratings')),
 ]
