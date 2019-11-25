@@ -37,6 +37,11 @@ nav {
     margin: 0 0 0 0;
 }
 
+#search {
+    background-color: #FFC656;
+    padding-bottom: 5px;
+}
+
 .main-content-header {
     margin-top: 50px;
     margin-bottom: 50px;
