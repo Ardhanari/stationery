@@ -26,7 +26,7 @@ from .settings import MEDIA_ROOT
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', index, name="index"), # swap this later on with index.html from static pages app - 'welcome page' / alternatively make it display all_products as well
+    url(r'^$', all_products, name="index"),
     url(r'^accounts/logout/$', logout, name="logout"),
     url(r'^accounts/signup/$', signup, name="signup"),
     url(r'^accounts/login/$', login, name="login"),
