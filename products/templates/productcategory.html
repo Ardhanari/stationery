@@ -1,23 +1,30 @@
 {% extends 'base.html' %} 
 
-{% block page_title %}All products{% endblock %} 
+{% block page_title %}{{ chosen_category.name }}{% endblock %} 
 
-{% block page_heading %}All products{% endblock %}
+{% block page_heading %}{{ chosen_category.name }}{% endblock %}
 
 {% block left-column %}
-    <ul>
-        <li><a href="{% url 'allproducts' %}">All</a></li>
-        {% for product in products %}
-            <li><a href="{% url 'productcategory' product.category %}">{{product.category}}</a></li>
-        {% endfor %}
-        
+    Chosen category is: 
+    <br>
+    {{ chosen_category.name }}
+    <br>
+
+
+    Products from category are: 
+    <br>
+    {% for product in productsfromcategory %}
+    {{ product.name }}
+    {% endfor %}
+    <br>
+    Certain filters go here
 {% endblock %}
 
 {% block content %}
 
-<div class="row">
+<div class="row row flex">
 
-    {% for product in products %}
+    {% for product in productsfromcategory %}
 
     <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 display panel panel-default"> 
         <div class="panel-body">

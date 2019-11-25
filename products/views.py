@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, reverse
-from .models import Product
+from django.http import HttpResponseNotFound
+from .models import Product, ProductCategory
 
 def all_products(request):
     """renders page with all available products, excluding these not available for buying"""
@@ -10,3 +11,16 @@ def single_product(request, id):
     """renders single product page with detailed information"""
     chosen_product = Product.objects.get(id=id)
     return render(request, 'singleproduct.html', {'chosen_product': chosen_product})
+
+def product_category(request, category):
+    """Renders category page with all the products belonging to it"""
+    # chosen_category = str(category)
+    chosen_category = ProductCategory.objects.all().filter(name=category)
+    productsfromcategory = Product.objects.all().filter(category=chosen_category)
+
+    print(productsfromcategory)
+
+    if not productsfromcategory:
+        return HttpResponseNotFound()
+
+    return render(request, 'productcategory.html', {'productsfromcategory': productsfromcategory, 'chosen_category': chosen_category})
