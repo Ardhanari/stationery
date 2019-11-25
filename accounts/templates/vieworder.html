@@ -1,25 +1,20 @@
 {% extends 'base.html'%}
 {% load ratings %}
 
-
 {% block page_title %}Order no. {{ selected_order.id }}{% endblock %} 
 
 {% block page_heading %}Order no. {{ selected_order.id }}{% endblock %}
-
-{% block left-column %}
-    (empty)
-{% endblock %}
 
 {% block content %}
 
 <h3>List of items ordered:</h3>
 
-{% if order_items > 1 %}
-
-
 <div class="accordion" id="items_ordered">
-{% for item in order_items %}
-  <div class="card">
+{{ order_items }}
+
+    {% for item in order_items %}
+        
+    <div class="card">
     <div class="card-header" id="headingOne">
       <h2 class="mb-0">
         <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse{{item.id}}" aria-expanded="true" aria-controls="collapse{{item.id}}">
@@ -39,23 +34,12 @@
       </div>
     </div>
   </div>
-{% endfor %}
+
+
+
+    {% endfor %}
+   
+
+
 </div>
-{% else %}
-<p>{{ order_items.product.name }} - {{ order_items.product.quantity }} * {{ order_items.product.price }}
-<form method="POST">
-        {% csrf_token %}
-        
-{{ review_form.as_p }}
-
-{% ratings selected_order %}
-
-
-<button type="submit">Post review</button>
-    </form>
-</p>
-
-{% endif %}
-
-
 {% endblock %}

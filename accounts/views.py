@@ -84,12 +84,9 @@ def view_order(request, id):
     """
     # user = User.objects.get(email=request.user.email)
     selected_order = Order.objects.get(id=id)
-    order_items = OrderLineItem.objects.get(order=selected_order)
+    order_items = list(OrderLineItem.objects.all().filter(order=selected_order))
     review_form = ProductReviewForm()
     # review_form.fields['author'].initial = request.user.username
-    
-    # for OrderLineItem in selectedorder:
-    #     print('Hello')
 
     return render(request, 'vieworder.html', {'selected_order': selected_order, 'order_items': order_items, 'review_form': review_form })
 
