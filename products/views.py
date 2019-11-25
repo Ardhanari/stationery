@@ -20,10 +20,11 @@ def product_category(request, category):
     """Renders category page with all the products belonging to it"""
     all_categories = ProductCategory.objects.all().distinct()
     print(all_categories) #sanity check
-    chosen_category = ProductCategory.objects.get(name=category)
-    productsfromcategory = Product.objects.all().filter(category=chosen_category)
 
-    if not productsfromcategory:
+    try:
+        chosen_category = ProductCategory.objects.get(name=category)
+        productsfromcategory = Product.objects.all().filter(category=chosen_category)
+    except:
         raise Http404()
 
     return render(request, 'productcategory.html', {'productsfromcategory': productsfromcategory, 'category': chosen_category, 'all_categories': all_categories})
