@@ -29,21 +29,17 @@
 
     {% for product in productsfromcategory %}
 
-    <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 display panel panel-default"> 
-        <div class="panel-body">
-            <img src="{{ MEDIA_URL }}{{ product.image }}" class="img-thumbnail">
+    <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-3 product-container"> 
+        <div class="product">
+            <a href="{% url 'singleproduct' product.id %}"><img src="{{ MEDIA_URL }}{{ product.image }}" class="img-thumbnail"></a>
 
-            <a href="{% url 'singleproduct' product.id %}"><h3>{{ product.name }}</h3></a>
+            <a href="{% url 'singleproduct' product.id %}" class="product-title-link">{{ product.name }}</a>
             <p>{{ product.price }}</p>
 
             <form method="POST" action="{% url 'addtocart' product.id %}">
                 {% csrf_token %}
-                <div class="input-group">
-                    <input id="quantity" name="quantity" type="number" min="1" max="{{ product.quantity }}" class="form-control" value="1" placeholder="Quantity">
-                    <span class="input-group-btn">
-                        <button class="btn btn-success" type="submit">Add to cart</button>
-                    </span>
-                </div>
+                <input id="quantity" name="quantity" type="hidden" value="1">
+                <button class="btn btn-secondary btn-sm" type="submit">Add to cart</button>
             </form>
         </div>
     </div>

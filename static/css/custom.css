@@ -38,9 +38,39 @@ nav {
     margin-bottom: 50px;
 }
 
+.breadcrumbs {
+    margin-bottom: 15px;
+}
+
+.content {
+    margin: 0px 50px;
+}
+
+.product-container {
+    align-items: center;
+}
+
+.product {
+    /* justify-content: center; */
+    /* background-color: red; */
+    text-align: center;
+    align-self: center; /* NOT WORKING WRRRR */
+}
+
 .img-thumbnail {
     max-width: 200px;
     max-height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.product-title-link {
+    color:#555555;
+    font-family: Georgia, 'Times New Roman', Times, serif;   
+}
+
+.product-title-link:hover {
+    color: #000000;
 }
 
 .full-picture {
@@ -73,3 +103,8 @@ nav {
     justify-content: flex-end;
 }
 
+/* a:hover span{
+    background:-webkit-gradient(linear,left top,right top,from(#ff8a00),to(#e52e71));
+    background:linear-gradient(90deg,#ff8a00,#e52e71);
+    -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+    -webkit-box-decoration-break:clone;box-decoration-break:clone} */
