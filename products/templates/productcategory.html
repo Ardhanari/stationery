@@ -1,13 +1,13 @@
 {% extends 'base.html' %} 
 
-{% block page_title %}{{ chosen_category.name }}{% endblock %} 
+{% block page_title %}{{ category.name }}{% endblock %} 
 
-{% block page_heading %}{{ chosen_category.name }}{% endblock %}
+{% block page_heading %}{{ category.name }}{% endblock %}
 
 {% block left-column %}
     Chosen category is: 
     <br>
-    {{ chosen_category.name }}
+    {{ category.name }}
     <br>
 
 

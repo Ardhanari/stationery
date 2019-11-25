@@ -14,13 +14,10 @@ def single_product(request, id):
 
 def product_category(request, category):
     """Renders category page with all the products belonging to it"""
-    # chosen_category = str(category)
     chosen_category = ProductCategory.objects.all().filter(name=category)
     productsfromcategory = Product.objects.all().filter(category=chosen_category)
-
-    print(productsfromcategory)
 
     if not productsfromcategory:
         raise Http404()
 
-    return render(request, 'productcategory.html', {'productsfromcategory': productsfromcategory, 'chosen_category': chosen_category})
+    return render(request, 'productcategory.html', {'productsfromcategory': productsfromcategory, 'category': chosen_category})
