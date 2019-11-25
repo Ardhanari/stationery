@@ -1,5 +1,12 @@
-h2 {
+h1, h2 {
     text-align: center;
+}
+
+.main-header-link, 
+.main-header-link:hover,
+.main-header-link:active {
+    text-decoration: none;
+    color: violet;   
 }
 
 nav {
@@ -40,3 +47,4 @@ nav {
     display: flex;
     justify-content: flex-end;
 }
+
