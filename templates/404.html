@@ -1,0 +1,20 @@
+{% extends 'base.html' %} 
+
+{% block page_title %}Oops, something went wrong!{% endblock %} 
+
+{% block page_heading %}Oops, something went wrong!{% endblock %}
+
+{% block left-column %}
+        
+{% endblock %}
+
+{% block content %}
+
+<div class="row">
+
+    It looks like the page you requested doesn't exist!
+    <a href="{% url 'allproducts' %}">Go back to browsing products</a>
+    
+</div>
+
+{%endblock %}

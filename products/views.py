@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, reverse
-from django.http import HttpResponseNotFound
+from django.http import Http404
 from .models import Product, ProductCategory
 
 def all_products(request):
@@ -21,6 +21,6 @@ def product_category(request, category):
     print(productsfromcategory)
 
     if not productsfromcategory:
-        return HttpResponseNotFound()
+        raise Http404()
 
     return render(request, 'productcategory.html', {'productsfromcategory': productsfromcategory, 'chosen_category': chosen_category})
