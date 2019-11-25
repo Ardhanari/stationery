@@ -5,19 +5,18 @@
 {% block page_heading %}{{ category.name }}{% endblock %}
 
 {% block left-column %}
-    Chosen category is: 
-    <br>
-    {{ category.name }}
-    <br>
 
-
-    Products from category are: 
-    <br>
-    {% for product in productsfromcategory %}
-    {{ product.name }}
-    {% endfor %}
-    <br>
-    Certain filters go here
+    <ul>
+        <li><a href="{% url 'allproducts' %}">All</a></li>
+        {% for c in all_categories %}
+            {% if c == category %}
+            <li><a href="{% url 'productcategory' c %}">{{ c }}</a> YOU ARE HERE</li>
+            {% else %}
+            <li><a href="{% url 'productcategory' c %}">{{ c }}</a></li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+    
 {% endblock %}
 
 {% block content %}

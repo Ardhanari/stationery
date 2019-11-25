@@ -7,8 +7,8 @@
 {% block left-column %}
     <ul>
         <li><a href="{% url 'allproducts' %}">All</a></li>
-        {% for product in products %}
-            <li><a href="{% url 'productcategory' product.category %}">{{product.category}}</a></li>
+        {% for category in all_categories %}
+            <li><a href="{% url 'productcategory' category.name %}">{{ category.name }}</a></li>
         {% endfor %}
         
 {% endblock %}
