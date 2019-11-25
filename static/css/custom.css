@@ -2,6 +2,10 @@ h1, h2 {
     text-align: center;
 }
 
+h1 {
+    margin: 50px 0px;
+}
+
 h2 {
     font-weight: bold; /* needed something more for better contrast. but also - it will be on the picture, so adjust accordingly */
     backdrop-filter: contrast(120%)
@@ -101,6 +105,10 @@ nav {
 .total-price {
     display: flex;
     justify-content: flex-end;
+}
+
+.profile-container {
+    margin-bottom: 50px;
 }
 
 /* a:hover span{
