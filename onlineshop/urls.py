@@ -17,6 +17,7 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from accounts.views import index, logout, login, signup, user_profile, view_order
 from accounts import urls_reset
+from home.views import about, faq
 from products.views import all_products, single_product, product_category
 from search.views import search_for_product
 from shoppingcart.views import view_cart, add_to_cart, edit_cart
@@ -33,8 +34,9 @@ urlpatterns = [
     url(r'^accounts/profile/$', user_profile, name="userprofile"),
     url(r'^accounts/vieworder/(?P<id>\d+)$', view_order, name="vieworder"),
     url(r'^password-reset/', include(urls_reset)),
-    url(r'^products/$', all_products, name="allproducts"), # in case user deletes part of the URL 
-    url(r'^products/all/$', all_products, name="allproducts"),
+    url(r'^about/$', about, name="about"),
+    url(r'^faq/$', faq, name="faq"),
+    url(r'^products/$', all_products, name="allproducts"),
     url(r'^products/product/(?P<id>\d+)$', single_product, name="singleproduct"),
     url(r'^products/category/(?P<category>\w+)$', product_category, name="productcategory"),
     url(r'^products/searchresult/$', search_for_product, name="searchresult"),
