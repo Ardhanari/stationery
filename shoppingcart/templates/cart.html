@@ -5,6 +5,10 @@
 
 {% block page_heading %}Shopping cart{% endblock %}
 
+{% block breadcrumbs %}
+    <a href="{% url 'index' %}">Home</a> > Your cart
+{% endblock %}
+
 {% block content %}
 
     {% for item in cart_items %}

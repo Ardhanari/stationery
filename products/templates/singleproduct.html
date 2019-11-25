@@ -4,6 +4,9 @@
 
 {% block page_heading %}All products{% endblock %}
 
+{% block breadcrumbs %}
+    <a href="{% url 'index' %}">Home</a> > <a href="{% url 'productcategory' chosen_product.category %}">{{ chosen_product.category }}</a> > {{ chosen_product.name }}
+{% endblock %}
 
 {% block left-column %}
 <!-- <div class="row">

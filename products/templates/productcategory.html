@@ -4,6 +4,10 @@
 
 {% block page_heading %}{{ category.name }}{% endblock %}
 
+{% block breadcrumbs %}
+    <a href="{% url 'index' %}">Home</a> > {{ category.name }}
+{% endblock %}
+
 {% block left-column %}
 
     <ul>

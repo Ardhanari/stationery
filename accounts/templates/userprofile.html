@@ -2,7 +2,11 @@
 
 {% block page_title %}Your profile{% endblock %} 
 
-{% block page_heading %} {{ user }}'s profile{% endblock %}
+{% block page_heading %} Your profile{% endblock %}
+
+{% block breadcrumbs %}
+    <a href="{% url 'index' %}">Home</a> > Your profile
+{% endblock %}
 
 {% block content %}
 

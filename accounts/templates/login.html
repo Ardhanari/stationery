@@ -4,6 +4,10 @@
 
 {% block page_heading %}Log in{% endblock %}
 
+{% block breadcrumbs %}
+    <a href="{% url 'index' %}">Home</a> > Log in
+{% endblock %}
+
 {% block content %}
 
     <form method="POST">
