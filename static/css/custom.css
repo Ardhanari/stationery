@@ -2,15 +2,40 @@ h1, h2 {
     text-align: center;
 }
 
+h2 {
+    font-weight: bold; /* needed something more for better contrast. but also - it will be on the picture, so adjust accordingly */
+    backdrop-filter: contrast(120%)
+}
+
 .main-header-link, 
 .main-header-link:hover,
 .main-header-link:active {
     text-decoration: none;
-    color: violet;   
+    color: #ffffff;   
 }
 
 nav {
     justify-content: center;
+    background-color: #FFC656;
+}
+
+.nav-link {
+    color: #555555;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.jumbotron {
+    background-color: #FFC656;
+    background-image: url('https://images.unsplash.com/photo-1447069387593-a5de0862481e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    margin: 0 0 0 0;
+}
+
+.main-content-header {
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
 
 .img-thumbnail {

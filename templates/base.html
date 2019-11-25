@@ -36,24 +36,28 @@
         {% endif %}
         <a class="nav-link"  href="{% url 'allproducts' %}">Products</a>
         <a class="nav-link"  href="{% url 'viewcart' %}">Your cart</a>
+        <a class="nav-link" data-toggle="collapse" href="#search" aria-expanded="false" aria-controls="search">Search (icon)</a>
     </nav>
-    
+
+    <!-- Search element     -->
+    <div class="collapse" id="search">
     <div class="container">
-        <div class="display">
-            <form action="{% url 'searchresult' %}" method="get">
-                <input type="text" name="query">
-                <button type="search">Search</button>
-            </form>
+            <div class="display">
+                <form action="{% url 'searchresult' %}" method="get">
+                    <input type="text" name="query">
+                    <button type="search">Search</button>
+                </form>
+            </div>
         </div>
     </div>
 
     <div class="main-content-container">
-
-        <h1>
-            {% block page_heading %}{% endblock %}
-        </h1>
-        <hr> 
-
+        <div class="main-content-header">
+            <h1>
+                {% block page_heading %}{% endblock %}
+            </h1>
+            <hr> 
+        </div>
 
         <div class="row">
             <div class="col-lg-4"></div>
