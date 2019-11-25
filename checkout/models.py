@@ -4,8 +4,6 @@ from products.models import Product
 from django.utils import timezone
 from django_countries.fields import CountryField
 
-# import custom user model too, when it's ready
-
 class Order(models.Model):
     user = models.CharField(max_length=50, blank=False, null=True)
     full_name = models.CharField(max_length=50, blank=False)

@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_countries',
+    'django_forms_bootstrap',
     'star_ratings',
     'accounts',
     'products',

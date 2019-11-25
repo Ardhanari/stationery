@@ -21,6 +21,22 @@ nav {
     margin: 0 auto;
 }
 
+.cart-thumbnail {
+    width: 100%;
+}
+
 .product-desc {
     margin-left: 100px;    
+}
+
+.cart-item-row {
+    display: flex;
+    justify-content: flex-start;
+    height: 150px;
+    margin: 30px 0px 30px 0px;
+}
+
+.total-price {
+    display: flex;
+    justify-content: flex-end;
 }

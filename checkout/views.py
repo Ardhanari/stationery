@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .forms import MakePaymentForm, OrderForm
 from .models import OrderLineItem
+from accounts.forms import ShippingAddress # model to store address in the database for later use? 
 from django.conf import settings
 from django.utils import timezone
 from products.models import Product
@@ -16,6 +17,7 @@ def checkout(request):
         order_form = OrderForm(request.POST)
         payment_form = MakePaymentForm(request.POST)
 
+        shipping_address = ShippingAddress(request.POST) # if shipping address different from already existsing save new, else: do nothing 
         user = request.user.username
 
         if order_form.is_valid() and payment_form.is_valid():
@@ -63,5 +65,7 @@ def checkout(request):
     else:
         payment_form = MakePaymentForm()
         order_form = OrderForm()
+
+        shipping_address = ShippingAddress() # if shipping address exists in the database - prepopulate, if not leave blank
     
     return render(request, "checkout.html", {"order_form": order_form, "payment_form": payment_form, "publishable": settings.STRIPE_PUBLISHABLE})
