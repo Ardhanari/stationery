@@ -4,6 +4,10 @@
 
 {% block page_heading %}All products{% endblock %}
 
+{% block breadcrumbs %}
+    &nbsp;
+{% endblock %}
+
 {% block left-column %}
   <div class="row">
     <ul class="list-group col-sm-10 col-md-8">
@@ -23,7 +27,7 @@
                     <option  value="date-new-first">Date added: new first</option>
                     <option  value="date-old-first">Date added: old first</option>
                 </select>
-                <button type="submit" class="btn btn-blue ml-2">Sort</button>
+                <button type="submit" class="btn btn-outline-secondary ml-2">Sort</button>
             </div>
         </form>
     </div>
