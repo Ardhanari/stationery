@@ -13,7 +13,7 @@
 <h3>List of items ordered:</h3>
 
 <div class="accordion" id="items_ordered">
-{{ order_items }}
+{{ user_reviews }}
 
     {% for item in order_items %}
         
@@ -29,15 +29,34 @@
     <div id="collapse{{item.id}}" class="collapse" aria-labelledby="headingOne" data-parent="#items_ordered">
       <div class="card-body">
 
-        {% if %}
 
-        <form method="POST" action="{% url 'submitproductreview' item.product.id %}">
-            {% csrf_token %}
-            {{ review_form.as_p }}
-        <button class="btn btn-primary" type="submit">Post review</button>
-        </form>
+      {{ user_reviews.product.name }}
 
-        {% else %}
+            {% for review in user_reviews %}
+            {% if item.product.name in review.product.name %}
+
+            Here is your review: {{ review }} //// {{ review.review_text }} /// {{ review.author }}
+
+            <br><br>
+
+            If you want to change your review: 
+
+            {% else %}
+
+                <br> 
+                <!-- This loop works - prints out either review or empty line         -->
+            
+            {% endif %}
+            {% endfor %}
+
+            
+            <form method="POST" action="{% url 'submitproductreview' item.product.id %}">
+                {% csrf_token %}
+                {{ review_form.as_p }}
+                Review author: {{ user }}
+            <button class="btn btn-primary" type="submit">Post review</button>
+            </form>       
+        
       </div>
     </div>
   </div>

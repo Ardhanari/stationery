@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 from checkout.models import Order, OrderLineItem
 from accounts.forms import UserLoginForm, SignUpNewUserForm
 from products.forms import ProductReviewForm
-from products.models import Product
+from products.models import Product, ProductReview
 
 def index(request):
     """Return index.html file"""
@@ -83,17 +83,29 @@ def view_order(request, id):
     Renders overview of an order placed by the user 
     Allows to write the review 
     """
-    # user = User.objects.get(email=request.user.email)
+    user = request.user
     selected_order = Order.objects.get(id=id)
     order_items = list(OrderLineItem.objects.all().filter(order=selected_order))
-
     review_form = ProductReviewForm()
-    return render(request, 'vieworder.html', {'selected_order': selected_order, 'order_items': order_items, 'review_form': review_form })
+
+    user_reviews = list(ProductReview.objects.all().filter(author=user))
+    # list_of_reviews = list(ProductReview.objects.all().filter(author=user))
+
+    # for review in list_of_reviews:
+    #     print(review)
+    #     user_reviews.append(review)
+    #     print(user_reviews)
+
+    if user_reviews:
+        return render(request, 'vieworder.html', {'selected_order': selected_order, 'order_items': order_items, 'review_form': review_form, 'user_reviews': user_reviews })
+    else:            
+        return render(request, 'vieworder.html', {'selected_order': selected_order, 'order_items': order_items, 'review_form': review_form })
 
 def submit_product_review(request, id):
     """
     Allows user to add a review to product they bought
     """
+    previous_url = request.META.get('HTTP_REFERER')
     if request.method == 'POST':
 
         print("POST requested") # sanity check
@@ -111,4 +123,4 @@ def submit_product_review(request, id):
         else:
             messages.error(request, "Something went wrong!")
     
-    return redirect(reverse('allproducts')) #it will redirect back to order view
+    return redirect(previous_url) #it will redirect back to order view
