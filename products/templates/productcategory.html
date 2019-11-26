@@ -20,17 +20,14 @@
             {% endif %}
         {% endfor %}
     </ul>
-
     <form method="POST">
         {% csrf_token %}
-        <div class="form-group d-flex justify-content-center justify-content-md-end">
+        <div class="dropdown-menu form-group d-flex justify-content-center justify-content-md-start sorting-option">
             <select name="sort" id="sort" class="form-control">
                 <option  value="price-low-to-high">Price (low first)</option>
                 <option  value="price-high-to-high">Price (high first)</option>
                 <option  value="date-new-first">Date added: new first</option>
                 <option  value="date-old-first">Date added: old first</option>
-
-                    date-all-first
             </select>
             <button type="submit" class="btn btn-blue ml-2">Sort</button>
         </div>
