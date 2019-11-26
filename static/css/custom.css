@@ -2,9 +2,14 @@ body {
     background-color: #FFF5DB;    
 }
 
-a, 
-a:hover {
+a {
     color: #D13B00;
+}
+
+a:hover {
+    color: #555555;
+    text-decoration: none;
+    border-bottom: 1px #D13B00 solid;
 }
 
 .list-group-item.active,
@@ -16,6 +21,12 @@ a:hover {
 .active>a,
 .active>li {
     color: #FFF5DB; 
+}
+
+.btn {
+    background-color: #FFC656;
+    border: 1px #FFC656;
+    color: #555555;
 }
 
 h1, h2 {
@@ -63,12 +74,16 @@ nav {
 }
 
 .sorting-option {
+    display: block;
     position: relative;
-    background-color: #FFC656;
+    top: 0;
+    background-color: transparent;
+    border: 0;
 }
 
 #sort {
     margin-left: 5px;
+    margin-right: 5px;
     background-color: #ffffff;
 }
 
@@ -87,29 +102,38 @@ nav {
 
 .product-container {
     align-items: center;
+    margin-bottom: 50px;
 }
 
 .product {
     /* justify-content: center; */
-    background-color: red;
+    /* background-color: red; */
     text-align: center;
     align-self: center; /* NOT WORKING WRRRR */
-    margin: 5px;
+    margin: 0px;
 }
 
-.img-thumbnail {
-    max-width: 200px;
-    max-height: auto;
+.product>div {
+    padding-bottom: 15px;
+}
+
+.product-thumbnail {
+    width: 200px;
+    height: 200px;
     display: block;
     margin: 0 auto;
     border: 0px;
     border-radius: 0%;
     background-color: transparent;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
     overflow: hidden;
 }
 
 .product-title-link {
-    font-variant: small-caps; 
+    font-variant: small-caps;
+    font-size: 1.2em; 
     color:#555555;
     font-family: Georgia, 'Times New Roman', Times, serif;   
 }

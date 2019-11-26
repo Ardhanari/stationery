@@ -13,6 +13,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script type="text/javascript" src="{% static 'star-ratings/js/dist/star-ratings.min.js' %}"></script>
     <script src="https://kit.fontawesome.com/14d367b272.js" crossorigin="anonymous"></script>
+    <!-- <script src="{% static 'js/custom.js' %}"></script> -->
     <link rel="shortcut icon" href="{% static 'imgs/favicon.png' %}" type="image/x-icon">
     {% block head_js %}
     {% endblock head_js %}
@@ -61,7 +62,7 @@
             <h1>
                 {% block page_heading %}{% endblock %}
             </h1>
-            <hr> 
+            <!-- <hr>  -->
         </div>
 
         <div class="row breadcrumbs">
@@ -74,10 +75,11 @@
   
 
         <div class="row content">
-            <div class="col-lg-4">
+            <div class="col-lg-1"></div>
+            <div class="col-lg-3">
                 {% block left-column %}{% endblock %}
             </div>
-            <div class="col-lg-8">
+            <div class="col-lg-7">
 
                 {% if messages %}
                 <div>
@@ -94,6 +96,7 @@
 
                 {% block content %}{% endblock %}
             </div>
+            <div class="col-lg-1"></div>
         </div>
     </div>
 </body>
