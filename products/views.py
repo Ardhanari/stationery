@@ -7,28 +7,8 @@ def all_products(request):
     all_categories = ProductCategory.objects.all().distinct()
     print(all_categories) #sanity check
     products = Product.objects.all().exclude(quantity=0)
-    return render(request, 'allproducts.html', {'products': products, 'all_categories': all_categories})
 
-def single_product(request, id):
-    """renders single product page with detailed information"""
-    # all_categories = ProductCategory.objects.all().distinct()
-    # print(all_categories) #sanity check
-    chosen_product = Product.objects.get(id=id)
-    return render(request, 'singleproduct.html', {'chosen_product': chosen_product})
-
-def product_category(request, category):
-    """Renders category page with all the products belonging to it"""
-    all_categories = ProductCategory.objects.all().distinct()
-    print(all_categories) #sanity check
-
-    try:
-        chosen_category = ProductCategory.objects.get(name=category)
-        productsfromcategory = Product.objects.all().filter(category=chosen_category)
-    except:
-        raise Http404()
-
-    # sorting displayed items below
-    # if method was POST then the results will be sorted accordingly
+    # SORTING - if method was POST then the results will be sorted accordingly
     if request.method == 'POST':
         if request.POST['sort'] == 'price-low-to-high':
             productsfromcategory = Product.objects.all().filter(category=chosen_category).order_by('-price')
@@ -39,7 +19,36 @@ def product_category(request, category):
         elif request.POST['sort'] == 'date-old-first':
             productsfromcategory = Product.objects.all().filter(category=chosen_category).order_by('created_at')
         else:
-            # something else
-            print("what else???")
+            messages.warning("Something went wrong with sorting products!")
+
+    return render(request, 'allproducts.html', {'products': products, 'all_categories': all_categories})
+
+def single_product(request, id):
+    """renders single product page with detailed information"""
+    chosen_product = Product.objects.get(id=id)
+    return render(request, 'singleproduct.html', {'chosen_product': chosen_product})
+
+def product_category(request, category):
+    """Renders category page with all the products belonging to it"""
+    all_categories = ProductCategory.objects.all().distinct()
+
+    try:
+        chosen_category = ProductCategory.objects.get(name=category)
+        productsfromcategory = Product.objects.all().filter(category=chosen_category)
+    except:
+        raise Http404()
+
+    # SORTING - if method was POST then the results will be sorted accordingly
+    if request.method == 'POST':
+        if request.POST['sort'] == 'price-low-to-high':
+            productsfromcategory = Product.objects.all().filter(category=chosen_category).order_by('-price')
+        elif request.POST['sort'] == 'price-high-to-low':
+            productsfromcategory = Product.objects.all().filter(category=chosen_category).order_by('price')
+        elif request.POST['sort'] == 'date-new-first':
+            productsfromcategory = Product.objects.all().filter(category=chosen_category).order_by('-created_at')
+        elif request.POST['sort'] == 'date-old-first':
+            productsfromcategory = Product.objects.all().filter(category=chosen_category).order_by('created_at')
+        else:
+            messages.warning("Something went wrong with sorting products!")
 
     return render(request, 'productcategory.html', {'productsfromcategory': productsfromcategory, 'category': chosen_category, 'all_categories': all_categories})
