@@ -9,17 +9,19 @@
 {% endblock %}
 
 {% block left-column %}
-
-    <ul>
-        <li><a href="{% url 'allproducts' %}">All</a></li>
+<div class="row">
+    <ul class="list-group col-sm-10 col-md-8">
+        <li class="list-group-item"><a href="{% url 'allproducts' %}">All</a></li>
         {% for c in all_categories %}
             {% if c == category %}
-            <li><a href="{% url 'productcategory' c %}">{{ c }}</a> YOU ARE HERE</li>
+            <li class="list-group-item active"><a href="{% url 'productcategory' c %}">{{ c }}</a></li>
             {% else %}
-            <li><a href="{% url 'productcategory' c %}">{{ c }}</a></li>
+            <li class="list-group-item"><a href="{% url 'productcategory' c %}">{{ c }}</a></li>
             {% endif %}
         {% endfor %}
     </ul>
+    </div>
+    <div class="row">
     <form method="POST">
         {% csrf_token %}
         <div class="dropdown-menu form-group d-flex justify-content-center justify-content-md-start sorting-option">
@@ -32,7 +34,7 @@
             <button type="submit" class="btn btn-blue ml-2">Sort</button>
         </div>
     </form>
-    
+    </div>
 {% endblock %}
 
 {% block content %}

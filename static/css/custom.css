@@ -7,6 +7,17 @@ a:hover {
     color: #D13B00;
 }
 
+.list-group-item.active,
+.active>li {
+    background-color: #D13B00;
+    border: 0px;
+}
+
+.active>a,
+.active>li {
+    color: #FFF5DB; 
+}
+
 h1, h2 {
     text-align: center;
 }
