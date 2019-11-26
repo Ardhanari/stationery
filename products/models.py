@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.contrib.contenttypes.fields import GenericRelation
-from star_ratings.models import Rating
+# from star_ratings.models import Rating
 from django.utils import timezone
 
 class ProductCategory(models.Model):
@@ -34,7 +34,8 @@ class Product(models.Model):
 
 class ProductReview(models.Model):
     """Defines reviews given by users to products they purchased"""
+    product = models.ForeignKey(Product)
     title = models.CharField(max_length=254, default='', blank=False)
     review_text = models.TextField(blank=False)
-    rating = models.ForeignKey('star_ratings.Rating')
+    # rating = models.ForeignKey('star_ratings.Rating')
     author = models.ForeignKey(User)

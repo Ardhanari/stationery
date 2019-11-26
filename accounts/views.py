@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from checkout.models import Order, OrderLineItem
 from accounts.forms import UserLoginForm, SignUpNewUserForm
 from products.forms import ProductReviewForm
+from products.models import Product
 
 def index(request):
     """Return index.html file"""
@@ -85,10 +86,29 @@ def view_order(request, id):
     # user = User.objects.get(email=request.user.email)
     selected_order = Order.objects.get(id=id)
     order_items = list(OrderLineItem.objects.all().filter(order=selected_order))
-    review_form = ProductReviewForm()
-    # review_form.fields['author'].initial = request.user.username
 
+    review_form = ProductReviewForm()
     return render(request, 'vieworder.html', {'selected_order': selected_order, 'order_items': order_items, 'review_form': review_form })
 
+def submit_product_review(request, id):
+    """
+    Allows user to add a review to product they bought
+    """
+    if request.method == 'POST':
 
+        print("POST requested") # sanity check
 
+        review_form = ProductReviewForm(request.POST)
+
+        if review_form.is_valid():
+            review_for = Product.objects.get(id=id)
+
+            review_form = review_form.save(commit=False)
+            review_form.author = request.user
+            review_form.product= review_for
+            review_form.save()
+            messages.success(request, "Your review was added")
+        else:
+            messages.error(request, "Something went wrong!")
+    
+    return redirect(reverse('allproducts')) #it will redirect back to order view

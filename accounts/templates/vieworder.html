@@ -1,5 +1,4 @@
 {% extends 'base.html'%}
-{% load ratings %}
 
 {% block page_title %}Order no. {{ selected_order.id }}{% endblock %} 
 
@@ -22,19 +21,23 @@
     <div class="card-header" id="headingOne">
       <h2 class="mb-0">
         <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse{{item.id}}" aria-expanded="true" aria-controls="collapse{{item.id}}">
-          {{ item.product.name }} - {{ item.product.quantity }} * {{ item.product.price }} (expand to review)
+          {{ item.product.name }} - {{ item.quantity }} * {{ item.product.price }} (expand to review {{item.product.id}})
         </button>
       </h2>
     </div>
 
     <div id="collapse{{item.id}}" class="collapse" aria-labelledby="headingOne" data-parent="#items_ordered">
       <div class="card-body">
-        <form method="POST">
+
+        {% if %}
+
+        <form method="POST" action="{% url 'submitproductreview' item.product.id %}">
             {% csrf_token %}
             {{ review_form.as_p }}
-            {% ratings selected_order %}
-        <button type="submit">Post review</button>
+        <button class="btn btn-primary" type="submit">Post review</button>
         </form>
+
+        {% else %}
       </div>
     </div>
   </div>
