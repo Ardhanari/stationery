@@ -94,6 +94,7 @@ nav {
     /* background-color: red; */
     text-align: center;
     align-self: center; /* NOT WORKING WRRRR */
+    margin: 15px;
 }
 
 .img-thumbnail {
@@ -101,9 +102,14 @@ nav {
     max-height: auto;
     display: block;
     margin: 0 auto;
+    border: 0px;
+    border-radius: 0%;
+    background-color: transparent;
+    overflow: hidden;
 }
 
 .product-title-link {
+    font-variant: small-caps; 
     color:#555555;
     font-family: Georgia, 'Times New Roman', Times, serif;   
 }
@@ -128,6 +134,10 @@ nav {
 
 .product-desc {
     margin-left: 100px;    
+}
+
+.product-description {
+    margin-top; 100px;    
 }
 
 .cart-item-row {

@@ -36,18 +36,24 @@
 
     {% for product in products %}
 
-    <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-3 product-container"> 
+    <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 product-container"> 
         <div class="product">
             <a href="{% url 'singleproduct' product.id %}"><img src="{{ MEDIA_URL }}{{ product.image }}" class="img-thumbnail"></a>
 
-            <a href="{% url 'singleproduct' product.id %}" class="product-title-link">{{ product.name }}</a>
-            <p>{{ product.price }}</p>
+            <div>
+                <a href="{% url 'singleproduct' product.id %}" class="product-title-link">{{ product.name }}</a>
+            </div>
+            <div>
+                {{ product.price }}
+            </div>
 
-            <form method="POST" action="{% url 'addtocart' product.id %}">
-                {% csrf_token %}
-                <input id="quantity" name="quantity" type="hidden" value="1">
-                <button class="btn btn-secondary btn-sm" type="submit">Add to cart</button>
-            </form>
+            <div>    
+                <form method="POST" action="{% url 'addtocart' product.id %}">
+                    {% csrf_token %}
+                    <input id="quantity" name="quantity" type="hidden" value="1">
+                    <button class="btn btn-secondary btn-sm" type="submit">Add to cart</button>
+                </form>
+            </div>
         </div>
     </div>
 

@@ -28,12 +28,11 @@
 
                     <h3>{{ chosen_product.name }}</h3>
                     
-                    <p class="product-description">{{ chosen_product.description }}</p>
                     <p>{{ chosen_product.price }}</p>
                     <!-- if quantity < 3, display low stock! -->
                     {% if chosen_product.quantity < 3 %}
                         {% if chosen_product.quantity == 1 %}
-                            <p>Hurry up, only 1 copy left!</p>
+                            <p><small>Hurry up, only 1 copy left!</small></p>
                         {% else %}
                             <p>Hurry up, only {{ chosen_product.quantity}} copies left!</p>
                         {% endif %}
@@ -49,6 +48,9 @@
                             </div>
                         </form>
                     </div>
+
+                    
+                    <p class="product-description">{{ chosen_product.description }}</p>
                 </div>
             </div>
 </div>
