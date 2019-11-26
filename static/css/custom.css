@@ -39,7 +39,12 @@ h1 {
 
 h2 {
     font-weight: bold; /* needed something more for better contrast. but also - it will be on the picture, so adjust accordingly */
-    backdrop-filter: contrast(120%)
+    backdrop-filter: contrast(120%);
+}
+
+h2>a:hover,
+.product-image-link:hover {
+    border-bottom: 0px;
 }
 
 .main-header-link, 
@@ -101,7 +106,7 @@ nav {
 }
 
 .product-container {
-    align-items: center;
+    /* align-items: center; */
     margin-bottom: 50px;
 }
 
@@ -109,11 +114,12 @@ nav {
     /* justify-content: center; */
     /* background-color: red; */
     text-align: center;
-    align-self: center; /* NOT WORKING WRRRR */
+    /* align-self: baseline; NOT WORKING WRRRR */
     margin: 0px;
 }
 
 .product>div {
+    padding-top: 15px;
     padding-bottom: 15px;
 }
 
@@ -131,9 +137,13 @@ nav {
     overflow: hidden;
 }
 
+.img-fluid {
+    padding: 10px;
+}
+
 .product-title-link {
     font-variant: small-caps;
-    font-size: 1.2em; 
+    font-size: 1.5em; 
     color:#555555;
     font-family: Georgia, 'Times New Roman', Times, serif;   
 }

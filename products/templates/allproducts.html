@@ -50,7 +50,7 @@
             <!-- <div style="background-image: url('{{ MEDIA_URL }}{{ product.image }}')" class="row product-thumbnail">
             &nbsp;
             </div> -->
-            <a href="{% url 'singleproduct' product.id %}"><img src="{{ MEDIA_URL }}{{ product.image }}" class="img-fluid"></a>
+            <a href="{% url 'singleproduct' product.id %}" class="product-image-link"><img src="{{ MEDIA_URL }}{{ product.image }}" class="img-fluid"></a>
 
 
             <div>
@@ -64,7 +64,7 @@
                 <form method="POST" action="{% url 'addtocart' product.id %}">
                     {% csrf_token %}
                     <input id="quantity" name="quantity" type="hidden" value="1">
-                    <button class="btn btn-secondary btn-sm" type="submit">Add to cart</button>
+                    <button class="btn btn-secondary" type="submit">Add to cart</button>
                 </form>
             </div>
         </div>
