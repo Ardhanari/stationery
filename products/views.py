@@ -31,13 +31,13 @@ def product_category(request, category):
     # if method was POST then the results will be sorted accordingly
     if request.method == 'POST':
         if request.POST['sort'] == 'price-low-to-high':
-            productsfromcategory = Product.objects.all().filter(category=chosen_category).orderby('price')
+            productsfromcategory = Product.objects.all().filter(category=chosen_category).order_by('-price')
         elif request.POST['sort'] == 'price-high-to-low':
-            productsfromcategory = Product.objects.all().filter(category=chosen_category).orderby('-price')
+            productsfromcategory = Product.objects.all().filter(category=chosen_category).order_by('price')
         elif request.POST['sort'] == 'date-new-first':
-            productsfromcategory = Product.objects.all().filter(category=chosen_category).orderby('date')
-        elif request.POST['sort'] == 'date-all-first':
-            productsfromcategory = Product.objects.all().filter(category=chosen_category).orderby('-date')
+            productsfromcategory = Product.objects.all().filter(category=chosen_category).order_by('-created_at')
+        elif request.POST['sort'] == 'date-old-first':
+            productsfromcategory = Product.objects.all().filter(category=chosen_category).order_by('created_at')
         else:
             # something else
             print("what else???")
