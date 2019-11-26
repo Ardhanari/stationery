@@ -1,3 +1,12 @@
+body {
+    background-color: #FFF5DB;    
+}
+
+a, 
+a:hover {
+    color: #D13B00;
+}
+
 h1, h2 {
     text-align: center;
 }
