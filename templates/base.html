@@ -12,6 +12,7 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script type="text/javascript" src="{% static 'star-ratings/js/dist/star-ratings.min.js' %}"></script>
+    <script src="https://kit.fontawesome.com/14d367b272.js" crossorigin="anonymous"></script>
     {% block head_js %}
     {% endblock head_js %}
 </head>
@@ -27,16 +28,17 @@
     </div>
     
     <nav class="nav">
+        <a class="nav-link"  href="{% url 'allproducts' %}">Products</a>
         {% if user.is_authenticated %}
-        <a class="nav-link" href="{% url 'userprofile' %}">Profile</a>
         <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+        <a class="nav-link" href="{% url 'userprofile' %}">Profile</a>
         {% else %}
         <a class="nav-link" href="{% url 'login' %}">Login</a>
         <a class="nav-link" href="{% url 'signup' %}">Register</a>
         {% endif %}
-        <a class="nav-link"  href="{% url 'allproducts' %}">Products</a>
+        <a class="nav-link"  href="{% url 'faq' %}">FAQ</a>
         <a class="nav-link"  href="{% url 'viewcart' %}">Your cart</a>
-        <a class="nav-link" data-toggle="collapse" href="#search" aria-expanded="false" aria-controls="search">Search (icon)</a>
+        <a class="nav-link" data-toggle="collapse" href="#search" aria-expanded="false" aria-controls="search">Search <i class="fas fa-search"></i></a>
     </nav>
 
     <!-- Search element     -->
