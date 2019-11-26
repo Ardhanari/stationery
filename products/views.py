@@ -27,4 +27,19 @@ def product_category(request, category):
     except:
         raise Http404()
 
+    # sorting displayed items below
+    # if method was POST then the results will be sorted accordingly
+    if request.method == 'POST':
+        if request.POST['sort'] == 'price-low-to-high':
+            productsfromcategory = Product.objects.all().filter(category=chosen_category).orderby('price')
+        elif request.POST['sort'] == 'price-high-to-low':
+            productsfromcategory = Product.objects.all().filter(category=chosen_category).orderby('-price')
+        elif request.POST['sort'] == 'date-new-first':
+            productsfromcategory = Product.objects.all().filter(category=chosen_category).orderby('date')
+        elif request.POST['sort'] == 'date-all-first':
+            productsfromcategory = Product.objects.all().filter(category=chosen_category).orderby('-date')
+        else:
+            # something else
+            print("what else???")
+
     return render(request, 'productcategory.html', {'productsfromcategory': productsfromcategory, 'category': chosen_category, 'all_categories': all_categories})
