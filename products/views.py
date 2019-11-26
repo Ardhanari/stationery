@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, reverse
+from django.contrib import messages
 from django.http import Http404
 from .models import Product, ProductCategory
 
@@ -11,15 +12,15 @@ def all_products(request):
     # SORTING - if method was POST then the results will be sorted accordingly
     if request.method == 'POST':
         if request.POST['sort'] == 'price-low-to-high':
-            productsfromcategory = Product.objects.all().filter(category=chosen_category).order_by('-price')
+            products = Product.objects.all().exclude(quantity=0).order_by('-price')
         elif request.POST['sort'] == 'price-high-to-low':
-            productsfromcategory = Product.objects.all().filter(category=chosen_category).order_by('price')
+            products = Product.objects.all().exclude(quantity=0).order_by('price')
         elif request.POST['sort'] == 'date-new-first':
-            productsfromcategory = Product.objects.all().filter(category=chosen_category).order_by('-created_at')
+            products = Product.objects.all().exclude(quantity=0).order_by('-created_at')
         elif request.POST['sort'] == 'date-old-first':
-            productsfromcategory = Product.objects.all().filter(category=chosen_category).order_by('created_at')
+            products = Product.objects.all().exclude(quantity=0).order_by('created_at')
         else:
-            messages.warning("Something went wrong with sorting products!")
+            messages.warning(request, "Something went wrong with sorting products!")
 
     return render(request, 'allproducts.html', {'products': products, 'all_categories': all_categories})
 
@@ -34,21 +35,21 @@ def product_category(request, category):
 
     try:
         chosen_category = ProductCategory.objects.get(name=category)
-        productsfromcategory = Product.objects.all().filter(category=chosen_category)
+        productsfromcategory = Product.objects.all().exclude(quantity=0).filter(category=chosen_category)
     except:
         raise Http404()
 
     # SORTING - if method was POST then the results will be sorted accordingly
     if request.method == 'POST':
         if request.POST['sort'] == 'price-low-to-high':
-            productsfromcategory = Product.objects.all().filter(category=chosen_category).order_by('-price')
+            productsfromcategory = Product.objects.all().exclude(quantity=0).filter(category=chosen_category).order_by('-price')
         elif request.POST['sort'] == 'price-high-to-low':
-            productsfromcategory = Product.objects.all().filter(category=chosen_category).order_by('price')
+            productsfromcategory = Product.objects.all().exclude(quantity=0).filter(category=chosen_category).order_by('price')
         elif request.POST['sort'] == 'date-new-first':
-            productsfromcategory = Product.objects.all().filter(category=chosen_category).order_by('-created_at')
+            productsfromcategory = Product.objects.all().exclude(quantity=0).filter(category=chosen_category).order_by('-created_at')
         elif request.POST['sort'] == 'date-old-first':
-            productsfromcategory = Product.objects.all().filter(category=chosen_category).order_by('created_at')
+            productsfromcategory = Product.objects.all().exclude(quantity=0).filter(category=chosen_category).order_by('created_at')
         else:
-            messages.warning("Something went wrong with sorting products!")
+            messages.warning(request, "Something went wrong with sorting products!")
 
     return render(request, 'productcategory.html', {'productsfromcategory': productsfromcategory, 'category': chosen_category, 'all_categories': all_categories})
