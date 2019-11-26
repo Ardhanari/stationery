@@ -5,12 +5,28 @@
 {% block page_heading %}All products{% endblock %}
 
 {% block left-column %}
-    <ul>
-        <li><a href="{% url 'allproducts' %}">All</a></li>
-        {% for category in all_categories %}
-            <li><a href="{% url 'productcategory' category.name %}">{{ category.name }}</a></li>
+  <div class="row">
+    <ul class="list-group col-sm-10 col-md-8">
+        <li class="list-group-item active"><a href="{% url 'allproducts' %}">All</a></li>
+        {% for c in all_categories %}
+            <li class="list-group-item"><a href="{% url 'productcategory' c %}">{{ c }}</a></li>
         {% endfor %}
     </ul>
+    </div>
+    <div class="row">
+        <form method="POST">
+            {% csrf_token %}
+            <div class="dropdown-menu form-group d-flex justify-content-center justify-content-md-start sorting-option">
+                <select name="sort" id="sort" class="form-control">
+                    <option  value="price-low-to-high">Price: low first</option>
+                    <option  value="price-high-to-high">Price: high first</option>
+                    <option  value="date-new-first">Date added: new first</option>
+                    <option  value="date-old-first">Date added: old first</option>
+                </select>
+                <button type="submit" class="btn btn-blue ml-2">Sort</button>
+            </div>
+        </form>
+    </div>
         
 {% endblock %}
 
