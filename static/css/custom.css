@@ -1,8 +1,9 @@
-@import url('https://fonts.googleapis.com/css?family=Abel&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Abel|Open+Sans&display=swap');
 
 body {
     background-color: #FFF5DB;    
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    /* font-family: Georgia, 'Times New Roman', Times, serif; */
+    font-family: 'Open Sans', sans-serif;
 }
 
 a {
@@ -116,6 +117,7 @@ nav {
 
 .breadcrumbs {
     margin-bottom: 15px;
+    padding-left: 30px;
 }
 
 .content {
