@@ -21,7 +21,7 @@ from home.views import about, faq, contact
 from products.views import all_products, single_product, product_category
 from search.views import search_for_product
 from shoppingcart.views import view_cart, add_to_cart, edit_cart
-from checkout.views import checkout
+from checkout.views import address_details, checkout
 from django.views import static
 from .settings import MEDIA_ROOT
 
@@ -45,6 +45,7 @@ urlpatterns = [
     url(r'^shoppingcart/addtocart/(?P<id>\d+)$', add_to_cart, name="addtocart"),
     url(r'^shoppingcart/viewcart/$', view_cart, name="viewcart"),
     url(r'^shoppingcart/editcart/(?P<id>\d+)$', edit_cart, name="editcart"),
+    url(r'^addressdetails/$', address_details, name="addressdetails"),
     url(r'^checkout/$', checkout, name="checkout"),
     url(r'^media/(?P<path>.*)$', static.serve, {'document_root': MEDIA_ROOT}),
     url(r'^ratings/', include('star_ratings.urls', namespace='ratings', app_name='ratings')),

@@ -7,7 +7,7 @@ from django_countries.fields import CountryField
 
 class Order(models.Model):
     user = models.ForeignKey(User)
-    address = models.ForeignKey(ShippingAddress, blank=False, default=None)
+    address = models.ForeignKey(ShippingAddress, blank=False)
     # just in case - plenty foreign keys
     # full_name = models.ForeignKey(ShippingAddress, blank=False)
     # company = models.ForeignKey(ShippingAddress, blank=True)
