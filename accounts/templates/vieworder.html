@@ -4,6 +4,10 @@
 
 {% block page_heading %}Order no. {{ selected_order.id }}{% endblock %}
 
+{% block left-column %}
+<i class="fas fa-list-alt fa-10x left-column-icon"></i>
+{% endblock %}
+
 {% block breadcrumbs %}
     <a href="{% url 'index' %}">Home</a> > <a href="{% url 'userprofile' %}'">Your profile</a> > Your order no. {{ selected_order.id }}
 {% endblock %}

@@ -12,6 +12,10 @@
 <script type="text/javascript" src="{% static 'js/stripe.js' %}"></script>
 {% endblock %}
 
+{% block left-column %}
+    <i class="fas fa-credit-card fa-10x left-column-icon"></i>
+{% endblock %}
+
 {% block breadcrumbs %}
     <a href="{% url 'index' %}">Home</a> > <a href="{% url 'viewcart' %}">Your cart</a> > Checkout 
 {% endblock %}
