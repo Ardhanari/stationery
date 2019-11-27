@@ -38,7 +38,7 @@ class SignUpNewUserForm(UserCreationForm):
         if password1 != password2:
             raise ValidationError("Passwords must match")
 
-class ShippingAddressForm(forms.Form):
+class ShippingAddressForm(forms.ModelForm):
 
     class Meta:
         model = ShippingAddress
