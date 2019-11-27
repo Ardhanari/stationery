@@ -23,15 +23,14 @@ def address_details(request):
             shipping_address = shipping_address_form.save(commit=False)
             shipping_address.user = user
             shipping_address.save()
-            #it doesn't save to the db. WHYYYYY
-        
             messages.success(request, "Address saved")
-            return redirect(reverse('addressdetails'))
+            return render(request, "address_details.html", {"shipping_form": shipping_address_form})
 
         else: 
-            shipping_address = shipping_address_form.save(commit=False)
-            shipping_address.user = user
-            shipping_address.save()
+            # shipping_address = shipping_address_form.save(commit=False)
+            # shipping_address.user = user
+            # shipping_address.save()
+            print("BOOOO")
 
             messages.error(request, "There was a problem with saving your data. Please make sure all fields are filled correctly.")
             return redirect(reverse('addressdetails'))
@@ -47,14 +46,11 @@ def address_details(request):
                                                                 'phone_number': address_exists.phone_number
                                                                 }, auto_id=False)
 
-
-
         except: 
             print("not ok")
             shipping_address_form = ShippingAddressForm() 
 
     return render(request, "address_details.html", {"shipping_form": shipping_address_form})
-
 
 @login_required()
 def checkout(request):
@@ -116,4 +112,4 @@ def checkout(request):
         #     shipping_address_form = ShippingAddress()
         payment_form = MakePaymentForm()    
     
-    return render(request, "checkout.html", {"shipping_form": shipping_address_form, "order_form": order_form, "payment_form": payment_form, "publishable": settings.STRIPE_PUBLISHABLE})
+    return render(request, "checkout.html", {"order_form": order_form, "payment_form": payment_form, "publishable": settings.STRIPE_PUBLISHABLE})
