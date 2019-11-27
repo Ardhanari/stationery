@@ -61,11 +61,14 @@ h2>a:hover,
 nav {
     justify-content: center;
     background-color: #FFC656;
+    line-height: 30px;
 }
 
 .nav-link {
     color: #555555;
     font-family: Georgia, 'Times New Roman', Times, serif;
+    padding-left: 30px; /* breakpoint */
+    padding-right: 30px;
 }
 
 .jumbotron {
@@ -99,6 +102,16 @@ nav {
 .main-content-header {
     margin-top: 50px;
     margin-bottom: 50px;
+}
+
+.categories-menu {
+    display: block;
+    margin: 0 auto;
+}
+
+.list-group {
+    padding-left: 15px;
+    margin-bottom: 1rem;
 }
 
 .breadcrumbs {
@@ -137,13 +150,13 @@ nav {
     background-color: transparent;
     background-position: center center;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
     overflow: hidden;
 }
-
+/* 
 .img-fluid {
     padding: 10px;
-}
+} */
 
 .product-title-link {
     font-variant: small-caps;
@@ -161,9 +174,6 @@ nav {
 }
 
 .full-picture {
-    width: inherit;
-    height: 500px;
-    /* Remember to move it to a breakpoint */
     background-repeat: no-repeat;
     background-size: contain;
     background-position: top left;
@@ -211,3 +221,9 @@ nav {
     background:linear-gradient(90deg,#ff8a00,#e52e71);
     -webkit-background-clip:text;-webkit-text-fill-color:transparent;
     -webkit-box-decoration-break:clone;box-decoration-break:clone} */
+
+@media (min-width: 768px) {
+    .full-picture {
+        width: inherit;
+        height: 500px;
+    }

@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, reverse
 from django.contrib import messages
 from django.http import Http404
-from .models import Product, ProductCategory
+from .models import Product, ProductCategory, ProductReview
 
 def all_products(request):
     """renders page with all available products, excluding these not available for buying"""
@@ -27,7 +27,9 @@ def all_products(request):
 def single_product(request, id):
     """renders single product page with detailed information"""
     chosen_product = Product.objects.get(id=id)
-    return render(request, 'singleproduct.html', {'chosen_product': chosen_product})
+    product_reviews = ProductReview.objects.all().filter(product=chosen_product)
+
+    return render(request, 'singleproduct.html', {'chosen_product': chosen_product, 'reviews': product_reviews})
 
 def product_category(request, category):
     """Renders category page with all the products belonging to it"""
