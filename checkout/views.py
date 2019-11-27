@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .forms import MakePaymentForm, OrderForm
 from .models import OrderLineItem
-from accounts.forms import ShippingAddress # model to store address in the database for later use? 
+from accounts.forms import ShippingAddressForm # model to store address in the database for later use? 
 from django.conf import settings
 from django.utils import timezone
 from products.models import Product
@@ -14,17 +14,28 @@ stripe.api_key = settings.STRIPE_SECRET
 @login_required()
 def checkout(request):
     if request.method == "POST":
+        shipping_address_form = ShippingAddressForm(request.POST) 
         order_form = OrderForm(request.POST)
         payment_form = MakePaymentForm(request.POST)
 
-        shipping_address = ShippingAddress(request.POST) # if shipping address different from already existsing save new, else: do nothing 
-        user = request.user.username
+        user = request.user
 
-        if order_form.is_valid() and payment_form.is_valid():
+        if shipping_address_form.is_valid() and payment_form.is_valid():
             order = order_form.save(commit=False)
             order.date = timezone.now()
             order.user = user
+            # ship_ad = order
             order.save()
+
+            shipping_address = shipping_address_form.save(commit=False)
+            shipping_address.user = user
+            shipping_address.save()
+
+            # shipping_adress_form = ""
+            # shipping_address_form.deepcopy(order_form)
+            # shipping_address = shipping_address_form.save(commit=False)
+            # shipping_address.user = user
+            # shipping_address.save()
 
             cart = request.session.get('cart', {})
             total = 0
@@ -65,7 +76,6 @@ def checkout(request):
     else:
         payment_form = MakePaymentForm()
         order_form = OrderForm()
-
-        shipping_address = ShippingAddress() # if shipping address exists in the database - prepopulate, if not leave blank
+        shipping_address_form = ShippingAddressForm() # if shipping address exists in the database - prepopulate, if not leave blank
     
-    return render(request, "checkout.html", {"order_form": order_form, "payment_form": payment_form, "publishable": settings.STRIPE_PUBLISHABLE})
+    return render(request, "checkout.html", {"shipping_form": shipping_address_form, "order_form": order_form, "payment_form": payment_form, "publishable": settings.STRIPE_PUBLISHABLE})
