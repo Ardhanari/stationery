@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+{% load bootstrap_tags %}
+
+{% block left-column %}
+    <i class="far fa-address-card fa-10x left-column-icon"></i>
+{% endblock %}
+
+{% block breadcrumbs %}
+    <a href="{% url 'index' %}">Home</a> > <a href="{% url 'addressdetails' %}">Address details</a>
+{% endblock %}
+
+{% block content %}
+
+<form role="form" method="post" id="shipping-form" action="{% url 'edityouraddress' %}">
+    <legend>Edit your address</legend>
+
+    <div class="form-group">
+        {{ shipping_form | as_bootstrap }}
+    </div>
+
+    {% csrf_token %}
+    <div class="form-group">
+        <input class="btn btn-secondary" id="save_address" name="commit" type="submit" value="Save address">
+    </div>
+</form>
+{% endblock %}

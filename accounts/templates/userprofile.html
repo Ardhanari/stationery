@@ -34,8 +34,8 @@
         {% if shipping_address %}
             {{shipping_address}}
             {{ shipping_address.phone_number }}
-            You can <a href="#">edit your address here</a> or when placing next order. 
-            <a href="#">Delete address?</a>
+            You can <a href="{% url 'edityouraddress' %}">edit your address here</a> or when placing next order. 
+            <a href="">Delete address?</a>
         {% else %}
             There is no saved addresses for the moment! Place an order to save one. 
         {% endif %}

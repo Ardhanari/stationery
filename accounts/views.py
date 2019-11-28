@@ -3,7 +3,7 @@ from django.contrib import auth, messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from checkout.models import Order, OrderLineItem
-from accounts.forms import UserLoginForm, SignUpNewUserForm
+from accounts.forms import UserLoginForm, SignUpNewUserForm, ShippingAddressForm
 from accounts.models import ShippingAddress
 from products.forms import ProductReviewForm
 from products.models import Product, ProductReview
@@ -129,3 +129,32 @@ def submit_product_review(request, id):
             messages.error(request, "Something went wrong!")
     
     return redirect(previous_url) #it will redirect back to order view
+
+def edit_your_address(request):
+
+    user = request.user
+    address_exists = ShippingAddress.objects.get(user=user)
+    shipping_address = ShippingAddress.objects.get(user=user)
+
+    shipping_address_form = ShippingAddressForm(initial={'full_name': address_exists.full_name, 'company': address_exists.company, 
+                                                                'street_address1': address_exists.street_address1, 'street_address2': address_exists.street_address2,
+                                                                'postcode': address_exists.postcode, 'town_or_city': address_exists.town_or_city, 
+                                                                'county': address_exists.country, 'country': address_exists.country, 
+                                                                'phone_number': address_exists.phone_number
+                                                                }, auto_id=False)
+
+    if request.method == "POST":
+        shipping_address_form = ShippingAddressForm(request.POST) 
+
+        if shipping_address_form.is_valid():
+            shipping_address = shipping_address_form.save(commit=False)
+            shipping_address.user = user
+            shipping_address.id = ShippingAddress.objects.get(user=user).id
+            shipping_address.save()
+            messages.success(request, "Address saved")
+            return redirect(reverse('userprofile'))     
+        else:
+            messages.warning(request, "Your changes weren't saved. Make sure all fields are filled correctly.<BR>If you want to delete your address, use delete link from your user profile. ")                                                               
+            return redirect(reverse('edityouraddress'))     
+
+    return render(request, "editaddress.html", {'shipping_form': shipping_address_form})        

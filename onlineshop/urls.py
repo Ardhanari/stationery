@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-from accounts.views import index, logout, login, signup, user_profile, view_order, submit_product_review
+from accounts.views import index, logout, login, signup, user_profile, view_order, submit_product_review, edit_your_address
 from accounts import urls_reset
 from home.views import about, faq, contact
 from products.views import all_products, single_product, product_category
@@ -34,6 +34,8 @@ urlpatterns = [
     url(r'^accounts/profile/$', user_profile, name="userprofile"),
     url(r'^accounts/vieworder/(?P<id>\d+)$', view_order, name="vieworder"),
     url(r'^accounts/submitreview/(?P<id>\d+)$', submit_product_review, name="submitproductreview"),
+    url(r'^accounts/editaddress/$', edit_your_address, name="edityouraddress"),
+    url(r'', index, name="deleteyouraddress"),
     url(r'^password-reset/', include(urls_reset)),
     url(r'^about/$', about, name="about"),
     url(r'^faq/$', faq, name="faq"),
