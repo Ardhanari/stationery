@@ -20,11 +20,11 @@
     <div class="row align-items-center cart-item-row">
         <img src="{{ MEDIA_URL }}{{ item.product.image }}" class="img-fluid cart-thumbnail">
 
-        <div class="col">
+        <div class="col-xs-10 offset-xs-1 col-md">
             <a href="{% url 'singleproduct' item.product.id %}"><span class="cart-inline-product-name">{{ item.product.name }}</span></a>
         </div>
 
-        <div class="col">
+        <div class="col-xs-10 offset-xs-1 col-md">
             <small>Edit quantity:</small>
             <form class="form-inline" method="post" action="{% url 'editcart' item.id %}">
                 {% csrf_token %}
@@ -37,15 +37,14 @@
             </form>
         </div>
 
-        <div class="col-2">€{{ item.product.price }}</div>
+        <div class="col-xs-10 offset-xs-1 col-md-2">€{{ item.product.price }}</div>
     </div>
 
     {% endfor %}
 
-    <div class="total-price">
+    <div class="row total-price">
         <div>
-            <p>Total</p>
-            <p>{{ total }}</p>
+            <p>Total: €{{ total }}</p>
             <a href="{% url 'addressdetails' %}" class="btn btn-success" role="button"></span>Proceed to checkout</a>
         </div>
     </div>

@@ -206,9 +206,14 @@ nav {
 .cart-item-row {
     display: flex;
     justify-content: flex-start;
-    height: 120px;
     margin: 15px 0px 15px 0px;
-    border: 1px #FFC656 solid;
+    border-bottom: 1px #FFC656 solid;
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+.cart-item-row form {
+    justify-content: center;
 }
 
 .cart-thumbnail {
@@ -217,7 +222,7 @@ nav {
 
 .cart-inline-product-name {
     font-family: 'Fanwood Text', Georgia, 'Times New Roman', Times, serif;
-    font-weight: 900;
+    font-weight: 400;
     font-size: 1.4em;
 }
 
@@ -227,7 +232,8 @@ nav {
 
 .total-price {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
+    text-align: center;
 }
 
 .profile-container {
@@ -272,12 +278,25 @@ nav {
         padding-left: 30px;
         padding-right: 30px;
     }
-
+    
+    .cart-item-row {
+        height: 120px;
+        
+    }
     .cart-thumbnail {
         display: inline-block;
         height: 120px;
         width: 120px;
         /* object-fit: scale-down; */
+    }
+
+    .cart-inline-product-name {
+        font-weight: 900;
+    }
+    .total-price {
+        justify-content: flex-end;
+        text-align: right;
+        padding-right: 45px;
     }
     .left-column-icon {
         display: inline-block;
