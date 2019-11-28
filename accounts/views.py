@@ -76,7 +76,7 @@ def user_profile(request):
     user = request.user
     
     try: 
-        orders = Order.objects.all().filter(user=user)
+        orders = Order.objects.all().filter(user=user).order_by('-date')
         print("orders found") # sanity check
         print(orders)
         try:
@@ -178,7 +178,6 @@ def delete_your_address(request):
     Will be reinstated after changing Order and ShippingAddres structure and relation
     that will allow to delete address (ShippingAddress) but keep the address in Order model
     """
-
     # user = request.user
     # address_exists = ShippingAddress.objects.get(user=user)
 
