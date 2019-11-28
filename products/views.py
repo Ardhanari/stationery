@@ -12,9 +12,9 @@ def all_products(request):
     # SORTING - if method was POST then the results will be sorted accordingly
     if request.method == 'POST':
         if request.POST['sort'] == 'price-low-to-high':
-            products = Product.objects.all().exclude(quantity=0).order_by('-price')
-        elif request.POST['sort'] == 'price-high-to-low':
             products = Product.objects.all().exclude(quantity=0).order_by('price')
+        elif request.POST['sort'] == 'price-high-to-low':
+            products = Product.objects.all().exclude(quantity=0).order_by('-price')
         elif request.POST['sort'] == 'date-new-first':
             products = Product.objects.all().exclude(quantity=0).order_by('-created_at')
         elif request.POST['sort'] == 'date-old-first':
@@ -37,16 +37,18 @@ def product_category(request, category):
 
     try:
         chosen_category = ProductCategory.objects.get(name=category)
+        print("1")
         productsfromcategory = Product.objects.all().exclude(quantity=0).filter(category=chosen_category)
+        print("2")
     except:
         raise Http404()
 
     # SORTING - if method was POST then the results will be sorted accordingly
     if request.method == 'POST':
         if request.POST['sort'] == 'price-low-to-high':
-            productsfromcategory = Product.objects.all().exclude(quantity=0).filter(category=chosen_category).order_by('-price')
-        elif request.POST['sort'] == 'price-high-to-low':
             productsfromcategory = Product.objects.all().exclude(quantity=0).filter(category=chosen_category).order_by('price')
+        elif request.POST['sort'] == 'price-high-to-low':
+            productsfromcategory = Product.objects.all().exclude(quantity=0).filter(category=chosen_category).order_by('-price')
         elif request.POST['sort'] == 'date-new-first':
             productsfromcategory = Product.objects.all().exclude(quantity=0).filter(category=chosen_category).order_by('-created_at')
         elif request.POST['sort'] == 'date-old-first':
