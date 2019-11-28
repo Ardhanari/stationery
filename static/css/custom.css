@@ -67,6 +67,11 @@ nav {
     color: #555555;
 }
 
+.nav-link:hover {
+    border-bottom: 0px; 
+    background-color: #FFF5DB;
+}
+
 .jumbotron {
     background-color: #FFC656;
     background-image: url('https://images.unsplash.com/photo-1447069387593-a5de0862481e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80');
@@ -235,6 +240,10 @@ nav {
     text-align: center;
     border-bottom: 0px;
     font-size: 1.2em;
+}
+.footer-link:hover,
+.social-media-icons:hover {
+    border-bottom: 0px;
 }
 
 @media (min-width: 768px) {
