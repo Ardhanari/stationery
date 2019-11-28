@@ -119,6 +119,11 @@ nav {
     margin-bottom: 1rem;
 }
 
+.main-content-container {
+    min-height: 100vh; /* keeps footer out of the screen */
+    /* padding-bottom: 2.5rem; */
+}
+
 .breadcrumbs {
     margin-bottom: 15px;
     padding-left: 30px;Fa
@@ -221,6 +226,13 @@ nav {
 .profile-container {
     margin-bottom: 50px;
 }
+
+/* #footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem;            /* Footer height */
+} */
 
 /* a:hover span{
     background:-webkit-gradient(linear,left top,right top,from(#ff8a00),to(#e52e71));
