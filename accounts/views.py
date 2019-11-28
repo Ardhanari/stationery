@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from checkout.models import Order, OrderLineItem
 from accounts.forms import UserLoginForm, SignUpNewUserForm
+from accounts.models import ShippingAddress
 from products.forms import ProductReviewForm
 from products.models import Product, ProductReview
 
@@ -70,13 +71,16 @@ def user_profile(request):
     """
     Renders user profile page. Displays user data based on email stored in db
     """
-    user = User.objects.get(email=request.user.email)
+    user = request.user
     
     try: 
-        orders = list(Order.objects.all().filter(user=request.user.username))
-        print("ok")
-        return render(request, 'userprofile.html', {"profile": user, 'orders': orders})
+        orders = Order.objects.all().filter(user=user)
+        shipping_address = ShippingAddress.objects.get(user=user)
+        print("ok") # sanity check
+        print(shipping_address)
+        return render(request, 'userprofile.html', {"profile": user, 'orders': orders, 'shipping_address': shipping_address})
     except: 
+        print("not ok") # sanity check
         return render(request, 'userprofile.html', {"profile": user})
 
 def view_order(request, id):

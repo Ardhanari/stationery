@@ -15,4 +15,5 @@ class ShippingAddress(models.Model):
     phone_number = models.CharField(max_length=20, blank=True)
 
     def __str__(self):
-        return "{0}\n{1}\n{2}\n{3}\n{4}".format(self.full_name, self.street_address1, self.street_address2, self.town_or_city, self.country.name)
+        return "{0} ({1})\n{2}\n{3}\n{4}\n{5}\n{6}\n{7}".format(self.full_name, self.company, self.street_address1, self.street_address2, 
+                                                                    self.postcode, self.town_or_city, self.county, self.country.name)
