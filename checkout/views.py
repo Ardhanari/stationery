@@ -22,9 +22,10 @@ def address_details(request):
         if shipping_address_form.is_valid():
             shipping_address = shipping_address_form.save(commit=False)
             shipping_address.user = user
+            shipping_address.id = ShippingAddress.objects.get(user=user).id
             shipping_address.save()
             messages.success(request, "Address saved")
-            return render(request, "address_details.html", {"shipping_form": shipping_address_form})
+            return redirect(reverse('checkout'))
 
         else: 
             # shipping_address = shipping_address_form.save(commit=False)
@@ -46,7 +47,8 @@ def address_details(request):
                                                                 'phone_number': address_exists.phone_number
                                                                 }, auto_id=False)
 
-        except: 
+        except Exception as e:
+            print('%s (%s)') % (e.message, type(e))
             print("not ok")
             shipping_address_form = ShippingAddressForm() 
 
@@ -61,8 +63,12 @@ def checkout(request):
         user = request.user
 
         if payment_form.is_valid():
+
+            shipping_address = ShippingAddress.objects.get(user=user)
+            print(shipping_address)
             
             order = order_form.save(commit=False)
+            order.address_id = shipping_address.id
             order.date = timezone.now()
             order.user = user
             order.save()
@@ -105,7 +111,8 @@ def checkout(request):
             messages.error(request, "We were unable to take a payment with that card!")
     else:
         user = request.user
-        order_form = OrderForm()
+        shipping_address_form = ShippingAddress.objects.get(user=user) # if shipping address exists in the database - prepopulate, if not leave blank
+        order_form = OrderForm(initial={'phone_number': shipping_address_form.phone_number})
         # try: 
         #     shipping_address_form = ShippingAddress.objects.get(user=user) # if shipping address exists in the database - prepopulate, if not leave blank
         # except: 

@@ -31,7 +31,7 @@ class Order(models.Model):
     date = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
-        return "({0}) {1} - {2}, {3}".format(self.id, self.date, self.full_name, self.country.name)
+        return "({0}) {1} - {2}, {3}".format(self.id, self.date, self.address.full_name, self.address.country.name)
 
 
 class OrderLineItem(models.Model):

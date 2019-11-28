@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from django_countries.fields import CountryField
 
 class ShippingAddress(models.Model):
-    user = models.OneToOneField(User, primary_key=True)
+    user = models.OneToOneField(User)
     full_name = models.CharField(max_length=50, blank=False)
     company = models.CharField(max_length=50, blank=True)
     street_address1 = models.CharField(max_length=40, blank=False)
