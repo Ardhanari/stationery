@@ -31,17 +31,32 @@
         <div class="col-2">€{{ item.product.price }}</div>
     </div>
 {% endfor %}
-<!-- Total price -->
+
 <div class="row align-items-center order-summary-row">
     <div class="col"></div>
 
-    <div class="col-2">
-        Total: 
+    <div class="col cost-summary">
+        Total for products: €{{ total_for_products }}
+    </div>
+</div>
+<div class="row align-items-center order-summary-row">
+    <div class="col"></div>
+
+    <div class="col cost-summary">
+        Shipping: €{{ shipping_rate }}
+    </div>
+</div>
+<div class="row align-items-center order-summary-row">
+    <div class="col"></div>
+
+    <div class="col cost-summary">
+        <strong>Total: 
         <br>
-        €{{ total }}
+        €{{ total }}</strong>
     </div>
 </div>
 <p></p>
+
 
 <form role="form" method="post" id="payment-form" action="{% url 'checkout' %}">
     <legend>Payment Details</legend>

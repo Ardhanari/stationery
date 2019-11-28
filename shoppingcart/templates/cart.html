@@ -41,13 +41,24 @@
     </div>
 
     {% endfor %}
-
+    
     <div class="row total-price">
         <div>
-            <p>Total: €{{ total }}</p>
+            <p>Total for products: €{{ total_for_products }}</p>
+        </div>
+    </div>
+    <div class="row total-price">
+        <div>
+            <p>Shipping: €{{ shipping_rate }}</p>
+        </div>
+    </div>
+    <div class="row total-price">
+        <div>
+            <p><strong>Total: €{{ total }}</strong></p>
             <a href="{% url 'addressdetails' %}" class="btn btn-success" role="button"></span>Proceed to checkout</a>
         </div>
     </div>
+
 
 </div>
 
