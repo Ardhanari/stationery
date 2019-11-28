@@ -69,7 +69,9 @@ def signup(request):
 
 def user_profile(request):
     """
-    Renders user profile page. Displays user data based on email stored in db
+    Renders user profile page. 
+    Tries for data on user orders - if that information is available renders page with orders and shipping address,
+    otherwise it's just user profile without any additional context. 
     """
     user = request.user
     
@@ -131,6 +133,10 @@ def submit_product_review(request, id):
     return redirect(previous_url) #it will redirect back to order view
 
 def edit_your_address(request):
+    """
+    Allows user to edit their address stored in db. 
+    Currently only one address per user is allowed
+    """
 
     user = request.user
     address_exists = ShippingAddress.objects.get(user=user)
