@@ -164,3 +164,16 @@ def edit_your_address(request):
             return redirect(reverse('edityouraddress'))     
 
     return render(request, "editaddress.html", {'shipping_form': shipping_address_form})        
+
+def delete_your_address(request):
+    """
+    Deletes user's shipping address from the database
+    """
+
+    user = request.user
+    address_exists = ShippingAddress.objects.get(user=user)
+
+    address_exists.delete()
+
+    messages.success(request, "Address succesfully deleted!")
+    return redirect(reverse('userprofile'))
