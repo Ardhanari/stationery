@@ -78,10 +78,12 @@ def checkout(request):
             order.save()
 
             cart = request.session.get('cart', {})
-            total = 0
+            total_for_products = 0
+            shipping_rate = 15
             for id, quantity in cart.items():
                 product = get_object_or_404(Product, pk=id)
-                total += quantity * product.price
+                total_for_products += quantity * product.price
+                total = total_for_products + shipping_rate
                 order_line_item = OrderLineItem(
                     order=order,
                     product=product,
