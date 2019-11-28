@@ -227,12 +227,26 @@ nav {
     margin-bottom: 50px;
 }
 
-/* #footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 2.5rem;            /* Footer height */
-} */
+#footer {
+    /* position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem;            Footer height */
+    background-color: #FFC656;
+}
+
+.footer-card {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.footer-link {
+    display: block;
+    line-height: 1.8rem;
+    text-align: center;
+    border-bottom: 0px;
+    font-size: 1.2em;
+}
 
 /* a:hover span{
     background:-webkit-gradient(linear,left top,right top,from(#ff8a00),to(#e52e71));
