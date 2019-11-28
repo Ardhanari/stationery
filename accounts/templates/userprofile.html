@@ -20,7 +20,7 @@
             {% for order in orders %}
                 {% if forloop.counter <= orders|length %}        
                     <p>
-                        <a href="{% url 'vieworder' order.id %}">{{ order.id }}: {{ order.date }}</a>
+                        <a href="{% url 'vieworder' order.id %}"> {{ order.date }}</a>
                     </p>
                 {% endif %}
             {% endfor %}
@@ -32,9 +32,27 @@
     <h3 id="address">Your shipping address <small class="text-muted">Saved when you placed your order last time</small></h3>
     <div class="container profile-container">
         {% if shipping_address %}
-            {{ shipping_address }}
-            {{ shipping_address.phone_number }}
-            You can <a href="{% url 'edityouraddress' %}">edit your address here</a> or when placing next order. 
+            <div class="card border-light mb-3" style="max-width: 18rem;">
+                <div class="card-header">{{ shipping_address.company }}</div>
+                <div class="card-body">
+                    <h5 class="card-title">{{ shipping_address.full_name }}</h5>
+                    <p class="card-text">
+                        {{ shipping_address.street_address1 }}<br>
+                        {{ shipping_address.street_address1 }}<br>
+                        {{ shipping_address.postcode }}<br>                        
+                        {{ shipping_address.town_or_city }}<br>
+                        {{ shipping_address.county }}<br>
+                        {{ shipping_address.country.name }}<br>
+                        {{ shipping_address.phone_number }}</p>
+                </div>
+                <div class="card-footer bg-transparent border-warning">
+                    <small>
+                    Is something incorrect? 
+                    You can <a href="{% url 'edityouraddress' %}">edit your address here</a> or when placing next order. 
+                    </small>
+                </div>
+            </div>
+            
         {% else %}
             There is no saved addresses for the moment! Place an order to save one. 
         {% endif %}
