@@ -19,9 +19,9 @@
         {% if orders %}
             {% for order in orders %}
                 {% if forloop.counter <= orders|length %}        
-                    <p>
+                    <span class="vieworder">
                         <a href="{% url 'vieworder' order.id %}"> {{ order.date }}</a>
-                    </p>
+                    </span>
                 {% endif %}
             {% endfor %}
         {% else %}

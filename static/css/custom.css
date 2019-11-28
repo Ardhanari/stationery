@@ -249,6 +249,13 @@ h4 {
     margin-bottom: 50px;
 }
 
+.vieworder {
+    display: block;
+    background-color: #FFF5DB;
+    padding: 15px;
+    margin: 15px 0px;
+}
+
 #footer {
     background-color: #FFC656;
     padding-top: 20px;
