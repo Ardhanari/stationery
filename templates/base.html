@@ -10,25 +10,24 @@
     <link rel="stylesheet" href="{% static 'star-ratings/css/star-ratings.css' %}">
     <link rel="stylesheet" href="{% static 'css/custom.css' %}">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="{% static 'star-ratings/js/dist/star-ratings.min.js' %}"></script>
     <script src="https://kit.fontawesome.com/14d367b272.js" crossorigin="anonymous"></script>
-    <!-- <script src="{% static 'js/custom.js' %}"></script> -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <link rel="shortcut icon" href="{% static 'imgs/favicon.png' %}" type="image/x-icon">
     {% block head_js %}
     {% endblock head_js %}
 </head>
 
 <body>
-
+    <!-- Header with name of the shop and picture -->
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
             <h2 class="display-3"> 
-                <a href="{% url 'index' %}" class="main-header-link">Stationery shop</a>
+                <a href="{% url 'index' %}" class="main-header-link">PAPEIRE</a>
             </h2>
         </div>
     </div>
     
+    <!-- Main navigation menu -->
     <nav class="nav sticky-top">
         <a class="nav-link"  href="{% url 'allproducts' %}">Products</a>
         {% if user.is_authenticated %}
@@ -58,11 +57,11 @@
     </div>
 
     <div class="main-content-container">
+        <!-- Header with the title of the page -->
         <div class="main-content-header">
             <h1>
                 {% block page_heading %}{% endblock %}
             </h1>
-            <!-- <hr>  -->
         </div>
 
         <div class="row">
@@ -73,7 +72,6 @@
             </div>
         </div>
   
-
         <div class="row content">
             <div class="col-lg-1"></div>
             <div class="col-lg-3">
@@ -95,49 +93,41 @@
                 {% endif %} 
 
                 {% block content %}{% endblock %}
+
             </div>
             <div class="col-lg-1"></div>
         </div>
-    
-
-
-    <!-- <footer id="footer">
-    <div class="footer-container">
-        <span class="text-muted"><ul><li>ONE</li><li>TWO</li></span>
     </div>
-    </footer>     -->
-</div>
 
 <footer id="footer">
     <div class="row d-flex justify-content-center align-items-center">
         <div class="col-xs-10 col-md-3">
-        <!-- <h5>Papeire</h5>
-        <div>Small stationery shop offering one-of-a-kind journals, vintage papers and more. <br>
-        <a href="{% url 'about' %}">Read more about us</a>.</div> -->
-        <div class="card footer-card" style="width: inherit;">
-            <img src="#" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Papeire</h5>
-                <p class="card-text">Small stationery shop offering one-of-a-kind journals, vintage papers and more. </p>
-                <a href="{% url 'about' %}" class="btn btn-secondary stretched-link">Read more about us</a>
+            <div class="card footer-card" style="width: inherit;">
+                <img src="{% static 'imgs/papeire-header.jpg' %}" class="card-img-top" alt="Papeire">
+                <div class="card-body">
+                    <h5 class="card-title">Papeire</h5>
+                    <p class="card-text">Small stationery shop offering one-of-a-kind journals, vintage papers and more. </p>
+                    <a href="{% url 'about' %}" class="btn btn-secondary stretched-link">Read more about us</a>
+                </div>
             </div>
         </div>
+
+        <div class="col-xs-10 col-md-3">
+            <div>
+                <a class="footer-link" href="{% url 'about' %}">About us</a><BR>
+                <a class="footer-link" href="{% url 'faq' %}">FAQ</a><BR>
+                <a class="footer-link" href="{% url 'contact' %}">Contact us</a><BR>
+            </div>
         </div>
 
         <div class="col-xs-10 col-md-3">
-        <div>
-        <a class="footer-link" href="{% url 'about' %}">About us</a><BR>
-        <a class="footer-link" href="{% url 'faq' %}">FAQ</a><BR>
-        <a class="footer-link" href="{% url 'contact' %}">Contact us</a><BR>
-        </div>
-        </div>
-
-        <div class="col-xs-10 col-md-3">
-        <a href="http://instagram.com/papeire" target="_blank"><i class="fab fa-instagram fa-4x"></i></a><BR>
-        <a href="{% url 'contact' %}" target="_blank"><i class="fas fa-at fa-4x"></i></a>
+            <a href="http://instagram.com/papeire" target="_blank"><i class="fab fa-instagram fa-4x"></i></a> &nbsp;
+            <a href="{% url 'contact' %}" target="_blank"><i class="fas fa-at fa-4x"></i></a>
         </div>
     </div>    
     </footer>
 </body>
+
+<script type="text/javascript" src="{% static 'star-ratings/js/dist/star-ratings.min.js' %}"></script>
 
 </html>

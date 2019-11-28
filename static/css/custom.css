@@ -1,8 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Abel|Open+Sans&display=swap');
 
 body {
-    background-color: #FFF5DB;    
-    /* font-family: Georgia, 'Times New Roman', Times, serif; */
+    background-color: #FFF5DB;
     font-family: 'Open Sans', sans-serif;
 }
 
@@ -42,7 +41,6 @@ h1 {
 }
 
 h2 {
-    font-weight: bold; /* needed something more for better contrast. but also - it will be on the picture, so adjust accordingly */
     backdrop-filter: contrast(120%);
     font-family: 'Abel', sans-serif;
 }
@@ -67,9 +65,6 @@ nav {
 
 .nav-link {
     color: #555555;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    padding-left: 30px; /* breakpoint */
-    padding-right: 30px;
 }
 
 .jumbotron {
@@ -121,7 +116,6 @@ nav {
 
 .main-content-container {
     min-height: 100vh; /* keeps footer out of the screen */
-    /* padding-bottom: 2.5rem; */
 }
 
 .breadcrumbs {
@@ -134,15 +128,11 @@ nav {
 }
 
 .product-container {
-    /* align-items: center; */
     margin-bottom: 50px;
 }
 
 .product {
-    /* justify-content: center; */
-    /* background-color: red; */
     text-align: center;
-    /* align-self: baseline; NOT WORKING WRRRR */
     margin: 0px;
 }
 
@@ -164,10 +154,6 @@ nav {
     background-size: cover;
     overflow: hidden;
 }
-/* 
-.img-fluid {
-    padding: 10px;
-} */
 
 .product-title-link {
     font-variant: small-caps;
@@ -228,16 +214,19 @@ nav {
 }
 
 #footer {
-    /* position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 2.5rem;            Footer height */
     background-color: #FFC656;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .footer-card {
     margin-left: 10px;
     margin-right: 10px;
+}
+
+.footer-card img {
+    height: 100px;
+    object-fit: cover;
 }
 
 .footer-link {
@@ -248,14 +237,13 @@ nav {
     font-size: 1.2em;
 }
 
-/* a:hover span{
-    background:-webkit-gradient(linear,left top,right top,from(#ff8a00),to(#e52e71));
-    background:linear-gradient(90deg,#ff8a00,#e52e71);
-    -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-    -webkit-box-decoration-break:clone;box-decoration-break:clone} */
-
 @media (min-width: 768px) {
     .full-picture {
         width: inherit;
         height: 500px;
+    }
+
+    .nav-link {
+        padding-left: 30px;
+        padding-right: 30px;
     }
