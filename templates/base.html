@@ -30,16 +30,16 @@
     <!-- Main navigation menu -->
     <nav class="nav sticky-top">
         <a class="nav-link"  href="{% url 'allproducts' %}">Products</a>
-        {% if user.is_authenticated %}
-        <a class="nav-link" href="{% url 'logout' %}">Logout</a>
-        <a class="nav-link" href="{% url 'userprofile' %}">Profile</a>
-        {% else %}
-        <a class="nav-link" href="{% url 'login' %}">Login</a>
-        <a class="nav-link" href="{% url 'signup' %}">Register</a>
-        {% endif %}
-        <a class="nav-link"  href="{% url 'faq' %}">FAQ</a>
-        <a class="nav-link"  href="{% url 'viewcart' %}">Your cart</a>
         <a class="nav-link" data-toggle="collapse" href="#search" aria-expanded="false" aria-controls="search">Search <i class="fas fa-search"></i></a>
+        <a class="nav-link"  href="{% url 'viewcart' %}">Your cart ({{ total|floatformat:"0" }})</a>
+        {% if user.is_authenticated %}
+        <a class="nav-link" href="{% url 'userprofile' %}">Profile</a>
+        <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+        {% else %}
+        <a class="nav-link" href="{% url 'signup' %}">Register</a>
+        <a class="nav-link" href="{% url 'login' %}">Login</a>
+        {% endif %}
+        
     </nav>
 
     <!-- Search element     -->
