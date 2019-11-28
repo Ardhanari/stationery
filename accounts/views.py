@@ -77,12 +77,19 @@ def user_profile(request):
     
     try: 
         orders = Order.objects.all().filter(user=user)
-        shipping_address = ShippingAddress.objects.get(user=user)
-        print("ok") # sanity check
-        print(shipping_address)
-        return render(request, 'userprofile.html', {"profile": user, 'orders': orders, 'shipping_address': shipping_address})
+        print("orders found") # sanity check
+        print(orders)
+        try:
+            shipping_address = ShippingAddress.objects.get(user=user)
+            print("shipping_address found") # sanity check
+            print(shipping_address)
+            return render(request, 'userprofile.html', {"profile": user, 'orders': orders, 'shipping_address': shipping_address})
+        except:
+            print("only order, no address")
+            return render(request, 'userprofile.html', {"profile": user, 'orders': orders})
+                
     except: 
-        print("not ok") # sanity check
+        print("nothing found") # sanity check
         return render(request, 'userprofile.html', {"profile": user})
 
 def view_order(request, id):
@@ -168,12 +175,15 @@ def edit_your_address(request):
 def delete_your_address(request):
     """
     Deletes user's shipping address from the database
+    Will be reinstated after changing Order and ShippingAddres structure and relation
+    that will allow to delete address (ShippingAddress) but keep the address in Order model
     """
 
-    user = request.user
-    address_exists = ShippingAddress.objects.get(user=user)
+    # user = request.user
+    # address_exists = ShippingAddress.objects.get(user=user)
 
-    address_exists.delete()
+    # address_exists.delete()
 
-    messages.success(request, "Address succesfully deleted!")
-    return redirect(reverse('userprofile'))
+    # messages.success(request, "Address succesfully deleted!")
+    # return redirect(reverse('userprofile'))
+    pass

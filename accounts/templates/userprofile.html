@@ -25,17 +25,16 @@
                 {% endif %}
             {% endfor %}
         {% else %}
-        <p>No orders found!</p>
+            <p>No orders found!</p>
         {% endif %}
     </div>
     
     <h3 id="address">Your shipping address <small class="text-muted">Saved when you placed your order last time</small></h3>
     <div class="container profile-container">
         {% if shipping_address %}
-            {{shipping_address}}
+            {{ shipping_address }}
             {{ shipping_address.phone_number }}
             You can <a href="{% url 'edityouraddress' %}">edit your address here</a> or when placing next order. 
-            <a href="{% url 'deleteyouraddress' %}">Delete address?</a>
         {% else %}
             There is no saved addresses for the moment! Place an order to save one. 
         {% endif %}

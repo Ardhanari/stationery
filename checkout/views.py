@@ -22,7 +22,10 @@ def address_details(request):
         if shipping_address_form.is_valid():
             shipping_address = shipping_address_form.save(commit=False)
             shipping_address.user = user
-            shipping_address.id = ShippingAddress.objects.get(user=user).id
+            try:
+                shipping_address.id = ShippingAddress.objects.get(user=user).id
+            except:
+                pass
             shipping_address.save()
             messages.success(request, "Address saved")
             return redirect(reverse('checkout'))
@@ -47,9 +50,10 @@ def address_details(request):
                                                                 'phone_number': address_exists.phone_number
                                                                 }, auto_id=False)
 
-        except Exception as e:
-            print('%s (%s)') % (e.message, type(e))
-            print("not ok")
+        # except Exception as e:
+        #     print('%s (%s)') % (e.message, type(e))
+        #     print("not ok")
+        except:
             shipping_address_form = ShippingAddressForm() 
 
     return render(request, "address_details.html", {"shipping_form": shipping_address_form})
