@@ -236,6 +236,16 @@ nav {
     text-align: center;
 }
 
+.order-summary-row {
+    margin-top: 10px;
+    border-bottom: 1px #FFC656 solid;
+    padding-bottom: 10px;
+}
+
+h4 {
+    margin: 15px 0px;
+}
+
 .profile-container {
     margin-bottom: 50px;
 }
