@@ -1,6 +1,6 @@
 {% extends 'base.html' %} 
 
-{% block page_title %}All products{% endblock %} 
+{% block page_title %}Browse all products{% endblock %} 
 
 {% block page_heading %}All products{% endblock %}
 
@@ -9,66 +9,28 @@
 {% endblock %}
 
 {% block left-column %}
- 
 
 <div class="row categories-menu">
     <ul class="list-group col-sm-12 col-lg-8">
-
         <li class="list-group-item active"><a href="{% url 'allproducts' %}">All</a></li>
         {% for c in all_categories %}
             <li class="list-group-item"><a href="{% url 'productcategory' c %}">{{ c }}</a></li>
         {% endfor %}
     </ul>
-    <!-- </div>
-    
-<div class="row d-flex">
-
-        <form method="POST">
-            
-            <div class="dropdown-menu form-group d-flex justify-content-center  sorting-option">
-                <select name="sort" id="sort" class="form-control" onchange="this.form.submit()">
-                    <option disabled selected>Sort by <i class="fas fa-sort-down"></i></option>
-                    <option value="price-low-to-high">Price: low first</option>
-                    <option value="price-high-to-low">Price: high first</option>
-                    <option value="date-new-first">Date added: new first</option>
-                    <option value="date-old-first">Date added: old first</option>
-                </select>
-            </div>
-        </form> -->
         
     <form method="POST" class="col-sm-12 col-lg-8">
-            {% csrf_token %}
-            <div class="form-group d-flex justify-content-center">
-                <select name="sort" id="sort" class="form-control" onchange="this.form.submit()">
-                    <option disabled selected>Sort by </option>
-                    <option value="price-low-to-high">Price: low first</option>
-                    <option value="price-high-to-low">Price: high first</option>
-                    <option value="date-new-first">Date added: new first</option>
-                    <option value="date-old-first">Date added: old first</option>
-                </select>
-            </div>
-        </form>
-    
-    </div>
-
-<!-- </div> -->
-
-
-<!-- 
-<div class="row categories-menu">
-    <ul class="list-group col-sm-12 col-lg-8">
-        <li class="list-group-item active"><a href="/products/">All</a></li>
-        
-            <li class="list-group-item"><a href="/products/category/Journals">Journals</a></li>
-        
-            <li class="list-group-item"><a href="/products/category/Birbs">Birbs</a></li>
-        
-            <li class="list-group-item"><a href="/products/category/Empty">Empty</a></li>
-        
-            <li class="list-group-item"><a href="/products/category/Another%20empty%20category">Another empty category</a></li>
-        
-    </ul>
-     -->
+        {% csrf_token %}
+        <div class="form-group d-flex justify-content-center">
+            <select name="sort" id="sort" class="form-control" onchange="this.form.submit()">
+                <option disabled selected>Sort by </option>
+                <option value="price-low-to-high">Price: low first</option>
+                <option value="price-high-to-low">Price: high first</option>
+                <option value="date-new-first">Date added: new first</option>
+                <option value="date-old-first">Date added: old first</option>
+            </select>
+        </div>
+    </form>
+</div>
         
 {% endblock %}
 
@@ -81,18 +43,14 @@
 
     <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-xl-3 product-container"> 
         <div class="product">
-            <!-- <a href="{% url 'singleproduct' product.id %}"><img src="{{ MEDIA_URL }}{{ product.image }}" class="img-thumbnail"></a> -->
-            <!-- <div style="background-image: url('{{ MEDIA_URL }}{{ product.image }}')" class="row product-thumbnail">
-            &nbsp;
-            </div> -->
-            <a href="{% url 'singleproduct' product.id %}" class="product-image-link"><img src="{{ MEDIA_URL }}{{ product.image }}" class="img-fluid"></a>
+            <a href="{% url 'singleproduct' product.id %}" class="product-image-link"><img src="{{ MEDIA_URL }}{{ product.image }}" class="img-fluid product-thumbnail"></a>
 
 
             <div>
                 <a href="{% url 'singleproduct' product.id %}" class="product-title-link">{{ product.name }}</a>
             </div>
             <div>
-                {{ product.price }}
+                €{{ product.price }}
             </div>
 
             <div>    

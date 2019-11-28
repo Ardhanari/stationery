@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css?family=Abel|Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Abel|Fanwood+Text|Open+Sans&display=swap');
 
 body {
-    background-color: #FFF5DB;
+    /* background-color: #FFF5DB; */
     font-family: 'Open Sans', sans-serif;
 }
 
@@ -38,6 +38,8 @@ h1, h2 {
 
 h1 {
     margin: 50px 0px;
+    font-family: 'Fanwood Text', serif;
+    font-weight: 900;
 }
 
 h2 {
@@ -133,17 +135,19 @@ nav {
 }
 
 .product-container {
-    margin-bottom: 50px;
+    /* background-color: #000000; */
+    margin-bottom: 35px;
 }
 
 .product {
+    /* background-color: pink; */
     text-align: center;
     margin: 0px;
 }
 
 .product>div {
-    padding-top: 15px;
-    padding-bottom: 15px;
+    padding-top: 7px;
+    padding-bottom: 7px;
 }
 
 .product-thumbnail {
@@ -164,7 +168,8 @@ nav {
     font-variant: small-caps;
     font-size: 1.5em; 
     color:#555555;
-    font-family: Georgia, 'Times New Roman', Times, serif;   
+    font-family: 'Fanwood Text', Georgia, 'Times New Roman', Times, serif;   
+    font-weight: 900;
 }
 
 .product-title-link:hover {
