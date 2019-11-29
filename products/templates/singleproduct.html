@@ -9,18 +9,17 @@
 {% endblock %}
 
 {% block left-column %}
-
+<div class="col full-image-preview">
+        <div style="background-image: url('{{ MEDIA_URL }}{{ chosen_product.image }}')" class="full-picture">
+            &nbsp;
+        </div>
+    </div>
 {% endblock %}
 
 
 {% block content %}
 
 <div class="row">
-    <div class="col full-image-preview">
-        <div style="background-image: url('{{ MEDIA_URL }}{{ chosen_product.image }}')" class="full-picture">
-            &nbsp;
-        </div>
-    </div>
     
     <div class="col">
         <div class="product-details">
@@ -53,26 +52,19 @@
 </div>
 
     <div class="row">
-
-        <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-12 col-md-12"> 
-
-        
-            <div class="product-desc">
-
+        <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-12 col-md-12">
             <h3>{{ chosen_product.name }}</h3>
-            
-            
-            </div>
-
-            
-            <p class="product-description">{{ chosen_product.description }}</p>
+            <p class="product-description">
+                {{ chosen_product.description }}
+            </p>
         </div>
-        <div class ="reviews">
 
+        <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-12 col-md-12">
+        <h4>Customer reviews</h4> 
         {% for review in reviews %}
-            {{ review.title }} 
-            {{ review.review_text }}
-            {{ review.author }}
+            <h5 class="reviews">{{ review.title }} </h5>
+            <p>{{ review.review_text }}</p>
+            Author: {{ review.author }}
         {% endfor %}
         </div>
     </div>

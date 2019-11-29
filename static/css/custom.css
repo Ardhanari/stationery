@@ -184,6 +184,8 @@ nav {
     background-size: contain;
     background-position: top left;
     margin: 0 auto;
+    width: 200px;
+    height: 200px;
 }
 
 .product-desc {
@@ -191,7 +193,7 @@ nav {
 }
 
 .product-description {
-    margin-top; 100px;    
+    margin-bottom: 50px; 
 }
 
 .product-details {
@@ -200,6 +202,11 @@ nav {
 
 .add-to-cart-single {
     padding-left: 0px;
+}
+
+.reviews {
+    border-top: 1px #FFC656 solid;
+    padding-top: 15px;
 }
 
 .cart-item-row {
@@ -292,6 +299,14 @@ h4 {
 .footer-link:hover,
 .social-media-icons:hover {
     border-bottom: 0px;
+}
+
+@media (min-width:420px) and (max-width: 768px) {
+    .full-picture {
+        height: 50vh;
+        width: 50vh;
+        background-size: contain;
+    }
 }
 
 @media (min-width: 768px) {
