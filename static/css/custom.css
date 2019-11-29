@@ -283,6 +283,12 @@ h4 {
     border-bottom: 0px;
     font-size: 1.2em;
 }
+
+.social-media-icons {
+    display: block;
+    text-align: center;
+}
+
 .footer-link:hover,
 .social-media-icons:hover {
     border-bottom: 0px;
