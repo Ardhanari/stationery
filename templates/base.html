@@ -112,22 +112,24 @@
                 <div class="card-body">
                     <h5 class="card-title">Papeire</h5>
                     <p class="card-text">Small stationery shop offering one-of-a-kind journals, vintage papers and more. </p>
-                    <a href="{% url 'about' %}" class="btn btn-secondary stretched-link">Read more about us</a>
+                    <a href="{% url 'about' %}" class="btn btn-secondary stretched-link">Read more about Papeire</a>
                 </div>
             </div>
         </div>
 
         <div class="col-xs-10 col-md-3">
             <div>
-                <a class="footer-link" href="{% url 'about' %}">About us</a><BR>
-                <a class="footer-link" href="{% url 'faq' %}">FAQ</a><BR>
-                <a class="footer-link" href="{% url 'contact' %}">Contact us</a><BR>
+                <a class="footer-link" href="{% url 'about' %}">About me</a><br>
+                <a class="footer-link" href="{% url 'faq' %}">FAQ</a><br>
+                <a class="footer-link" href="{% url 'contact' %}">Contact me</a><br>
             </div>
         </div>
 
         <div class="col-xs-10 col-md-3">
-            <a href="http://instagram.com/papeire" target="_blank" class="social-media-icons"><i class="fab fa-instagram fa-4x"></i></a> &nbsp;
-            <a href="{% url 'contact' %}" target="_blank" class="social-media-icons"><i class="fas fa-at fa-4x"></i></a>
+            <div>
+                <a href="http://instagram.com/papeire" target="_blank" class="social-media-icons"><i class="fab fa-instagram fa-4x"></i></a>
+                <a href="{% url 'contact' %}" target="_blank" class="social-media-icons"><i class="fas fa-at fa-4x"></i></a>
+            </div>    
         </div>
     </div>    
     </footer>
