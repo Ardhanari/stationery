@@ -256,6 +256,10 @@ h4 {
     margin: 15px 0px;
 }
 
+.card-header {
+    background-color: #ffffff;
+}
+
 #footer {
     background-color: #FFC656;
     padding-top: 20px;
