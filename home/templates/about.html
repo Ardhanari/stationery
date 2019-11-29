@@ -1,13 +1,30 @@
 {% extends 'base.html' %} 
 
-{% block page_title %}About us{% endblock %} 
+{% block page_title %}About me{% endblock %} 
 
-{% block page_heading %}About us{% endblock %}
+{% block page_heading %}About me{% endblock %}
 
 {% block breadcrumbs %}
-    <a href="{% url 'index' %}">Home</a> > About us
+    <a href="{% url 'index' %}">Home</a> > About me
 {% endblock %}
 
 {% block content %}
+
+<p>
+My name is Katya and I’m based in lovely seaside town Bray in Ireland. Papeire is my long-term dream coming true. 
+</p>
+<p>
+The touch and smell of paper, old photographs, papers, magazines and maps - these all things were in my life since its beginning. My first attempt at crafting happened when I was 4 years old and cut out all the flowers from the book… My parents weren’t too happy about that :)
+</p>
+<p>
+Many things changed since then. Currently, I’m specialised in creating handmade journals and cutouts and deal with all-kind-all-form vintage paper.
+</p>
+<p>
+If you’re looking for unique handmade stationery, you are in the right place. Browse all products or contact me if you have any questions - but check first 
+<a href="{% url 'faq' %}">FAQ</a> in case these questions have already been answered. 
+</p>
+<p>
+Happy creating and see you around!
+</p>
 
 {% endblock %}

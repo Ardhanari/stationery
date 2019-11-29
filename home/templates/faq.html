@@ -14,11 +14,44 @@
 
 {% block content %}
     <div class="container">
+        <h4>
+            What is Papeire?
+        </h4>
         <p>
-            Amazing, no one asked any question yet! 
+            Papeire is an online stationery shop with handcrafted items. To read more about it and who created it, head to <a href="{% url 'about' %}">About me</a> page.
+            <br>
+            Store's name is a combination of two words: <em>paper</em> and <em>Eire</em> which is Irish for "Ireland".
+        </p>      
+        <h4>
+            How much is for shipping?
+        </h4>
+        <p>
+            There is one flat rate for shipping the product with registered post. It's <strong>€15</strong>.
         </p>
+        <h4>
+            Where it's shipped from and how long does it take?
+        </h4>
         <p>
-            To ask one contact us at stationerycuriousshop@gmail.com
+            Papeire is based in Bray, Ireland. Shipping to other countries in Europe can take up to 2 weeks. Shipping to USA and Asia ranges around 2-4 weeks. 
+            Anywhere else in the world should teh packed should arrive in 60 working days. 
+        </p>
+        <h4>
+            Who will deliver the package to me?
+        </h4>
+        <p>
+            All parcels are sent with An Post and will be delivered by your local mail carrier. 
+        </p>
+        <h4>
+            Who handles payments? Are they secure? 
+        </h4>
+        <p>
+            Payments are handled entirely by <a href="http://stripe.com/" target="_blank">Stripe</a> online service that guarantees secure and safe payments with your credit card. No payment data is stored in Papeire database. 
+        </p>
+        <h4>
+            I have another question. Who do I ask?
+        </h4>
+        <p>
+            If your question isn't answered here feel free to get in touch with me using <a href="{% url 'contact'%}">contact form</a> :)
         </p>
     </div>
 
