@@ -1,5 +1,7 @@
 # Papeire 
 
+[![Build Status](https://travis-ci.org/Ardhanari/stationery.svg?branch=master)](https://travis-ci.org/Ardhanari/stationery)
+
 ## Project in brief
 
 Papeire is an online stationery shop that will sell handmade and vintage journals, papers and accessories. The idea for the shop was born in my mind a couple of years ago and stayed alive until today.
