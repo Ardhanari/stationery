@@ -17,7 +17,6 @@
 <h3>List of items ordered:</h3>
 
 <div class="accordion" id="items_ordered">
-{{ user_reviews }}
 
     {% for item in order_items %}
         
@@ -30,16 +29,14 @@
       </h2>
     </div>
 
-    <div id="collapse{{item.id}}" class="collapse" aria-labelledby="headingOne" data-parent="#items_ordered">
+    <div id="collapse{{item.id}}" class="collapse" data-parent="#items_ordered">
       <div class="card-body">
-
-
       {{ user_reviews.product.name }}
 
             {% for review in user_reviews %}
             {% if item.product.name in review.product.name %}
 
-            Here is your review: {{ review }} //// {{ review.review_text }} /// {{ review.author }}
+            Here is your review: {{ review.title }} //// {{ review.review_text }} /// {{ review.author }}
 
             <br><br>
 

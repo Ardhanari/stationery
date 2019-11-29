@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import auth, messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
@@ -117,27 +117,36 @@ def view_order(request, id):
 
 def submit_product_review(request, id):
     """
-    Allows user to add a review to product they bought
+    Allows user to add or update a review to product they bought
+    User can only review product once, even if got it multiple times in different orders 
+    User can update the review how many times they wish
     """
     previous_url = request.META.get('HTTP_REFERER')
     if request.method == 'POST':
 
-        print("POST requested") # sanity check
-
         review_form = ProductReviewForm(request.POST)
+        user = request.user
 
         if review_form.is_valid():
-            review_for = Product.objects.get(id=id)
+            try:
+                review = ProductReview.objects.get(author_id=user, product_id=id)
+                review_form = review_form.save(commit=False)
+                review_form.author = user
+                review_form.product_id = id
+                review_form.id = review.id
+                review_form.save()
+                messages.success(request, "Your review was updated")
+            except:
+                review_form = review_form.save(commit=False)
+                review_form.author = user
+                review_form.product_id = id
+                review_form.save()
+                messages.success(request, "Your review was saved")
 
-            review_form = review_form.save(commit=False)
-            review_form.author = request.user
-            review_form.product= review_for
-            review_form.save()
-            messages.success(request, "Your review was added")
         else:
             messages.error(request, "Something went wrong!")
     
-    return redirect(previous_url) #it will redirect back to order view
+    return redirect(previous_url)
 
 def edit_your_address(request):
     """
