@@ -71,6 +71,7 @@
 
         <div class="row">
             <div class="col-lg-4"></div>
+            <!-- Breadcrumbs -->
             <div class="col-lg-8 breadcrumbs">
                 {% block breadcrumbs %}
                 {% endblock %}  
@@ -80,10 +81,12 @@
         <div class="row content">
             <div class="col-lg-1"></div>
             <div class="col-lg-3">
+            <!-- Categories menu / product picture / icon  -->
                 {% block left-column %}{% endblock %}
             </div>
             <div class="col-lg-7">
 
+                <!-- Any django messages are displayed here -->
                 {% if messages %}
                 <div>
                     {% for message in messages %} 
@@ -97,6 +100,7 @@
                 </div>
                 {% endif %} 
 
+                <!-- Main content  -->
                 {% block content %}{% endblock %}
 
             </div>
@@ -104,9 +108,11 @@
         </div>
     </div>
 
+<!-- Footer starts here -->
 <footer id="footer">
     <div class="row d-flex justify-content-center align-items-center">
         <div class="col-xs-10 col-md-3">
+            <!-- card 'About' -->
             <div class="card footer-card" style="width: inherit;">
                 <img src="{% static 'imgs/papeire-header.jpg' %}" class="card-img-top" alt="Papeire">
                 <div class="card-body">
@@ -118,6 +124,7 @@
         </div>
 
         <div class="col-xs-10 col-md-3">
+            <!-- Links to static pages -->
             <div>
                 <a class="footer-link" href="{% url 'about' %}">About me</a><br>
                 <a class="footer-link" href="{% url 'faq' %}">FAQ</a><br>
@@ -126,6 +133,7 @@
         </div>
 
         <div class="col-xs-10 col-md-3">
+            <!-- Social media -->
             <div>
                 <a href="http://instagram.com/papeire" target="_blank" class="social-media-icons"><i class="fab fa-instagram fa-4x"></i></a>
                 <a href="{% url 'contact' %}" target="_blank" class="social-media-icons"><i class="fas fa-at fa-4x"></i></a>
@@ -135,6 +143,8 @@
     </footer>
 </body>
 
+
+<!-- script for products' star ratings -->
 <script type="text/javascript" src="{% static 'star-ratings/js/dist/star-ratings.min.js' %}"></script>
 
 </html>
