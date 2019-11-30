@@ -1,0 +1,66 @@
+{% extends 'base.html'%}
+{% load bootstrap_tags %}
+
+{% block page_title %}Order no. {{ selected_order.id }}{% endblock %} 
+
+{% block page_heading %}Your viewing your order no. {{ selected_order.id }}{% endblock %}
+
+{% block left-column %}
+<i class="fas fa-list-alt fa-10x left-column-icon"></i>
+{% endblock %}
+
+{% block breadcrumbs %}
+    <a href="{% url 'index' %}">Home</a> > <a href="{% url 'userprofile' %}">Your profile</a> > Your order no. {{ selected_order.id }}
+{% endblock %}
+
+{% block content %}
+
+<h3>List of items ordered:</h3>
+
+<div class="accordion" id="items_ordered">
+
+    {% for item in order_items %}
+        
+    <div class="card">
+    <div class="card-header" id="headingOne">
+      <span class="mb-0">
+        <a href="#" data-toggle="collapse" data-target="#collapse{{item.id}}" aria-expanded="true" aria-controls="collapse{{item.id}}">
+        {{ item.product.name }} - {{ item.quantity }} * {{ item.product.price }} <i class="fas fa-chevron-down float-right"></i>
+        </a>
+      </span>
+    </div>
+
+    <div id="collapse{{item.id}}" class="collapse" data-parent="#items_ordered">
+      <div class="card-body">
+        {% for review in user_reviews %}
+            {% if item.product.name in review.product.name %}
+                <h4>Your review:</h4>
+                <h5>{{ review.title }}</h5>
+                {{ review.review_text }}
+                <br>
+            {% else %}
+                <br> 
+                <!-- This loop works - prints out either review or empty line -->
+            {% endif %}
+        {% endfor %}
+            <h4>Update your review:</h4>    
+            <form method="POST" action="{% url 'submitproductreview' item.product.id %}">
+                {% csrf_token %}
+                {{ review_form | as_bootstrap }}
+                Review will by signed as: {{ user }}
+                <br>
+            <button class="btn btn-primary" type="submit">Post review</button>
+            </form>       
+        
+      </div>
+    </div>
+  </div>
+
+
+
+    {% endfor %}
+   
+
+
+</div>
+{% endblock %}

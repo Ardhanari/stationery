@@ -6,38 +6,145 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{% block page_title %}{% endblock %}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'star-ratings/css/star-ratings.css' %}">
     <link rel="stylesheet" href="{% static 'css/custom.css' %}">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/14d367b272.js" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="{% static 'imgs/favicon.png' %}" type="image/x-icon">
     {% block head_js %}
     {% endblock head_js %}
+    <style>
+    .jumbotron {
+        background-image: url('{% static "imgs/papeire-header.jpg" %}')
+    }
+    </style>
 </head>
 
 <body>
-    <h1>
-        {% block page_heading %}{% endblock %}
-    </h1>
-
-    <nav>
-        <ul>
-            {% if user.is_authenticated %}
-            <li><a href="{% url 'userprofile' %}">Profile</a></li>
-            <li><a href="{% url 'logout' %}">Logout</a></li>
-            {% else %}
-            <li><a href="{% url 'login' %}">Login</a></li>
-            <li><a href="{% url 'signup' %}">Register</a></li>
-            {% endif %}
-            <li><a href="{% url 'allproducts' %}">Products</a></li>
-            <li><a href="{% url 'viewcart' %}">Your cart</a></li>
-        </ul>
+    <!-- Header with name of the shop and picture -->
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h2 class="display-3"> 
+                <a href="{% url 'index' %}" class="main-header-link">PAPEIRE</a>
+            </h2>
+        </div>
+    </div>
+    
+    <!-- Main navigation menu -->
+    <nav class="nav sticky-top">
+        <a class="nav-link"  href="{% url 'allproducts' %}">Products</a>
+        <a class="nav-link" data-toggle="collapse" href="#search" aria-expanded="false" aria-controls="search">Search <i class="fas fa-search"></i></a>
+        <a class="nav-link"  href="{% url 'viewcart' %}">Your cart ({{ product_count }})</a>
+        {% if user.is_authenticated %}
+        <a class="nav-link" href="{% url 'userprofile' %}">Profile</a>
+        <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+        {% else %}
+        <a class="nav-link" href="{% url 'signup' %}">Register</a>
+        <a class="nav-link" href="{% url 'login' %}">Login</a>
+        {% endif %}
+        
     </nav>
 
-    <hr> 
-    
-    {% if messages %}
-    <div>
-        {% for message in messages %} {{ message }} {% endfor %}
+    <!-- Search element     -->
+    <div class="collapse" id="search">
+        <div class="container search-bar col-md-3 offset-md-4">
+            <form action="{% url 'searchresult' %}" method="get">
+                <div class="input-group input-group-sm">        
+                    <input type="text" name="query" class="form-control">
+                    <div class="input-group-append">
+                        <button class="btn btn-secondary" type="search">Search</button>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
-    {% endif %} {% block content %}{% endblock %}
+
+    <div class="main-content-container">
+        <!-- Header with the title of the page -->
+        <div class="main-content-header">
+            <h1>
+                {% block page_heading %}{% endblock %}
+            </h1>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4"></div>
+            <!-- Breadcrumbs -->
+            <div class="col-lg-8 breadcrumbs">
+                {% block breadcrumbs %}
+                {% endblock %}  
+            </div>
+        </div>
+  
+        <div class="row content">
+            <div class="col-lg-1"></div>
+            <div class="col-lg-3">
+            <!-- Categories menu / product picture / icon  -->
+                {% block left-column %}{% endblock %}
+            </div>
+            <div class="col-lg-7">
+
+                <!-- Any django messages are displayed here -->
+                {% if messages %}
+                <div>
+                    {% for message in messages %} 
+                    
+                    <div class="alert alert-{{ message.tags }}">
+                        <a class="close" data-dismiss="alert"><i class="fas fa-times"></i></a>
+                        {{ message }}
+                    </div>
+
+                     {% endfor %}
+                </div>
+                {% endif %} 
+
+                <!-- Main content  -->
+                {% block content %}{% endblock %}
+
+            </div>
+            <div class="col-lg-1"></div>
+        </div>
+    </div>
+
+<!-- Footer starts here -->
+<footer id="footer">
+    <div class="row d-flex justify-content-center align-items-center">
+        <div class="col-xs-10 col-md-3">
+            <!-- card 'About' -->
+            <div class="card footer-card" style="width: inherit;">
+                <img src="{% static 'imgs/papeire-header.jpg' %}" class="card-img-top" alt="Papeire">
+                <div class="card-body">
+                    <h5 class="card-title">Papeire</h5>
+                    <p class="card-text">Small stationery shop offering one-of-a-kind journals, vintage papers and more. </p>
+                    <a href="{% url 'about' %}" class="btn btn-secondary stretched-link">Read more about Papeire</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-10 col-md-3">
+            <!-- Links to static pages -->
+            <div>
+                <a class="footer-link" href="{% url 'about' %}">About me</a><br>
+                <a class="footer-link" href="{% url 'faq' %}">FAQ</a><br>
+                <a class="footer-link" href="{% url 'contact' %}">Contact me</a><br>
+            </div>
+        </div>
+
+        <div class="col-xs-10 col-md-3">
+            <!-- Social media -->
+            <div>
+                <a href="http://instagram.com/papeire" target="_blank" class="social-media-icons"><i class="fab fa-instagram fa-4x"></i></a>
+                <a href="{% url 'contact' %}" target="_blank" class="social-media-icons"><i class="fas fa-at fa-4x"></i></a>
+            </div>    
+        </div>
+    </div>    
+    </footer>
 </body>
+
+
+<!-- script for products' star ratings -->
+<script type="text/javascript" src="{% static 'star-ratings/js/dist/star-ratings.min.js' %}"></script>
 
 </html>

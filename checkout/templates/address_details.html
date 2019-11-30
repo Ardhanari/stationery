@@ -2,26 +2,15 @@
 {% load static %}
 {% load bootstrap_tags %}
 
-{% block head_js %}
-<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
-<script type="text/javascript">
-    //<![CDATA[
-        Stripe.publishableKey = '{{ publishable }}';
-    //]]>
-</script>
-<script type="text/javascript" src="{% static 'js/stripe.js' %}"></script>
-{% endblock %}
-
 {% block left-column %}
-    <i class="fas fa-credit-card fa-10x left-column-icon"></i>
+    <i class="far fa-address-card fa-10x left-column-icon"></i>
 {% endblock %}
 
 {% block breadcrumbs %}
-    <a href="{% url 'index' %}">Home</a> > <a href="{% url 'viewcart' %}">Your cart</a> > <a href="{% url 'addressdetails' %}">Address details</a> > Checkout 
+    <a href="{% url 'index' %}">Home</a> > <a href="{% url 'viewcart' %}">Your cart</a> > Address details
 {% endblock %}
 
 {% block content %}
-
 
 <h4>Order summary</h4>
 {% for item in cart_items %}
@@ -31,7 +20,7 @@
         <div class="col-2">€{{ item.product.price }}</div>
     </div>
 {% endfor %}
-
+<!-- Total price -->
 <div class="row align-items-center order-summary-row">
     <div class="col"></div>
 
@@ -57,25 +46,18 @@
 </div>
 <p></p>
 
-
-<form role="form" method="post" id="payment-form" action="{% url 'checkout' %}">
-    <legend>Payment Details</legend>
-
-    <div id="credit-card-errors" style="display: none;">
-        <div id="alert-message block-message error" id="stripe-error-message"></div>
-    </div>
-
+<form role="form" method="post" id="shipping-form" action="{% url 'addressdetails' %}">
+    <legend>Address details</legend>
+    <small>If you already made and order in Papeire in the past, this form contains the address you previously saved. Make sure it is still up to date!</small>
+    <br>
+    <br>
     <div class="form-group">
-        {{ order_form | as_bootstrap }}
-    </div>
-
-    <div class="form-group">
-        {{ payment_form | as_bootstrap}}
+        {{ shipping_form | as_bootstrap }}
     </div>
 
     {% csrf_token %}
     <div class="form-group">
-        <input class=" btn btn-primary" id="submit_payment_btn" name="commit" type="submit" value="Submit Payment">
+        <input class="btn btn-secondary" id="save_address" name="commit" type="submit" value="Proceed to checkout">
     </div>
 </form>
 {% endblock %}

@@ -2,27 +2,67 @@
 
 {% block page_title %}Your profile{% endblock %} 
 
-{% block page_heading %} {{ user }}'s profile{% endblock %}
+{% block page_heading %} Your profile{% endblock %}
+
+{% block breadcrumbs %}
+    <a href="{% url 'index' %}">Home</a> > Your profile
+{% endblock %}
+
+{% block left-column %}
+    <i class="fas fa-user-circle fa-10x left-column-icon"></i>
+{% endblock %}
 
 {% block content %}
 
-    Orders 
-<br>
-    {{ orders }}
-    <br>
-    Addresses
-<br>
-    {{ user.address }}
-<br>
-    Change password
-<br>
-    If you want to change your password <a href="">request password change</a>. Link to set new password will be sent tou your account email address ({{ user.email }})
-<br>
-    <!-- <p>{{ user.email }}</p>
-    <p>{{ user.username }}</p> -->
+    <h3 id="orders">Orders <small class="text-muted">Orders you have placed</small></h3>
+    <div class="container profile-container">
+        {% if orders %}
+            {% for order in orders %}
+                {% if forloop.counter <= orders|length %}        
+                    <span class="vieworder">
+                        <a href="{% url 'vieworder' order.id %}"> {{ order.date }}</a>
+                    </span>
+                {% endif %}
+            {% endfor %}
+        {% else %}
+            <p>No orders found!</p>
+        {% endif %}
+    </div>
+    
+    <h3 id="address">Your shipping address <small class="text-muted">Saved when you placed your order last time</small></h3>
+    <div class="container profile-container">
+        {% if shipping_address %}
+            <div class="card border-light mb-3" style="max-width: 18rem;">
+                <div class="card-header">{{ shipping_address.company }}</div>
+                <div class="card-body">
+                    <h5 class="card-title">{{ shipping_address.full_name }}</h5>
+                    <p class="card-text">
+                        {{ shipping_address.street_address1 }}<br>
+                        {{ shipping_address.street_address1 }}<br>
+                        {{ shipping_address.postcode }}<br>                        
+                        {{ shipping_address.town_or_city }}<br>
+                        {{ shipping_address.county }}<br>
+                        {{ shipping_address.country.name }}<br>
+                        {{ shipping_address.phone_number }}</p>
+                </div>
+                <div class="card-footer bg-transparent border-warning">
+                    <small>
+                    Is something incorrect? 
+                    You can <a href="{% url 'edityouraddress' %}">edit your address here</a> or when placing next order. 
+                    </small>
+                </div>
+            </div>
+            
+        {% else %}
+            There is no saved addresses for the moment! Place an order to save one. 
+        {% endif %}
+    </div>
 
-    <p>{{ profile.email }}</p>
-    <p>{{ profile.username }}</p>
+    <h3 id="change_password">Change password</h3>
+    <div class="container profile-container">
+        If you want to change your password <a href="{% url 'password_reset' %}">request password change</a>. <br>
+        Link to set new password will be sent to your account email address ({{ user.email }})
+    </div>
 
 {%endblock %}
 

@@ -2,5 +2,5 @@ __pycache__/
 .gitpod.yml
 env.py
 
-.*sqlite3
+*.sqlite3
 migrations/

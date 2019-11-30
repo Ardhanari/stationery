@@ -5,45 +5,60 @@
 
 {% block page_heading %}Shopping cart{% endblock %}
 
+{% block left-column %}
+    <i class="fas fa-shopping-cart fa-10x left-column-icon"></i>
+{% endblock %}
+
+{% block breadcrumbs %}
+    <a href="{% url 'index' %}">Home</a> > Your cart
+{% endblock %}
+
 {% block content %}
 
-<div class="row row flex">
-
     {% for item in cart_items %}
-                <!-- add materialize classes-->
-    <div class="display panel panel-default">
-        <div class="panel-body">
-            <div class="product" style="background-image: url('{{ MEDIA_URL }}{{ item.product.image }}')"></div>
-            <img src="{{ MEDIA_URL }}{{ item.product.image }}">
 
+    <div class="row align-items-center cart-item-row">
+        <img src="{{ MEDIA_URL }}{{ item.product.image }}" class="img-fluid cart-thumbnail">
 
-            <div class="caption">
-                <h3>{{ item.product.name }} {{ item.product.variant }}</h3>
-                <p class="product-description">{{ item.product.description }}</p>
-                <p>{{ item.product.price }}</p>
-                <p>
-                    
-                    <form class="form-inline" method="post" action="{% url 'editcart' item.id %}">
-                        {% csrf_token %}
-                        <div class="form-group">
-                            <div class="input-group">
-                                <div class="input-group-addon">Qty</div>
-                                <input name="quantity" type="number" min="0" max="{{ item.product.quantity }}" class="form-control">
-                                <div class="input-group-addon">{{ item.quantity }}</div>
-                            </div>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Edit</button>
-                    </form>
-                </p>
-            </div>
+        <div class="col-xs-10 offset-xs-1 col-md">
+            <a href="{% url 'singleproduct' item.product.id %}"><span class="cart-inline-product-name">{{ item.product.name }}</span></a>
         </div>
-    </div>  
-    <div class="row">
-        <p>Total</p>
-        <p>{{ total }}</p>
-        <a href="{% url 'checkout' %}" class="btn btn-success" role="button"></span>Complete order</a>
+
+        <div class="col-xs-10 offset-xs-1 col-md">
+            <small>Edit quantity:</small>
+            <form class="form-inline" method="post" action="{% url 'editcart' item.id %}">
+                {% csrf_token %}
+                <div class="form-group">
+                    <div class="input-group">
+                        <input name="quantity" type="number" min="0" max="{{ item.product.quantity }}" value="{{ item.quantity }}" class="form-control cart-quantity-input">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Edit</button>
+            </form>
+        </div>
+
+        <div class="col-xs-10 offset-xs-1 col-md-2">€{{ item.product.price }}</div>
     </div>
+
     {% endfor %}
+    
+    <div class="row total-price">
+        <div>
+            <p>Total for products: €{{ total_for_products }}</p>
+        </div>
+    </div>
+    <div class="row total-price">
+        <div>
+            <p>Shipping: €{{ shipping_rate }}</p>
+        </div>
+    </div>
+    <div class="row total-price">
+        <div>
+            <p><strong>Total: €{{ total }}</strong></p>
+            <a href="{% url 'addressdetails' %}" class="btn btn-success" role="button"></span>Proceed to checkout</a>
+        </div>
+    </div>
+
 
 </div>
 
