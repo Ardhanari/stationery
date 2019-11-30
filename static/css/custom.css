@@ -312,6 +312,18 @@ h4 {
     border-bottom: 0px;
 }
 
+/* Adjusting star ratings content */
+
+.star-ratings-rating-average, 
+.star-ratings-rating-count,
+.star-ratings-rating-user {
+    display: none;
+}
+
+.star-ratings-rating-stars-container {
+    font-size: 0.6em;
+}
+
 @media (min-width:420px) and (max-width: 768px) {
     .full-picture {
         height: 50vh;
