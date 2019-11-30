@@ -6,7 +6,7 @@
 
 Papeire is an online stationery shop that will sell handmade and vintage journals, papers and accessories. The idea for the shop was born in my mind a couple of years ago and stayed alive until today.
 
-The name combines in a clever way word “paper” and “Eire” which is the Irish name of Ireland.
+The name combines in a clever way word “paper” and “Eire” which is the Irish word for Ireland.
 
 [Image]
 
@@ -15,69 +15,65 @@ The name combines in a clever way word “paper” and “Eire” which is the I
 #### User Goals
 
 Groups targeted by Papeire are:
-People interested in making their own journalling experience using a selection of craft materials and products
-People following Instagram profiles and youtube accounts involved in creative journaling (like @journalwithpurpose or Skylar Hand)
-People looking for unique handmade or vintage products
-People who prefer to support local artists and sellers instead of bigger firms and corporations
+- People interested in making their own journalling experience using a selection of craft materials and products
+- People following Instagram profiles and youtube accounts involved in creative journaling (like @journalwithpurpose or Skylar Hand)
+- People looking for unique handmade or vintage products
+- People who prefer to support local artists and sellers instead of bigger firms and corporations
 
 ##### User goals are:
 
-Find a new journal for a bullet journal or a diary
-Find a gift for their crafty friend
-Buy a mystery grab bag containing curated elements for creative journaling
-Navigate the shop with ease and buy the things they need in a secure way
+- Find a new journal for a bullet journal or a diary
+- Find a gift for their crafty friend
+- Buy a mystery grab bag containing curated elements for creative journaling
+- Navigate the shop with ease and buy the things they need in a secure way
 
 ##### Papeire will meet these goals by:
 
-Being a //cameral// website, using design clues to cue the user they interact with an independent small shop
-Having navigation that contains only the necessary information for the users 
-Presenting products with all the information user may need when choosing the product for purchase
-Providing easy access to product categories and products themselves, including search using keywords
-Having a flat rate for shipping worldwide - which means users can buy as much and as little as they need
+- Being a //cameral// website, using design clues to cue the user they interact with an independent small shop
+- Having navigation that contains only the necessary information for the users 
+- Presenting products with all the information user may need when choosing the product for purchase
+- Providing easy access to product categories and products themselves, including search using keywords
+- Having a flat rate for shipping worldwide - which means users can buy as much and as little as they need
 
 #### Business Goals
 ##### Papeire business goals
 
-Provide a complete online shop that helps the user to browse, choose and buy products
-Make sure the users are feeling safe while completing a purchase
-Build the brand alongside an Instagram account 
-Make sales easy and straightforward for buyers
+- Provide a complete online shop that helps the user to browse, choose and buy products
+- Make sure the users are feeling safe while completing a purchase
+- Build the brand alongside an Instagram account 
+- Make sales easy and straightforward for buyers
 
 ### UX user stories
 
 #### User Stories
 A visitor to Papeire may expect, want or need: 
 
-To have easy access to products overview and the expected style and feel that I can get from products
-Easy access to all the information I need - not only on available products but also on shipping and handling of the order [[ add to FAQ who handles the payment and how ]]
-Easy navigation that walks me through the whole process of choosing and purchasing the product, without frustration and confusion
-The ability to skim through a larger number of products but also to read detailed information on each one of these
-Responsiveness on any device, no matter its size or internet connection
-Content looking good and accessible 
-Learn about the shop owner and their process of creation and preparation of product
-To be able to read reviews of the product previously purchased by other customers  
-To understand how many items I'm buying and how many there are in stock 
-To use search function allowing me to get results specific for my query 
-Clear terms and conditions, including privacy policy 
-To have easy access to frequently asked questions page that contains answers to the questions I may have when placing my order 
-To be able to see clear and easy to understand summary of my order during the checkout process, including the total cost of the products and shipping rate
-To be able to access information about my previous orders and the status they are at
-To be able to find the shop’s Instagram profile and connect with the shop owner on another platform or to contact them using contact form embedded on the website
-To write reviews of the products I purchased 
-To receive clear feedback whenever I take any action on  the website - such as adding the product to the cart, changing its quantity, going through the checkout process, reviewing products or managing my account
+- To have easy access to products overview and the expected style and feel that I can get from products
+- Easy access to all the information I need - not only on available products but also on shipping and handling of the order [[ add to FAQ who handles the payment and how ]]
+- Easy navigation that walks me through the whole process of choosing and purchasing the product, without frustration and confusion
+- The ability to skim through a larger number of products but also to read detailed information on each one of these
+- Responsiveness on any device, no matter its size or internet connection
+- Content looking good and accessible 
+- Learn about the shop owner and their process of creation and preparation of product
+- To be able to read reviews of the product previously purchased by other customers  
+- To understand how many items I'm buying and how many there are in stock 
+- To use search function allowing me to get results specific for my query 
+- Clear terms and conditions, including privacy policy 
+- To have easy access to frequently asked questions page that contains answers to the questions I may have when placing my order 
+- To be able to see clear and easy to understand summary of my order during the checkout process, including the total cost of the products and shipping rate
+- To be able to access information about my previous orders and the status they are at
+- To be able to find the shop’s Instagram profile and connect with the shop owner on another platform or to contact them using contact form embedded on the website
+- To write reviews of the products I purchased 
+- To receive clear feedback whenever I take any action on  the website - such as adding the product to the cart, changing its quantity, going through the checkout process, reviewing products or managing my account
 
 ## UI - design elements
-Fonts - Icons - Colors
-
 ### Fonts
 
 Fonts used on the website are:
-Main header of the website containing the name of the shop:
-Abel (backed up by system sans-serif font)
-Headings and product links 
-[  fanwood? ] (backed up by Georgia and then by system serif font)
-Content text (including text level links)
-Open Sans (backed up by system sans-serif font)
+- Main header, headings and product links 
+-- Fanwood Text (backed up by Georgia and then by system serif font)
+- Content text (including text level links)
+-- Open Sans (backed up by system sans-serif font)
 
 ### Colours palette
 
@@ -91,21 +87,21 @@ Colours combinations were checked against contrast issues and accessibility.
 ### Icons 
 
 Following pages use icons to cue the user visually about what page they are on and what actions they can take:
-FAQ
-Contact me
-Profile
-View order
-Cart
-Address details (part of checkout)
-Card payment details (part of checkout)
-404 page
+- FAQ
+- Contact me
+- Profile
+- View order
+- Cart
+- Address details (part of checkout)
+- Card payment details (part of checkout)
+- 404 page
 
 The icons are hidden on smaller screens to ensure the content is not overwhelmed by visual elements. 
 
 
 ### UI/UX differences between mockups and final version
 
-Initial mockups were created using Figma and are available [[ here ]]. Navigate between pages using the pages menu on the top of the left column.
+Initial mockups were created using Figma and are available [here](https://www.figma.com/file/UmFDPng20jNh7YOAHgqtjS/stationery?node-id=0%3A1). Navigate between pages using the pages menu on the top of the left column.
 
 The final product remained somehow faithful to the original idea, however, some deliberate changes were made to ensure better UX
 
@@ -115,14 +111,14 @@ I spend quite a lot of time trying out different models for database relations i
 
 I visualised the relational schema using [[ ]] and it’s available at [[ ]]
 
-To track all features needing implementation, bugs, improvements and potential updates I used [[ Trello board ]] - with a clear process outlined by the tabs: 
-To-Do - tab containing all the things needed to build the project from scratch, including not only backed and frontend but also documentation, testing and content
-In progress - tab containing things that I started to work on but are somewhere between 0% and 90% completed
-Almost done - things that need last tweaks and adjustment before being ready
-Done
-Need improving/fixing - house for any improvements and bugs found during development 
-Future updates - things that are planned, but not necessary or not viable to present at the deadline for the project 
-Trash can (not cannot) - potential elements, functions or changes that are not planned to appear in any time in the future - but may be if the specific need occurs. 
+To track all features needing implementation, bugs, improvements and potential updates I used [Trello board](https://trello.com/b/xSgyQgU2/milestone-project-4) - with a clear process outlined by the tabs: 
+- To-Do - tab containing all the things needed to build the project from scratch, including not only backed and frontend but also documentation, testing and content
+- In progress - tab containing things that I started to work on but are somewhere between 0% and 90% completed
+- Almost done - things that need last tweaks and adjustment before being ready
+- Done
+- Need improving/fixing - house for any improvements and bugs found during development 
+- Future updates - things that are planned, but not necessary or not viable to present at the deadline for the project 
+- Trash can (not cannot) - potential elements, functions or changes that are not planned to appear in any time in the future - but may be if the specific need occurs. 
 
 The board uses following tags to split tasks into different categories: Planning, General functionality, Specific functionality, Improvement, BUG, Testing, Security, Lookin’ good (for styling), Content, Questions, Documentation
 
@@ -157,59 +153,58 @@ Displays 4 elements in the row (on desktop, 2 elements on smaller screens, 1 ele
 
 ### Features to be implemented
 
-Pagination - while it is a functionality that is native to any online shop, the store will probably have only a handful of products available at the same time, as they are handmade and available in very few copies. Pagination may be implemented in the future update if the number of products increases over ~15 unique products however at that point in time this functionality probably wouldn’t be active anyway, even if implemented
-Discount + user coupons logic - to be implemented in the future. Products have now one field prepared for storing discount information. 
-Better handling of URLs for categories - for now, the categories don’t have a slug and use category name to show the page. It shouldn’t cause problems with most if not all modern browsers, however using slugs could make it even more errorproof
-Instagram feed overview of the hashtags used with the products pictures - this one requires Instagram content (pictures/posts) using #papeire and/or specific hashtag for the product. In brief, it’s supposed to gather posts showing the specific product and display them at the bottom of the product page
-Multiple pictures for one product - this will be crucial for bigger handmade products (handbinded journal as opposed to sheet of stickers) and will be coming in the future updates. The implementation should be straightforward, as it requires only a duplication of the fields in the database and changing the frontend display by binding preview pictures to existing picture container and creating function that will allow going through all of them
-Feedback messages moved to pop-ups instead of usual green or red bar on the top of the content - this one is tricky and I’m still not sure if viable to implement. Current feedback solution is traditional and users are used to it and uderstand the messages clearly. However moving some of the feedback to a modal or pop-up (for example when adding an item to the cart) could prove useful, as it is an element used by many online stores. 
+- Pagination - while it is a functionality that is native to any online shop, the store will probably have only a handful of products available at the same time, as they are handmade and available in very few copies. Pagination may be implemented in the future update if the number of products increases over ~15 unique products however at that point in time this functionality probably wouldn’t be active anyway, even if implemented
+- Discount + user coupons logic - to be implemented in the future. Products have now one field prepared for storing discount information. 
+- Better handling of URLs for categories - for now, the categories don’t have a slug and use category name to show the page. It shouldn’t cause problems with most if not all modern browsers, however using slugs could make it even more errorproof
+- Instagram feed overview of the hashtags used with the products pictures - this one requires Instagram content (pictures/posts) using #papeire and/or specific hashtag for the product. In brief, it’s supposed to gather posts showing the specific product and display them at the bottom of the product page
+- Multiple pictures for one product - this will be crucial for bigger handmade products (handbinded journal as opposed to sheet of stickers) and will be coming in the future updates. The implementation should be straightforward, as it requires only a duplication of the fields in the database and changing the frontend display by binding preview pictures to existing picture container and creating function that will allow going through all of them
+- Feedback messages moved to pop-ups instead of usual green or red bar on the top of the content - this one is tricky and I’m still not sure if viable to implement. Current feedback solution is traditional and users are used to it and uderstand the messages clearly. However moving some of the feedback to a modal or pop-up (for example when adding an item to the cart) could prove useful, as it is an element used by many online stores. 
 
 ### Features that didn’t make it to the final cut (not implemented nor planned)
 
-is_digital - while initially was a part of the Product model and it would specify if the product is eligible to digital download after the purchase, during the development I realised that there will probably no downloadable products in any near future. The field was removed from product table and won’t return in future updates 
-stripe pre-built checkout page - could be an option to ensure users they are using a dedicated and secure element to handle their orders, however, the distinct look and incompatibility with current address and order way of storing data makes it not a priority for now. 
-all other elements at the last card of the [[ Trello page ]]
+- is_digital - while initially was a part of the Product model and it would specify if the product is eligible to digital download after the purchase, during the development I realised that there will probably no downloadable products in any near future. The field was removed from product table and won’t return in future updates 
+- stripe pre-built checkout page - could be an option to ensure users they are using a dedicated and secure element to handle their orders, however, the distinct look and incompatibility with current address and order way of storing data makes it not a priority for now. 
+- all other elements at the last card of the [Trello page](https://trello.com/b/xSgyQgU2/milestone-project-4)
 
 ## Information architecture
 
 Detailed database schema can be found at [[ ]]
 
-## Bugs found in dev
+## Issues found in dev
 
 < any bugs? >
 
 ## Technologies used
 
-Gitpod - IDE used for developing this project from scratch
-Django - python web framework 
-Stripe - payment platform handling all validation and secure payments via credit card
-Travis for continuous integration
-AWS S3 Bucket to store static files and Boto3 for creation and management of AWS S3 
-Boto3
+- Gitpod - IDE used for developing this project from scratch
+- Django - python web framework 
+- Stripe - payment platform handling all validation and secure payments via credit card
+- Travis for continuous integration
+- AWS S3 Bucket to store static files and Boto3 for creation and management of AWS S3 
+- Boto3
 [[ Coverage for coverage of python unittests / planned ]]
-Heroku 
+- Heroku 
 'django_countries',
 'django_forms_bootstrap',
 'star_ratings',
-Gunicorn - WSGI HTTP Server for UNIX for deployment to heroku
-Pillow - python imagining library to handle media upload
-Psycopg2 - PostgreSQL database adapter for Python
-PIP - installation tool
-Git - version control and GitHUb to store and share the project code
+- Gunicorn - WSGI HTTP Server for UNIX for deployment to heroku
+- Pillow - python imagining library to handle media upload
+- Psycopg2 - PostgreSQL database adapter for Python
+- PIP - installation tool
+- Git - version control and GitHUb to store and share the project code
 
 
 ## Databases
-SQlite3 for development database (provided by django) 
-PostgresSQL for production database (provided by heroku)
+- SQlite3 for development database (provided by django) 
+- PostgresSQL for production database (provided by heroku)
 
 ## Libraries
-Bootstrap to ensure responsiveness of the layout and for basic elements styling
-JQuery, scarcely, to simplify DOM manipulation, as a part of Bootstrap implementation
-Font Awesome to provide icons for Papeire
-Google FOnts to host and provide layout fonts
+- Bootstrap to ensure responsiveness of the layout and for basic elements styling
+- JQuery, scarcely, to simplify DOM manipulation, as a part of Bootstrap implementation
+- Font Awesome to provide icons for Papeire
+- Google Fonts to host and provide layout fonts
 
 This project was built using HTML, CSS, Javascript and Python. 
-
 
 ## Testing manual
 
@@ -219,7 +214,7 @@ user storeis testing
 
 ## Testing automatic
 
-To re-run all the tests included in the repository clone it first and deploy locally (as written out in [[]]. Remember to move the files for each app from tests/ directory (where they are stored for convenience and cleaner file structure) back to the app level folder.
+To re-run all the tests included in the repository clone it first and deploy locally (as written out in Deployment section). Remember to move the files for each app from tests/ directory (where they are stored for convenience and cleaner file structure) back to the app level folder.
 
 You can run these tests using `python manage.py test` in your terminal 
 
