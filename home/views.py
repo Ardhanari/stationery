@@ -15,6 +15,10 @@ def faq(request):
     return render(request, 'faq.html')
 
 def contact(request):
+    """
+    Renders contact page
+    With POST - sends an email to shop inbox
+    """
 
     if request.method == 'GET':
         form = ContactForm()
@@ -26,7 +30,7 @@ def contact(request):
             message = form.cleaned_data['message']
             
             try:
-                send_mail(subject, message, from_email, ['genevril@gmail.com', ])
+                send_mail(subject, message, from_email, ['stationerycuriousshop@gmail.com', ])
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
             messages.success(request, "Message sent! Thank you")

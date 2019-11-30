@@ -9,8 +9,7 @@ from products.forms import ProductReviewForm
 from products.models import Product, ProductReview
 
 def index(request):
-    """Return index.html file"""
-
+    """Returns index.html file"""
     return render(request, 'index.html')
 
 @login_required
@@ -77,25 +76,20 @@ def user_profile(request):
     
     try: 
         orders = Order.objects.all().filter(user=user).order_by('-date')
-        print("orders found") # sanity check
-        print(orders)
-        try:
-            shipping_address = ShippingAddress.objects.get(user=user)
-            print("shipping_address found") # sanity check
-            print(shipping_address)
-            return render(request, 'userprofile.html', {"profile": user, 'orders': orders, 'shipping_address': shipping_address})
-        except:
-            print("only order, no address")
-            return render(request, 'userprofile.html', {"profile": user, 'orders': orders})
-                
+        shipping_address = ShippingAddress.objects.get(user=user)
+        return render(request, 'userprofile.html', {"profile": user, 'orders': orders, 'shipping_address': shipping_address})
+        # try:
+        #     shipping_address = ShippingAddress.objects.get(user=user)
+        #     return render(request, 'userprofile.html', {"profile": user, 'orders': orders, 'shipping_address': shipping_address})
+        # except:
+        #     return render(request, 'userprofile.html', {"profile": user, 'orders': orders})     
     except: 
-        print("nothing found") # sanity check
         return render(request, 'userprofile.html', {"profile": user})
 
 def view_order(request, id):
     """
     Renders overview of an order placed by the user 
-    Allows to write the review 
+    Allows to write the review of product bought
     """
     user = request.user
     selected_order = Order.objects.get(id=id)
@@ -103,12 +97,6 @@ def view_order(request, id):
     review_form = ProductReviewForm()
 
     user_reviews = list(ProductReview.objects.all().filter(author=user))
-    # list_of_reviews = list(ProductReview.objects.all().filter(author=user))
-
-    # for review in list_of_reviews:
-    #     print(review)
-    #     user_reviews.append(review)
-    #     print(user_reviews)
 
     if user_reviews:
         return render(request, 'vieworder.html', {'selected_order': selected_order, 'order_items': order_items, 'review_form': review_form, 'user_reviews': user_reviews })
@@ -133,7 +121,7 @@ def submit_product_review(request, id):
                 review_form = review_form.save(commit=False)
                 review_form.author = user
                 review_form.product_id = id
-                review_form.id = review.id
+                review_form.id = review.id # makes sure to overwrite existing row instead of creating new one
                 review_form.save()
                 messages.success(request, "Your review was updated")
             except:
@@ -158,6 +146,7 @@ def edit_your_address(request):
     address_exists = ShippingAddress.objects.get(user=user)
     shipping_address = ShippingAddress.objects.get(user=user)
 
+    # prepopulates form with existing data
     shipping_address_form = ShippingAddressForm(initial={'full_name': address_exists.full_name, 'company': address_exists.company, 
                                                                 'street_address1': address_exists.street_address1, 'street_address2': address_exists.street_address2,
                                                                 'postcode': address_exists.postcode, 'town_or_city': address_exists.town_or_city, 
@@ -176,7 +165,7 @@ def edit_your_address(request):
             messages.success(request, "Address saved")
             return redirect(reverse('userprofile'))     
         else:
-            messages.warning(request, "Your changes weren't saved. Make sure all fields are filled correctly.<BR>If you want to delete your address, use delete link from your user profile. ")                                                               
+            messages.warning(request, "Your changes weren't saved. Make sure all fields are filled correctly.")                                                               
             return redirect(reverse('edityouraddress'))     
 
     return render(request, "editaddress.html", {'shipping_form': shipping_address_form})        
@@ -187,11 +176,4 @@ def delete_your_address(request):
     Will be reinstated after changing Order and ShippingAddres structure and relation
     that will allow to delete address (ShippingAddress) but keep the address in Order model
     """
-    # user = request.user
-    # address_exists = ShippingAddress.objects.get(user=user)
-
-    # address_exists.delete()
-
-    # messages.success(request, "Address succesfully deleted!")
-    # return redirect(reverse('userprofile'))
     pass

@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .forms import MakePaymentForm, OrderForm
 from .models import OrderLineItem
-from accounts.forms import ShippingAddressForm # model to store address in the database for later use?
+from accounts.forms import ShippingAddressForm
 from accounts.models import ShippingAddress 
 from django.conf import settings
 from django.utils import timezone
@@ -31,10 +31,6 @@ def address_details(request):
             return redirect(reverse('checkout'))
 
         else: 
-            # shipping_address = shipping_address_form.save(commit=False)
-            # shipping_address.user = user
-            # shipping_address.save()
-            print("BOOOO")
 
             messages.error(request, "There was a problem with saving your data. Please make sure all fields are filled correctly.")
             return redirect(reverse('addressdetails'))
@@ -42,7 +38,7 @@ def address_details(request):
     else:
         try:
             address_exists = ShippingAddress.objects.get(user=user)
-            print("ok")
+            # prepopulates form with existing data
             shipping_address_form = ShippingAddressForm(initial={'full_name': address_exists.full_name, 'company': address_exists.company, 
                                                                 'street_address1': address_exists.street_address1, 'street_address2': address_exists.street_address2,
                                                                 'postcode': address_exists.postcode, 'town_or_city': address_exists.town_or_city, 
@@ -50,9 +46,6 @@ def address_details(request):
                                                                 'phone_number': address_exists.phone_number
                                                                 }, auto_id=False)
 
-        # except Exception as e:
-        #     print('%s (%s)') % (e.message, type(e))
-        #     print("not ok")
         except:
             shipping_address_form = ShippingAddressForm() 
 
@@ -60,6 +53,9 @@ def address_details(request):
 
 @login_required()
 def checkout(request):
+    """
+    if form is posted and valid sends allows stripe to handle the payment 
+    """
     if request.method == "POST":
         order_form = OrderForm(request.POST)
         payment_form = MakePaymentForm(request.POST)
@@ -69,7 +65,6 @@ def checkout(request):
         if payment_form.is_valid():
 
             shipping_address = ShippingAddress.objects.get(user=user)
-            print(shipping_address)
             
             order = order_form.save(commit=False)
             order.address_id = shipping_address.id
@@ -113,16 +108,11 @@ def checkout(request):
                 messages.error(request, "Unable to take payment at this time")
                 return redirect(reverse('checkout'))
         else:
-            print(payment_form.errors)
             messages.error(request, "We were unable to take a payment with that card!")
     else:
         user = request.user
-        shipping_address_form = ShippingAddress.objects.get(user=user) # if shipping address exists in the database - prepopulate, if not leave blank
+        shipping_address_form = ShippingAddress.objects.get(user=user) 
         order_form = OrderForm(initial={'phone_number': shipping_address_form.phone_number})
-        # try: 
-        #     shipping_address_form = ShippingAddress.objects.get(user=user) # if shipping address exists in the database - prepopulate, if not leave blank
-        # except: 
-        #     shipping_address_form = ShippingAddress()
         payment_form = MakePaymentForm()    
     
     return render(request, "checkout.html", {"order_form": order_form, "payment_form": payment_form, "publishable": settings.STRIPE_PUBLISHABLE})

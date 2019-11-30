@@ -43,7 +43,8 @@
                 <!-- This loop works - prints out either review or empty line -->
             {% endif %}
         {% endfor %}
-            <h4>Update your review:</h4>    
+            
+            <h4>Your review:</h4>    
             <form method="POST" action="{% url 'submitproductreview' item.product.id %}">
                 {% csrf_token %}
                 {{ review_form | as_bootstrap }}
