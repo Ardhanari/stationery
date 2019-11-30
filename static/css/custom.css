@@ -28,8 +28,15 @@ a:hover {
 
 .btn {
     background-color: #FFC656;
-    border: 1px #FFC656;
+    border: 1px #FFC656 solid;
     color: #555555;
+}
+
+.btn:hover,
+.btn:active {
+    color: #FFC656;
+    background-color: #555555;
+    border: 1px #555555 solid;
 }
 
 h1, h2 {
@@ -87,6 +94,11 @@ nav {
 #search {
     background-color: #FFC656;
     padding-bottom: 5px;
+}
+
+button[type=search] {
+    background-color: #555555;
+    color: #FFC656;
 }
 
 /* Left column - Icon, categories and  sorting option */
@@ -335,7 +347,8 @@ h4 {
 @media (min-width: 768px) {
     .fas.left-column-icon,
     .far.left-column-icon {
-        display: inline;
+        display: inline-block;
+        padding: 20px;
     }
 
     .full-picture {
