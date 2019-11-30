@@ -59,6 +59,16 @@ h2>a:hover,
     color: #ffffff;   
 }
 
+.jumbotron {
+    background-color: #FFC656;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    margin: 0 0 0 0;
+}
+
+/* Navigations styles */
+
 nav {
     justify-content: center;
     background-color: #FFC656;
@@ -74,21 +84,26 @@ nav {
     background-color: #FFF5DB;
 }
 
-.jumbotron {
-    background-color: #FFC656;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-    margin: 0 0 0 0;
-}
-
 #search {
     background-color: #FFC656;
     padding-bottom: 5px;
 }
 
-.left-column-icon {
+/* Left column - Icon, categories and  sorting option */
+
+.fas.left-column-icon,
+.far.left-column-icon {
     display: none;
+}
+
+.categories-menu {
+    display: block;
+    margin: 0 auto;
+}
+
+.list-group {
+    padding-left: 15px;
+    margin-bottom: 1rem;
 }
 
 .sorting-option {
@@ -105,19 +120,11 @@ nav {
     background-color: #ffffff;
 }
 
+/* MAIN CONTENT STYLES */
+
 .main-content-header {
     margin-top: 50px;
     margin-bottom: 50px;
-}
-
-.categories-menu {
-    display: block;
-    margin: 0 auto;
-}
-
-.list-group {
-    padding-left: 15px;
-    margin-bottom: 1rem;
 }
 
 .main-content-container {
@@ -134,12 +141,10 @@ nav {
 }
 
 .product-container {
-    /* background-color: #000000; */
     margin-bottom: 35px;
 }
 
 .product {
-    /* background-color: pink; */
     text-align: center;
     margin: 0px;
 }
@@ -150,8 +155,6 @@ nav {
 }
 
 .product-thumbnail {
-    /* width: 200px; */
-    /* height: 200px; */
     display: block;
     margin: 0 auto;
     border: 0px;
@@ -162,6 +165,8 @@ nav {
     background-size: cover;
     overflow: hidden;
 }
+
+/* Single product page */
 
 .product-title-link {
     font-variant: small-caps;
@@ -209,6 +214,8 @@ nav {
     padding-top: 15px;
 }
 
+/* Cart */
+
 .cart-item-row {
     display: flex;
     justify-content: flex-start;
@@ -248,6 +255,8 @@ nav {
     padding-bottom: 10px;
 }
 
+/* User profile */
+
 h4 {
     margin: 15px 0px;
 }
@@ -266,6 +275,8 @@ h4 {
 .card-header {
     background-color: #ffffff;
 }
+
+/* /footer */
 
 #footer {
     background-color: #FFC656;
@@ -310,6 +321,11 @@ h4 {
 }
 
 @media (min-width: 768px) {
+    .fas.left-column-icon,
+    .far.left-column-icon {
+        display: inline;
+    }
+
     .full-picture {
         width: inherit;
         height: 500px;
