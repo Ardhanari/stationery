@@ -18,15 +18,25 @@ def address_details(request):
 
     if request.method == "POST":
         shipping_address_form = ShippingAddressForm(request.POST) 
+        shipping_address_form.user_id = user
 
         if shipping_address_form.is_valid():
             shipping_address = shipping_address_form.save(commit=False)
-            shipping_address.user = user
+
+            import pdb; pdb.set_trace()
             try:
-                shipping_address.id = ShippingAddress.objects.get(user=user).id
+                print("trying to find if that address is in the base already")
+                shipping_address = get_object_or_404(ShippingAddress, user=user)
+                # shipping_address = ShippingAddress.objects.get(user=user)
+                pdb.set_trace()
             except:
+                print("failed to find address, create new")
+                shipping_address.user = user
                 pass
+            
+            # shipping_address.user_id = user.id
             shipping_address.save()
+            print("Address saved")
             messages.success(request, "Address saved")
             return redirect(reverse('checkout'))
 

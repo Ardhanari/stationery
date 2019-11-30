@@ -8,25 +8,6 @@ from django_countries.fields import CountryField
 class Order(models.Model):
     user = models.ForeignKey(User)
     address = models.ForeignKey(ShippingAddress, on_delete=models.PROTECT, blank=False)
-    # just in case - plenty foreign keys
-    # full_name = models.ForeignKey(ShippingAddress, blank=False)
-    # company = models.ForeignKey(ShippingAddress, blank=True)
-    # street_address1 = models.ForeignKey(ShippingAddress, blank=False)
-    # street_address2 = models.ForeignKey(ShippingAddress, blank=True)
-    # postcode = models.ForeignKey(ShippingAddress, blank=True)
-    # town_or_city = models.ForeignKey(ShippingAddress, blank=False)
-    # county = models.CharField(max_length=40, blank=True)
-    # country = CountryField()
-    # below original model built at the beginning
-    # full_name = models.CharField(max_length=50, blank=False)
-    # company = models.CharField(max_length=50, blank=True)
-    # phone_number = models.CharField(max_length=20, blank=False)
-    # country = CountryField()
-    # postcode = models.CharField(max_length=20, blank=True)
-    # town_or_city = models.CharField(max_length=40, blank=False)
-    # street_address1 = models.CharField(max_length=40, blank=False)
-    # street_address2 = models.CharField(max_length=40, blank=False)
-    # county = models.CharField(max_length=40, blank=False)
     phone_number = models.CharField(max_length=20, blank=True)
     date = models.DateTimeField(default=timezone.now)
 
