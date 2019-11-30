@@ -1,6 +1,7 @@
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.http import Http404
+from django.db import ProgrammingError
 from .models import Product, ProductCategory, ProductReview
 
 def all_products(request):
@@ -27,7 +28,11 @@ def all_products(request):
 def single_product(request, id):
     """renders single product page with detailed information"""
     chosen_product = Product.objects.get(id=id)
-    product_reviews = ProductReview.objects.all().filter(product=chosen_product)
+    try: 
+        # product_reviews = ProductReview.objects.filter(product=chosen_product)
+        product_reviews = ProductReview.objects.all().filter(product=chosen_product)
+    except:
+        product_reviews = []
 
     return render(request, 'singleproduct.html', {'chosen_product': chosen_product, 'reviews': product_reviews})
 

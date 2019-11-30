@@ -12,6 +12,10 @@ def cart_content(request):
 
     for id, quantity in cart.items():
         product = get_object_or_404(Product, pk=id)
+        if quantity > product.quantity:
+            quantity = product.quantity
+        else: 
+            quantity = quantity
         total_for_products += quantity * product.price
         product_count += quantity
         total = total_for_products + shipping_rate

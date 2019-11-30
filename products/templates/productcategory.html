@@ -2,7 +2,7 @@
 
 {% block page_title %}{{ category.name }}{% endblock %} 
 
-{% block page_heading %}{{ category.name }}{% endblock %}
+{% block page_heading %}{{ category.name | upper }}{% endblock %}
 
 {% block breadcrumbs %}
     <a href="{% url 'index' %}">Home</a> > {{ category.name }}
