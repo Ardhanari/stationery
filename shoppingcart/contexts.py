@@ -5,13 +5,14 @@ def cart_content(request):
     cart = request.session.get('cart', {})
 
     cart_items = []
-    total_for_products = 0
+    total_for_products = 0 # price for products without shipping
     product_count = 0
     shipping_rate = 15
-    total = 0
+    total = 0 # final price of products and shipping 
 
     for id, quantity in cart.items():
         product = get_object_or_404(Product, pk=id)
+        # adjust the quantity of the product in cart so it's never more than available in stock
         if quantity > product.quantity:
             quantity = product.quantity
         else: 

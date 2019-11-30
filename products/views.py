@@ -7,7 +7,6 @@ from .models import Product, ProductCategory, ProductReview
 def all_products(request):
     """renders page with all available products, excluding these not available for buying"""
     all_categories = ProductCategory.objects.all().distinct()
-    print(all_categories) #sanity check
     products = Product.objects.all().exclude(quantity=0)
 
     # SORTING - if method was POST then the results will be sorted accordingly
@@ -29,7 +28,6 @@ def single_product(request, id):
     """renders single product page with detailed information"""
     chosen_product = Product.objects.get(id=id)
     try: 
-        # product_reviews = ProductReview.objects.filter(product=chosen_product)
         product_reviews = ProductReview.objects.all().filter(product=chosen_product)
     except:
         product_reviews = []
@@ -42,9 +40,7 @@ def product_category(request, category):
 
     try:
         chosen_category = ProductCategory.objects.get(name=category)
-        print("1")
         productsfromcategory = Product.objects.all().exclude(quantity=0).filter(category=chosen_category)
-        print("2")
     except:
         raise Http404()
 
