@@ -30,7 +30,7 @@ def single_product(request, id):
     chosen_product = Product.objects.get(id=id)
     try: 
         # product_reviews = ProductReview.objects.filter(product=chosen_product)
-        product_reviews = get_object_or_404(ProductReview, product=chosen_product)
+        product_reviews = ProductReview.objects.all().filter(product=chosen_product)
     except:
         product_reviews = []
 
