@@ -30,7 +30,7 @@ def single_product(request, id):
     try: 
         product_reviews = ProductReview.objects.all().filter(product=chosen_product)
     except:
-        pass
+        return render(request, 'singleproduct.html', {'chosen_product': chosen_product})
 
     return render(request, 'singleproduct.html', {'chosen_product': chosen_product, 'reviews': product_reviews})
 
