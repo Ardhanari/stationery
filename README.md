@@ -49,7 +49,7 @@ Groups targeted by Papeire are:
 A visitor to Papeire may expect, want or need: 
 
 - To have easy access to products overview and the expected style and feel that I can get from products
-- Easy access to all the information I need - not only on available products but also on shipping and handling of the order [[ add to FAQ who handles the payment and how ]]
+- Easy access to all the information I need - not only on available products but also on shipping and handling of the order
 - Easy navigation that walks me through the whole process of choosing and purchasing the product, without frustration and confusion
 - The ability to skim through a larger number of products but also to read detailed information on each one of these
 - Responsiveness on any device, no matter its size or internet connection
@@ -58,7 +58,6 @@ A visitor to Papeire may expect, want or need:
 - To be able to read reviews of the product previously purchased by other customers  
 - To understand how many items I'm buying and how many there are in stock 
 - To use search function allowing me to get results specific for my query 
-- Clear terms and conditions, including privacy policy 
 - To have easy access to frequently asked questions page that contains answers to the questions I may have when placing my order 
 - To be able to see clear and easy to understand summary of my order during the checkout process, including the total cost of the products and shipping rate
 - To be able to access information about my previous orders and the status they are at
@@ -109,7 +108,7 @@ The final product remained somehow faithful to the original idea, however, some 
 
 I spend quite a lot of time trying out different models for database relations in the planning phase (and clearly not enough, for more details see [[ Lessons learned ]] section)
 
-I visualised the relational schema using [[ ]] and it’s available at [[ ]]
+I visualised the relational schema using dbdiagram.io and it’s available at [https://dbdiagram.io/d/5dd5c301edf08a25543e2cd8](https://dbdiagram.io/d/5dd5c301edf08a25543e2cd8)
 
 To track all features needing implementation, bugs, improvements and potential updates I used [Trello board](https://trello.com/b/xSgyQgU2/milestone-project-4) - with a clear process outlined by the tabs: 
 - To-Do - tab containing all the things needed to build the project from scratch, including not only backed and frontend but also documentation, testing and content
@@ -168,7 +167,7 @@ Displays 4 elements in the row (on desktop, 2 elements on smaller screens, 1 ele
 
 ## Information architecture
 
-Detailed database schema can be found at [[ ]]
+Detailed database schema can be found at [https://dbdiagram.io/d/5dd5c301edf08a25543e2cd8](https://dbdiagram.io/d/5dd5c301edf08a25543e2cd8)
 
 ## Issues found in dev
 
