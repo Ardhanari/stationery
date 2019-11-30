@@ -35,9 +35,12 @@
                 </div>
                 <button type="submit" class="btn btn-primary">Edit</button>
             </form>
+            {% if item.quantity > item.product.quantity %}
+                <small style="color: red" id="item-cart-warning">You have more copies in cart than it's available. Please adjust quantity to {{item.product.quantity}} max!</small>
+            {% endif %}
         </div>
 
-        <div class="col-xs-10 offset-xs-1 col-md-2">€{{ item.product.price }}</div>
+        <div class="col-xs-10 offset-xs-1 col-md-2">{{ item.quantity }} x €{{ item.product.price }}</div>
     </div>
 
     {% endfor %}
