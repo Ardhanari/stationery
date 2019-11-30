@@ -31,7 +31,7 @@ def single_product(request, id):
     try: 
         # product_reviews = ProductReview.objects.filter(product=chosen_product)
         product_reviews = get_object_or_404(ProductReview, product=chosen_product)
-    except ProgrammingError as err:
+    except:
         product_reviews = []
 
     return render(request, 'singleproduct.html', {'chosen_product': chosen_product, 'reviews': product_reviews})
