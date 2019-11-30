@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Abel|Fanwood+Text|Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Fanwood+Text|Open+Sans&display=swap');
 
 body {
     /* background-color: #FFF5DB; */
@@ -44,7 +44,7 @@ h1 {
 
 h2 {
     backdrop-filter: contrast(120%);
-    font-family: 'Abel', sans-serif;
+    font-family: 'Fanwood Text', sans-serif;
 }
 
 h2>a:hover,
