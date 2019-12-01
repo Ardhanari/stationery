@@ -25,33 +25,33 @@ The name combines in a clever way word “paper” and “Eire” which is the I
 
 ## Table of contents
 
-- [UX](#ux)auto
-   - [Goals](#goals)auto
-        - [User Goals](#user-goals)auto
-        - [Business Goals](#business-goals)auto                
-    - [User stories](#user-stories)auto
-- [UI - design elements](#ui---design-elements)auto
-    - [Fonts](#fonts)auto        
-    - [Colours palette](#colours-palette)auto
-    - [Icons](#icons)auto
-    - [UI/UX differences between mockups and final version](#uiux-differences-between-mockups-and-final-version)auto
-- [Planning and development process](#planning-and-development-process)auto    
-- [Features](#features)auto
-    - [Features implemented](#features-implemented)auto
-    - [Features to be implemented](#features-to-be-implemented)auto
-    - [Features that didn’t make it to the final cut (not implemented nor planned)](#features-that-didnt-make-it-to-the-final-cut-not-implemented-nor-planned)auto
-- [Information architecture](#information-architecture)auto    
-- [Technologies used](#technologies-used)auto    
-    - [Databases](#databases)auto    
-    - [Libraries](#libraries)auto    
-    - [Support applications](#support-applications)auto
-- [Testing manual](#testing-manual)auto
-- [Automated testing](#automated-testing)auto
-- [Git version control / GitHub](#git-version-control--github)auto
-    - [How to run this project locally](#how-to-run-this-project-locally)auto
-- [Deployment](#deployment)auto
-- [Lessons learned](#lessons-learned)auto
-- [Credits, acknowledgements and all fun stuff](#credits-acknowledgements-and-all-fun-stuff)auto
+- [UX](#ux)
+   - [Goals](#goals)
+        - [User Goals](#user-goals)
+        - [Business Goals](#business-goals)                
+    - [User stories](#user-stories)
+- [UI - design elements](#ui---design-elements)
+    - [Fonts](#fonts)        
+    - [Colours palette](#colours-palette)
+    - [Icons](#icons)
+    - [UI/UX differences between mockups and final version](#uiux-differences-between-mockups-and-final-version)
+- [Planning and development process](#planning-and-development-process)
+- [Features](#features)
+    - [Features implemented](#features-implemented)
+    - [Features to be implemented](#features-to-be-implemented)
+    - [Features that didn’t make it to the final cut (not implemented nor planned)](#features-that-didnt-make-it-to-the-final-cut-not-implemented-nor-planned)
+- [Information architecture](#information-architecture)    
+- [Technologies used](#technologies-used)    
+    - [Databases](#databases)
+    - [Libraries](#libraries)
+    - [Support applications](#support-applications)
+- [Testing manual](#testing-manual)
+- [Automated testing](#automated-testing)
+- [Git version control / GitHub](#git-version-control--github)
+    - [How to run this project locally](#how-to-run-this-project-locally)
+- [Deployment](#deployment)
+- [Lessons learned](#lessons-learned)
+- [Credits, acknowledgements and all fun stuff](#credits-acknowledgements-and-all-fun-stuff)
 
 ## UX
 
