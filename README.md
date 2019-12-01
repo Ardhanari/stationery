@@ -1,3 +1,4 @@
+
 # Papeire 
 
 [![Build Status](https://travis-ci.org/Ardhanari/stationery.svg?branch=master)](https://travis-ci.org/Ardhanari/stationery)
@@ -8,7 +9,7 @@ Papeire is an online stationery shop that will sell handmade and vintage journal
 
 The name combines in a clever way word “paper” and “Eire” which is the Irish word for Ireland.
 
-[Image]
+![Responsiveness of Papeire]()
 
 ## UX
 ### Goals
@@ -16,7 +17,7 @@ The name combines in a clever way word “paper” and “Eire” which is the I
 
 Groups targeted by Papeire are:
 - People interested in making their own journalling experience using a selection of craft materials and products
-- People following Instagram profiles and youtube accounts involved in creative journaling (like @journalwithpurpose or Skylar Hand)
+- People following Instagram profiles and youtube accounts involved in creative journaling (like [@journalwithpurpose](https://www.instagram.com/journalwithpurpose/) or [Skylar Hand](https://www.youtube.com/channel/UCN1i6M8d1-80vy_DwTCf1VQ)
 - People looking for unique handmade or vintage products
 - People who prefer to support local artists and sellers instead of bigger firms and corporations
 
@@ -77,7 +78,7 @@ Fonts used on the website are:
 ### Colours palette
 
 Colours used in this project are the following: 
-[[ img ]]
+![Colour palette](docs/paleta.png)
 
 They were chosen based on how well they compliment vintage aesthetics, but at the same time, they are saturated enough to stand out and create the unique feel of the shop. 
 
@@ -88,6 +89,8 @@ Colours combinations were checked against contrast issues and accessibility.
 Following pages use icons to cue the user visually about what page they are on and what actions they can take:
 - FAQ
 - Contact me
+- Sign up
+- Log in
 - Profile
 - View order
 - Cart
@@ -123,41 +126,44 @@ The board uses following tags to split tasks into different categories: Planning
 
 ## Feautures
 ### Features implemented
-BACKEND
-Separate apps handling 
-user authentication and data
-orders placed in the shop
-products and their categories
-search 
-checkout 
-static pages
-the database containing information on users, shipping addresses, products available, orders placed
-password reset by email (using a dedicated account for the shop) 
+#### BACKEND
+- Handles separate apps for different parts of the website:
+		- User authentication and data (including shipping address)
+		- Orders placed in the shop
+		- Product and their categories
+		- Keyword search
+		- Two stage checkout
+		- Static pages
+- Database containing information on users, shipping addresses, products available, orders placed, rating of products etc. 
+- Allows sending emails to and from users (password reset + contact us form) using dedicated gmail account for the shop
 
 #### FRONTEND
 ##### elements on every page:
 header ensuring clear identification 
 simplistic navbar
 footer linking to all static pages and social media
-elements on multiple product pages
+##### Homepage/all products/categories/search results page:
+Displays 4 elements in the row (on desktop, 2 elements on smaller screens, 1 element on the smallest screens). 
+
+##### elements on multiple product pages
 left-side column: category block showing all available categories to browse
 left-side column: sorting dropdown allowing user to sort by price or date
-
-
+##### 
 icons for clear identification for pages that don’t have left-side column
 
-##### Homepage/all products/categories/search results page:
 
-Displays 4 elements in the row (on desktop, 2 elements on smaller screens, 1 element on the smallest screens). 
+
 
 ### Features to be implemented
 
-- Pagination - while it is a functionality that is native to any online shop, the store will probably have only a handful of products available at the same time, as they are handmade and available in very few copies. Pagination may be implemented in the future update if the number of products increases over ~15 unique products however at that point in time this functionality probably wouldn’t be active anyway, even if implemented
+- More than one shipping address per user - it requires changing the relation between Address and Order models. The fact that current relation may not be suitable for business purposes was realised during only mid-development and due to time constraints was moved to planned update.
+- Pagination - while it is a functionality that is native to any online shop, the store will probably have only a handful of products available at the same time, as they are handmade and available in very few copies. Pagination may be implemented in the future update if the number of products increases over ~15 unique products however at that point in time this functionality probably wouldn’t be active anyway, even if implemented.
 - Discount + user coupons logic - to be implemented in the future. Products have now one field prepared for storing discount information. 
-- Better handling of URLs for categories - for now, the categories don’t have a slug and use category name to show the page. It shouldn’t cause problems with most if not all modern browsers, however using slugs could make it even more errorproof
-- Instagram feed overview of the hashtags used with the products pictures - this one requires Instagram content (pictures/posts) using #papeire and/or specific hashtag for the product. In brief, it’s supposed to gather posts showing the specific product and display them at the bottom of the product page
-- Multiple pictures for one product - this will be crucial for bigger handmade products (handbinded journal as opposed to sheet of stickers) and will be coming in the future updates. The implementation should be straightforward, as it requires only a duplication of the fields in the database and changing the frontend display by binding preview pictures to existing picture container and creating function that will allow going through all of them
+- Better handling of URLs for categories - for now, the categories don’t have a slug and use category name to show the page. It shouldn’t cause problems with most if not all modern browsers, however using slugs could make it even more errorproof.
+- Instagram feed overview of the hashtags used with the products pictures - this one requires Instagram content (pictures/posts) using #papeire and/or specific hashtag for the product. In brief, it’s supposed to gather posts showing the specific product and display them at the bottom of the product page.
+- Multiple pictures for one product - this will be crucial for bigger handmade products (handbinded journal as opposed to sheet of stickers) and will be coming in the future updates. The implementation should be straightforward, as it requires only a duplication of the fields in the database and changing the frontend display by binding preview pictures to existing picture container and creating function that will allow going through all of them.
 - Feedback messages moved to pop-ups instead of usual green or red bar on the top of the content - this one is tricky and I’m still not sure if viable to implement. Current feedback solution is traditional and users are used to it and uderstand the messages clearly. However moving some of the feedback to a modal or pop-up (for example when adding an item to the cart) could prove useful, as it is an element used by many online stores. 
+- Possibly index page different from all products page as it is now. The logic behind is implementend, only lack of sensible content (that wouldn't be just a placeholder) kept it in planning stage.
 
 ### Features that didn’t make it to the final cut (not implemented nor planned)
 
@@ -169,28 +175,27 @@ Displays 4 elements in the row (on desktop, 2 elements on smaller screens, 1 ele
 
 Detailed database schema can be found at [https://dbdiagram.io/d/5dd5c301edf08a25543e2cd8](https://dbdiagram.io/d/5dd5c301edf08a25543e2cd8)
 
-## Issues found in dev
+## Issues found in development
 
-< any bugs? >
+Two big milestones in terms of bugs in developments:
+- reviewing relations in the database and upgrading/changing them during development took some time and effort that could be avoided
 
 ## Technologies used
 
-- Gitpod - IDE used for developing this project from scratch
-- Django - python web framework 
-- Stripe - payment platform handling all validation and secure payments via credit card
-- Travis for continuous integration
-- AWS S3 Bucket to store static files and Boto3 for creation and management of AWS S3 
-- Boto3
-[[ Coverage for coverage of python unittests / planned ]]
-- Heroku 
-'django_countries',
-'django_forms_bootstrap',
-'star_ratings',
-- Gunicorn - WSGI HTTP Server for UNIX for deployment to heroku
-- Pillow - python imagining library to handle media upload
-- Psycopg2 - PostgreSQL database adapter for Python
-- PIP - installation tool
-- Git - version control and GitHUb to store and share the project code
+- [Gitpod](https://gitpod.io) - IDE used for developing this project from scratch
+- [Django 1.11.26](https://www.djangoproject.com/) - python web framework 
+- [Stripe](https://stripe.com/ie) - payment platform handling all validation and secure payments via credit card
+- [Travis](http://travis-ci.org/) for continuous integration
+- [Amazon Web Services](https://aws.amazon.com/s3/) - AWS S3 Bucket to store static files 
+- [Boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html) - creation and management of AWS S3 
+- [Heroku](https://www.heroku.com/home) - hosting of the website
+- [Gunicorn](https://pypi.org/project/gunicorn/) - WSGI HTTP Server for UNIX
+- [Pillow](https://pypi.org/project/Pillow/) - python imagining library to handle media upload
+- [Psycopg2](https://pypi.org/project/psycopg2/)- PostgreSQL database adapter for Python
+- [Git](https://git-scm.com/) and [GitHub](https://github.com/) - version control, storing and sharing the project code
+- [Django countries](https://pypi.org/project/django-countries/) - providing country choices to use with forms
+- [Django forms bootstrap](https://pypi.org/project/django-forms-bootstrap/) - form filter for using forms with bootstrap
+- [Django star ratings](https://github.com/wildfish/django-star-ratings) 
 
 
 ## Databases
@@ -288,7 +293,7 @@ Your deployment is now done.
 From the link provided add /admin to the end of the url, log in with your superuser account Now you can create first Product Categories and Products
 
 ## Lessons learned
-<cue parrot gif>
+![How not to develop... or maybe how to?](docs/how-not-to-develop.gif)
 
 As this is the final project in Full-Stack Developer Course, there must be a chapter on lessons learned that this project brought. 
 
