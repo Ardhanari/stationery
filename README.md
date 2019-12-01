@@ -246,13 +246,8 @@ The board uses following tags to split tasks into different categories: Planning
 - Authentication pages display forms allowing a user to go through the entire process of authentication (first time or returning
 - Static page display content that may be interesting for visitors that are unsure about buying in Papeire yet
 
-  
-  
-  
-  
 
 ### Features to be implemented
-
 
 - More than one shipping address per user - it requires changing the relation between Address and Order models. The fact that current relation may not be suitable for business purposes was realised during only mid-development and due to time constraints was moved to planned update.
 
@@ -417,19 +412,11 @@ Once it's running go use the local link and add `/admin/` at the end of the url.
 
 ## Deployment
 
-  
-
 To deploy Papeire to Heroku follow these steps:
-
-  
 
 In your terminal use command 'pip freeze --local > requirements.txt' to create a requirements.txt file (--local may be necessary when using cloud IDEs like AWS Cloud9 or GitPod to ensure only libraries used directly by the project are saved to the file)
 
-  
-
 Create a Procfile using command echo `web: gunicorn onlineshop.wsgi:application` where 'onlineshop' is the name of the application
-
- 
 
 Git add, git commit and git push these files to the repository
  
@@ -451,7 +438,7 @@ On the Settings tab click on Reveal Config Vars and set following variables:
     STRIPE_PUBLISHABLE <your  secret  key>
     STRIPE_SECRET <your  secret  key>
 
-[[ creating superuser Heroku ]]
+Remember to connect to the database from your environment and create superuser like explained in a section above. 
 
 In your Heroku dashboard, click "Deploy". Scroll down to "Manual Deploy", select the master branch then click "Deploy Branch".
 
