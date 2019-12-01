@@ -6,6 +6,7 @@ Papeire is an online stationery shop that will sell handmade and vintage journal
 The name combines in a clever way word “paper” and “Eire” which is the Irish word for Ireland.
 
 ![Responsiveness of Papeire](docs/images/papeire.png)
+Image created using [Am I Responsive](http://ami.responsivedesign.is/).
 
 ## Table of contents
 
