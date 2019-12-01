@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
-
 import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -25,9 +24,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEVELOPMENT = os.getenv('DEBUG')
+DEBUG = False
 
-ALLOWED_HOSTS = [os.environ.get('HOST'),
+ALLOWED_HOSTS = [os.environ.get('HOST'), 
                 'https://papeire.herokuapp.com/']
 
 # Application definition
@@ -87,16 +86,7 @@ WSGI_APPLICATION = 'onlineshop.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
-if DEVELOPMENT:
-    print('in Debug mode - use sqlite3')
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        }
-    }
-else: 
-    DATABASES = {'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))}
+DATABASES = {'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))}
 
 
 # Password validation
@@ -159,22 +149,22 @@ STATICFILES_DIRS = (
 MEDIAFILES_LOCATION = 'media'
 DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
 
-if DEVELOPMENT:
-    MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-    MEDIA_URL = '/media/'
-else:
-    MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-    MEDIA_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, MEDIAFILES_LOCATION)
+# if development == True:
+#     MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+# #     MEDIA_URL = '/media/'
+# else:
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, MEDIAFILES_LOCATION)
 
 
-if DEVELOPMENT: 
-    EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
-else:
-    EMAIL_USE_TLS = True
-    EMAIL_HOST = 'smtp.gmail.com'
-    EMAIL_HOST_USER = os.environ.get("EMAIL_ADDRESS")
-    EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_PASSWORD")
-    EMAIL_PORT = 587
+# if development == True: 
+#     EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+# else:
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = os.environ.get("EMAIL_ADDRESS")
+EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_PASSWORD")
+EMAIL_PORT = 587
 
 MESSAGE_STORAGE = "django.contrib.messages.storage.session.SessionStorage"
 
