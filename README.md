@@ -277,6 +277,8 @@ The board uses following tags to split tasks into different categories: Planning
 
 - More than one shipping address per user - it requires changing the relation between Address and Order models. The fact that current relation may not be suitable for business purposes was realised during only mid-development and due to time constraints was moved to planned update.
 
+- Status of the order - it was initially planned as an implementation using mail carrier API and it was quickly abandonned due to the paywalls. However the idea of manually setting status of the order for user's peace of mind is still planned.
+
 - Pagination - while it is a functionality that is native to any online shop, the store will probably have only a handful of products available at the same time, as they are handmade and available in very few copies. Pagination may be implemented in the future update if the number of products increases over ~15 unique products however at that point in time this functionality probably wouldn’t be active anyway, even if implemented.
 
 - Discount + user coupons logic - to be implemented in the future. Products have now one field prepared for storing discount information.
@@ -310,16 +312,6 @@ The board uses following tags to split tasks into different categories: Planning
   
 
 Detailed database schema can be found at [https://dbdiagram.io/d/5dd5c301edf08a25543e2cd8](https://dbdiagram.io/d/5dd5c301edf08a25543e2cd8)
-
-  
-
-## Issues found in development
-
-  
-
-Two big milestones in terms of bugs in developments:
-
-- reviewing relations in the database and upgrading/changing them during development took some time and effort that could be avoided
 
   
 
