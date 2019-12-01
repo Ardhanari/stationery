@@ -144,22 +144,16 @@ A visitor to Papeire may expect, want or need:
 Fonts used on the website are:
 
 - Main header, headings and product links
-
--- Fanwood Text (backed up by Georgia and then by system serif font)
-
+[Fanwood Text](https://fonts.google.com/specimen/Fanwood+Text) backed up by Georgia and then default system serif font
 - Content text (including text level links)
-
--- Open Sans (backed up by system sans-serif font)
-
-  
+[Open Sans](https://fonts.google.com/specimen/Open+Sans) backed up by default system sans-serif font
 
 ### Colours palette
 
-  
 
 Colours used in this project are the following:
 
-![Colour palette](docs/paleta.png)
+![Colour palette](docs/images/paleta.png)
 
   
 
@@ -175,6 +169,7 @@ Colours combinations were checked against contrast issues and accessibility.
 
   
 
+This project uses Font Awesome icons. 
 Following pages use icons to cue the user visually about what page they are on and what actions they can take:
 
 - FAQ
@@ -243,27 +238,34 @@ The board uses following tags to split tasks into different categories: Planning
 
 ##### elements on every page:
 
-header ensuring clear identification
-
-simplistic navbar
-
-footer linking to all static pages and social media
+- header ensuring clear identification
+- simplistic navbar with search
+- footer linking to all static pages providing more information and social media
 
 ##### Homepage/all products/categories/search results page:
+- Contains distinct heading that allows user to identify what page they are looking at
+- In left side column there is categories menu that allows the user to switch between them easily and sorting option to sort displayed products by price or date added
+- Displays 4 elements in the row (on desktop, 2 elements on smaller screens, 1 element on the smallest screens).
+  - each element consists of smaller picture of the product, its name that links to its detail page and button to add product to the cart
+ 
+##### Detail page of single product
+- Displays bigger picture for the product 
+- Displays its price and full description and all necessary information
+- Allows user to specify quantity of the product and add it to the cart
+- Displays star rating that gathers votes from logged in users 
+- Displays reviews that were written by users who purchased the product if there are any
 
-Displays 4 elements in the row (on desktop, 2 elements on smaller screens, 1 element on the smallest screens).
+##### User profile
+- Is marked by icon clearly identifying it is profile page
+- Shows user's orders and saved address if there are any
+- Allows to view past orders and products that were purchased then 
+- Links to procedure of requesting password reset
 
-  
+##### Static and authentication pages
 
-##### elements on multiple product pages
-
-left-side column: category block showing all available categories to browse
-
-left-side column: sorting dropdown allowing user to sort by price or date
-
-#####
-
-icons for clear identification for pages that don’t have left-side column
+- All contain icons for clear identification at what stage of authentication user is or what type of page they actually read
+- Authentication pages display forms allowing user to go through entire process of authentication (first time or returning
+- Static page display content that may be interesting for visitors that are unsure about buying in Papeire yet
 
   
   
@@ -272,7 +274,6 @@ icons for clear identification for pages that don’t have left-side column
 
 ### Features to be implemented
 
-  
 
 - More than one shipping address per user - it requires changing the relation between Address and Order models. The fact that current relation may not be suitable for business purposes was realised during only mid-development and due to time constraints was moved to planned update.
 
@@ -296,9 +297,9 @@ icons for clear identification for pages that don’t have left-side column
 
   
 
-- is_digital - while initially was a part of the Product model and it would specify if the product is eligible to digital download after the purchase, during the development I realised that there will probably no downloadable products in any near future. The field was removed from product table and won’t return in future updates
+- is_digital - while initially was part of the Product model and it would specify if the product is eligible to digital download after the purchase, during the development I realised that there will probably no downloadable products in any near future. The field was removed from product table and won’t return in future updates
 
-- stripe pre-built checkout page - could be an option to ensure users they are using a dedicated and secure element to handle their orders, however, the distinct look and incompatibility with current address and order way of storing data makes it not a priority for now.
+- stripe pre-built checkout page - could be an option to ensure users they are using a dedicated and secure element to handle their orders, however, the distinct look and possible incompatibility with current address and order way of storing data places it low on a priority list for now.
 
 - all other elements at the last card of the [Trello page](https://trello.com/b/xSgyQgU2/milestone-project-4)
 
@@ -375,6 +376,13 @@ Two big milestones in terms of bugs in developments:
 
 - Google Fonts to host and provide layout fonts
 
+## Support applications
+
+- [DBdiagram](https://dbdiagram.io/) for visual representation of database schema
+- [Figma](https://www.figma.com/) for laying out initial mockups for the layout
+- [StackEdit](https://stackedit.io/app#) for easy editing README file
+- [Trello board](https://trello.com/) that didn't allow me to get lost, not even for a second
+
   
 
 This project was built using HTML, CSS, Javascript and Python.
@@ -385,11 +393,9 @@ This project was built using HTML, CSS, Javascript and Python.
 
   
 
-user storeis testing
+[[user storeis testing]]
 
-  
-
-[[ testing grid ]]
+Tests run in different browsers, namely: Google Chrome, Mozilla Firefox, Microsoft Edge on desktop and Google Chrome and Samsung Internet on mobile
 
   
 
