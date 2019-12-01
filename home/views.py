@@ -28,9 +28,11 @@ def contact(request):
             from_email = form.cleaned_data['from_email']
             subject = form.cleaned_data['subject']
             message = form.cleaned_data['message']
+
+            msg_mail = str(from_email) + '\n\n' + str(message)
             
             try:
-                send_mail(subject, message, from_email, ['stationerycuriousshop@gmail.com', ])
+                send_mail(subject, msg_mail, from_email, ['stationerycuriousshop@gmail.com', ])
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
             messages.success(request, "Message sent! Thank you")
