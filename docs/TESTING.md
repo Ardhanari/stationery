@@ -12,6 +12,7 @@ Testers had:
 - Clicked all links in the footer to make sure they open in a new window and point to the correct page
 
 ##### Cart:
+User can:
 - add an item to the cart being logged in, 
 - and logged out,
 - add more than one product by clicking 'add to cart' few times, 
@@ -33,6 +34,7 @@ Testers had:
 - made sure that all breadcrumbs are accurate and clicked the links to test them pointing to correct pages
 
 ##### Products pages
+Testers had:
 - Used categories selection to navigate between categories and all product pages
 - Used search to search for products and return relevant results
 - Used sorting dropdown to sort the products by price and date added
@@ -65,15 +67,18 @@ Testers had:
 
 #### Bugs found during testing
 
-The price of the product would stay the same no matter the quantity of it in the cart. Solved by adding relevant code. 
+The price of the product would stay the same no matter the quantity of it in the cart. Fixed by adding relevant code. 
 
-Google Dictionary (chrome extension) would break the website, returning occasionally 404 and 403 errors when browsing pages, and '403 CSRF token missing' when submitting any form (including 'add to cart'). Solved by first testing the same steps on a different browser, when confirmed it's Chrome problem turning off the extensions and tracking down the one responsible for all of this. 
-Solved by reinstalling the extension to clean version. 
+Google Dictionary (chrome extension) would break the website, returning occasionally 404 and 403 errors when browsing pages, especially '403 CSRF token missing' when submitting any form (including 'add to cart'). Solved by first testing the same steps on a different browser, and when confirmed it's Chrome problem, turning off the extensions and tracking down the one responsible for all of this. 
+Solved by reinstalling the extension to the clean version. 
 
-Rendering page with no reviews would return error 500 on Heroku. Saving the address details during checkout would return the same. 
+##### Rendering page with no reviews would return error 500 on Heroku. Saving the address details during checkout would return the same. 
 These two issues are together because despite how different they are, their source was the same. I provisionally fixed the first issue by changing the database query, when previous code would be returned with "column does not exist". The column in question was in the schema and model for the reviews table, however, I bravely assumed, since there is no reviews in the database yet, simple rewording of the query would be enough. 
+
 However, the same problem (ProgramaticError, Column does not exist) arose for the shipping address. This time I couldn't assume the same since in the database there were already shipping addresses from the previous testing. I knew there is column 'user_id' because I was staring at it, reading directly from the database. 
+
 So I kept digging and after 3.5 hours down the rabbit hole, I found myself reading about recovering data from corrupted databases. At this point, I realised it will be easier and faster to drop the old DB (since tests were conducted on fake products and fake accounts) and try to replicate the same bug on the clean database made from scratch. And lo and behold, there were no ProgramaticErrors (or any errors for that matter) showing up when saving and reading from the database. 
+
 After that discovery, I felt dragged but also really relieved it was _just that_ (I must admit, part of the relief was coming from the fact, that I was in this comfortable position where I could just drop DB and not look back)
 
 ##### UX/UI 
@@ -83,4 +88,5 @@ After that discovery, I felt dragged but also really relieved it was _just that_
 
 ### Travis CI
 For the love of all good things in this world, I couldn't make Travis notice this repository as something suitable for testing. Following the documentation, granting permissions from GitHub, uploading `.travis.yml` in different versions, giving it time (in case it needs it) and the dashboard is still empty and no build is built. 
+
 After troubleshooting it for a little while, I decided to continue with the project submission and find a solution to this issue in the foreseeable future. Track of old versions of `.travis.yml` can be found in this repository's commits, however the file is removed for now. 
