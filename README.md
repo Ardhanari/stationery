@@ -23,7 +23,35 @@ The name combines in a clever way word “paper” and “Eire” which is the I
 
 ![Responsiveness of Papeire]()
 
-  
+## Table of contents
+
+- [UX](#ux)auto
+   - [Goals](#goals)auto
+        - [User Goals](#user-goals)auto
+        - [Business Goals](#business-goals)auto                
+    - [User stories](#user-stories)auto
+- [UI - design elements](#ui---design-elements)auto
+    - [Fonts](#fonts)auto        
+    - [Colours palette](#colours-palette)auto
+    - [Icons](#icons)auto
+    - [UI/UX differences between mockups and final version](#uiux-differences-between-mockups-and-final-version)auto
+- [Planning and development process](#planning-and-development-process)auto    
+- [Features](#features)auto
+    - [Features implemented](#features-implemented)auto
+    - [Features to be implemented](#features-to-be-implemented)auto
+    - [Features that didn’t make it to the final cut (not implemented nor planned)](#features-that-didnt-make-it-to-the-final-cut-not-implemented-nor-planned)auto
+- [Information architecture](#information-architecture)auto    
+- [Technologies used](#technologies-used)auto    
+    - [Databases](#databases)auto    
+    - [Libraries](#libraries)auto    
+    - [Support applications](#support-applications)auto
+- [Testing manual](#testing-manual)auto
+- [Automated testing](#automated-testing)auto
+- [Git version control / GitHub](#git-version-control--github)auto
+    - [How to run this project locally](#how-to-run-this-project-locally)auto
+- [Deployment](#deployment)auto
+- [Lessons learned](#lessons-learned)auto
+- [Credits, acknowledgements and all fun stuff](#credits-acknowledgements-and-all-fun-stuff)auto
 
 ## UX
 
@@ -91,13 +119,9 @@ Groups targeted by Papeire are:
 
   
 
-### UX user stories
+### User stories
 
-  
-
-#### User Stories
-
-A visitor to Papeire may expect, want or need:
+A visitor to Papeire may expect, want, need or require:
 
   
 
@@ -385,7 +409,7 @@ This project was built using HTML, CSS, Javascript and Python.
 
   
 
-[[user storeis testing]]
+Head to [TESTING.md](docs/TESTING.md) to read more about what was tested by users. 
 
 Tests run in different browsers, namely: Google Chrome, Mozilla Firefox, Microsoft Edge on desktop and Google Chrome and Samsung Internet on mobile
 
@@ -393,7 +417,8 @@ Tests run in different browsers, namely: Google Chrome, Mozilla Firefox, Microso
 
 ## Automated testing
 
-This project wasn’t built using test driven development as it is hard to write tests for models and forms when still learning about htem :)
+This project wasn’t built using test driven development as it is hard to write tests for models and forms when still learning about them :)
+
 Unfortunately, I stood before a choice between pushing deadline further or omitting this part and submit the project on time. I chose the latter which is the shame, considering how easy to handle unittest is (yes, I've looked!) 
 
 ## Git version control / GitHub
