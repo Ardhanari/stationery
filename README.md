@@ -1,27 +1,11 @@
-
-  
-
 # Papeire
-
-  
-
-[![Build Status](https://travis-ci.org/Ardhanari/stationery.svg?branch=master)](https://travis-ci.org/Ardhanari/stationery)
-
-  
-
 ## Project in brief
-
-  
 
 Papeire is an online stationery shop that will sell handmade and vintage journals, papers and accessories. The idea for the shop was born in my mind a couple of years ago and stayed alive until today.
 
-  
-
 The name combines in a clever way word “paper” and “Eire” which is the Irish word for Ireland.
 
-  
-
-![Responsiveness of Papeire]()
+![Responsiveness of Papeire](docs/images/papeire.png)
 
 ## Table of contents
 
@@ -58,66 +42,37 @@ The name combines in a clever way word “paper” and “Eire” which is the I
 ### Goals
 
 #### User Goals
-
-  
-
 Groups targeted by Papeire are:
 
 - People interested in making their own journalling experience using a selection of craft materials and products
-
 - People following Instagram profiles and youtube accounts involved in creative journaling (like [@journalwithpurpose](https://www.instagram.com/journalwithpurpose/) or [Skylar Hand](https://www.youtube.com/channel/UCN1i6M8d1-80vy_DwTCf1VQ)
-
 - People looking for unique handmade or vintage products
-
 - People who prefer to support local artists and sellers instead of bigger firms and corporations
-
-  
 
 ##### User goals are:
 
-  
-
 - Find a new journal for a bullet journal or a diary
-
 - Find a gift for their crafty friend
-
 - Buy a mystery grab bag containing curated elements for creative journaling
-
 - Navigate the shop with ease and buy the things they need in a secure way
-
-  
 
 ##### Papeire will meet these goals by:
 
-  
 
-- Being a //cameral// website, using design clues to cue the user they interact with an independent small shop
-
+- Being a small, cosy website, using design clues to cue the user they interact with an independent small shop
 - Having navigation that contains only the necessary information for the users
-
 - Presenting products with all the information user may need when choosing the product for purchase
-
 - Providing easy access to product categories and products themselves, including search using keywords
-
 - Having a flat rate for shipping worldwide - which means users can buy as much and as little as they need
-
-  
+ 
 
 #### Business Goals
-
 ##### Papeire business goals
 
-  
-
 - Provide a complete online shop that helps the user to browse, choose and buy products
-
 - Make sure the users are feeling safe while completing a purchase
-
 - Build the brand alongside an Instagram account
-
-- Make sales easy and straightforward for buyers
-
-  
+- Make sales easy and straightforward for buyers  
 
 ### User stories
 
@@ -143,7 +98,7 @@ A visitor to Papeire may expect, want, need or require:
 
 - To understand how many items I'm buying and how many there are in stock
 
-- To use search function allowing me to get results specific for my query
+- To use the search function that allows me to get results specific for my query
 
 - To have easy access to frequently asked questions page that contains answers to the questions I may have when placing my order
 
@@ -240,7 +195,7 @@ The board uses following tags to split tasks into different categories: Planning
 
 - Handles separate apps for different parts of the website:
 
-- User authentication and data (including shipping address)
+- User authentication and data (including a shipping address)
 
 - Orders placed in the shop
 
@@ -248,11 +203,11 @@ The board uses following tags to split tasks into different categories: Planning
 
 - Keyword search
 
-- Two stage checkout
+- Two-stage checkout
 
 - Static pages
 
-- Database containing information on users, shipping addresses, products available, orders placed, rating of products etc.
+- A database containing information on users, shipping addresses, products available, orders placed, rating of products etc.
 
 - Allows sending emails to and from users (password reset + contact us form) using dedicated gmail account for the shop
 
@@ -267,28 +222,28 @@ The board uses following tags to split tasks into different categories: Planning
 - footer linking to all static pages providing more information and social media
 
 ##### Homepage/all products/categories/search results page:
-- Contains distinct heading that allows user to identify what page they are looking at
-- In left side column there is categories menu that allows the user to switch between them easily and sorting option to sort displayed products by price or date added
+- Contains a distinct heading that allows user to identify what page they are looking at
+- In the left side column, there is categories menu that allows the user to switch between them easily and sorting option to sort displayed products by price or date added
 - Displays 4 elements in the row (on desktop, 2 elements on smaller screens, 1 element on the smallest screens).
-  - each element consists of smaller picture of the product, its name that links to its detail page and button to add product to the cart
+  - each element consists of a smaller picture of the product, its name that links to its detail page and button to add a product to the cart
  
-##### Detail page of single product
+##### Detail page of the single product
 - Displays bigger picture for the product 
 - Displays its price and full description and all necessary information
-- Allows user to specify quantity of the product and add it to the cart
-- Displays star rating that gathers votes from logged in users 
+- Allows user to specify the quantity of the product and add it to the cart
+- Displays star rating that gathers votes from logged-in users 
 - Displays reviews that were written by users who purchased the product if there are any
 
 ##### User profile
-- Is marked by icon clearly identifying it is profile page
+- Is marked by icon identifying it is the profile page
 - Shows user's orders and saved address if there are any
 - Allows to view past orders and products that were purchased then 
-- Links to procedure of requesting password reset
+- Links to the procedure of requesting a password reset
 
 ##### Static and authentication pages
 
-- All contain icons for clear identification at what stage of authentication user is or what type of page they actually read
-- Authentication pages display forms allowing user to go through entire process of authentication (first time or returning
+- All contain icons for clear identification at what stage of authentication user is or what type of page they read
+- Authentication pages display forms allowing a user to go through the entire process of authentication (first time or returning
 - Static page display content that may be interesting for visitors that are unsure about buying in Papeire yet
 
   
@@ -301,21 +256,21 @@ The board uses following tags to split tasks into different categories: Planning
 
 - More than one shipping address per user - it requires changing the relation between Address and Order models. The fact that current relation may not be suitable for business purposes was realised during only mid-development and due to time constraints was moved to planned update.
 
-- Status of the order - it was initially planned as an implementation using mail carrier API and it was quickly abandonned due to the paywalls. However the idea of manually setting status of the order for user's peace of mind is still planned.
+- Status of the order - it was initially planned as implementation using mail carrier API and it was quickly abandoned due to the paywalls. However, the idea of manually setting status of the order for the user's peace of mind is still planned.
 
-- Pagination - while it is a functionality that is native to any online shop, the store will probably have only a handful of products available at the same time, as they are handmade and available in very few copies. Pagination may be implemented in the future update if the number of products increases over ~15 unique products however at that point in time this functionality probably wouldn’t be active anyway, even if implemented.
+- Pagination - while it is a functionality that is native to any online shop, the store will probably have only a handful of products available at the same time, as they are handmade and available in very few copies. Pagination may be implemented in the future update if the number of products increases over ~15 unique products however now this functionality probably wouldn’t be active anyway, even if implemented.
 
 - Discount + user coupons logic - to be implemented in the future. Products have now one field prepared for storing discount information.
 
-- Better handling of URLs for categories - for now, the categories don’t have a slug and use category name to show the page. It shouldn’t cause problems with most if not all modern browsers, however using slugs could make it even more errorproof.
+- Better handling of URLs for categories - for now, the categories don’t have a slug and use category name to show the page. It shouldn’t cause problems with most if not all modern browsers, however, using slugs could make it even more errorproof.
 
 - Instagram feed overview of the hashtags used with the products pictures - this one requires Instagram content (pictures/posts) using #papeire and/or specific hashtag for the product. In brief, it’s supposed to gather posts showing the specific product and display them at the bottom of the product page.
 
-- Multiple pictures for one product - this will be crucial for bigger handmade products (handbinded journal as opposed to sheet of stickers) and will be coming in the future updates. The implementation should be straightforward, as it requires only a duplication of the fields in the database and changing the frontend display by binding preview pictures to existing picture container and creating function that will allow going through all of them.
+- Multiple pictures for one product - this will be crucial for bigger handmade products (handbinded journal as opposed to a sheet of stickers) and will be coming in the future updates. The implementation should be straightforward, as it requires only a duplication of the fields in the database and changing the frontend display by binding preview pictures to existing picture container and creating a function that will allow going through all of them.
 
-- Feedback messages moved to pop-ups instead of usual green or red bar on the top of the content - this one is tricky and I’m still not sure if viable to implement. Current feedback solution is traditional and users are used to it and uderstand the messages clearly. However moving some of the feedback to a modal or pop-up (for example when adding an item to the cart) could prove useful, as it is an element used by many online stores.
+- Feedback messages moved to pop-ups instead of usual green or red bar on the top of the content - this one is tricky and I’m still not sure if viable to implement. Current feedback solution is traditional and users are used to it and understand the messages clearly. However moving some of the feedback to a modal or pop-up (for example when adding an item to the cart) could prove useful, as it is an element used by many online stores.
 
-- Possibly index page different from all products page as it is now. The logic behind is implementend, only lack of sensible content (that wouldn't be just a placeholder) kept it in planning stage.
+- Possibly index page different from all products page as it is now. The logic behind is implemented, only lack of sensible content (that wouldn't be just a placeholder) kept it in the planning stage.
 
   
 
@@ -335,7 +290,7 @@ The board uses following tags to split tasks into different categories: Planning
 
   
 
-Detailed database schema can be found at [https://dbdiagram.io/d/5dd5c301edf08a25543e2cd8](https://dbdiagram.io/d/5dd5c301edf08a25543e2cd8)
+The detailed database schema can be found at [https://dbdiagram.io/d/5dd5c301edf08a25543e2cd8](https://dbdiagram.io/d/5dd5c301edf08a25543e2cd8)
 
   
 
@@ -376,9 +331,9 @@ Detailed database schema can be found at [https://dbdiagram.io/d/5dd5c301edf08a2
 
 ## Databases
 
-- SQlite3 for development database (provided by django)
+- SQlite3 for development database (provided by Django)
 
-- PostgresSQL for production database (provided by heroku)
+- PostgresSQL for production database (provided by Heroku)
 
   
 
@@ -386,7 +341,7 @@ Detailed database schema can be found at [https://dbdiagram.io/d/5dd5c301edf08a2
 
 - Bootstrap to ensure responsiveness of the layout and for basic elements styling
 
-- JQuery, scarcely, to simplify DOM manipulation, as a part of Bootstrap implementation
+- JQuery, scarcely, to simplify DOM manipulation, as a part of the Bootstrap implementation
 
 - Font Awesome to provide icons for Papeire
 
@@ -417,20 +372,20 @@ Tests run in different browsers, namely: Google Chrome, Mozilla Firefox, Microso
 
 ## Automated testing
 
-This project wasn’t built using test driven development as it is hard to write tests for models and forms when still learning about them :)
+This project wasn’t built using test-driven development as it is hard to write tests for models and forms when still learning about them :)
 
-Unfortunately, I stood before a choice between pushing deadline further or omitting this part and submit the project on time. I chose the latter which is the shame, considering how easy to handle unittest is (yes, I've looked!) 
+Unfortunately, I stood before a choice between pushing the deadline further or omitting this part and submit the project on time. I chose the latter which is the shame, considering how easy to handle unittest is (yes, I've looked!) 
 
 ## Git version control / GitHub
 ### How to run this project locally
 
-To run this project on your own IDE follow the instructions below:
+To run this project on your IDE follow the instructions below:
 
 - You must have installed PIP, Python 3 and Git on your machine/IDE
 - To allow the website to work properly, ensure you have created Stripe account
 
 ### Instructions
-Clone a repository using following command in the terminal `git clone https://github.com/Ardhanari/stationery.git`.
+Clone a repository using the following command in the terminal `git clone https://github.com/Ardhanari/stationery.git`.
 
 Install all required modules with the command `pip -r requirements.txt.`.
 
@@ -447,7 +402,7 @@ Set up the following environment variables within your IDE, you can use `.env` f
     AWS_SECRET_KEY_ID: <your AWS secret key ID>
     AWS_SECRET_ACCESS_KEY: <your AWS secret access key>
 
-Part of the code in repository is adapted to work either in development and in production. These parts make possible to have different settings for two environments and are wrapped in `if development, else` and development sources its value directly from variable `DEBUG`. If you set DEBUG to True during the development, remember to set it back to False when deploying.
+Part of the code in the repository is adapted to work either in development and in production. These parts make possible to have different settings for two environments and are wrapped in `if development, else` and development sources its value directly from variable `DEBUG`. If you set DEBUG to True during the development, remember to set it back to False when deploying.
 
 Migrate models using `python3 manage.py migrate`.
 
@@ -474,19 +429,13 @@ In your terminal use command 'pip freeze --local > requirements.txt' to create a
 
 Create a Procfile using command echo `web: gunicorn onlineshop.wsgi:application` where 'onlineshop' is the name of the application
 
-  
+ 
 
 Git add, git commit and git push these files to the repository
-
-  
-
+ 
 Create a new app on the Heroku, give it a name and choose region closest to you
 
-  
-
-From the heroku app dashboard in Deploy tab, in Deployment section select GitHub
-
-  
+From the Heroku app dashboard in Deploy tab, in Deployment section select GitHub
 
 Specify repository and the branch you want to use to deploy the project
 
@@ -502,15 +451,15 @@ On the Settings tab click on Reveal Config Vars and set following variables:
     STRIPE_PUBLISHABLE <your  secret  key>
     STRIPE_SECRET <your  secret  key>
 
-[[ creating superuser heroku ]]
+[[ creating superuser Heroku ]]
 
-In your heroku dashboard, click "Deploy". Scroll down to "Manual Deploy", select the master branch then click "Deploy Branch".
+In your Heroku dashboard, click "Deploy". Scroll down to "Manual Deploy", select the master branch then click "Deploy Branch".
 
-Once the build succeed and is complete, click the "View app" button provided.
+Once the build succeeds and is complete, click the "View app" button provided.
 
 Your deployment is now done.
 
-From the link provided add `/admin/` to the end of the url, log in with your superuser account and create first Product Categories and Products.
+From the link provided add `/admin/` to the end of the URL, log in with your superuser account and create first Product Categories and Products.
 
   
 
@@ -536,11 +485,11 @@ Planning of the development also didn’t take into account time needed for crea
 
 **Papeire** may be written by one developer but wouldn't exist without: 
 
-Stijn Van De Vyver who is 100% responsible for creative side of inventing the name.
+Stijn Van De Vyver who is 100% responsible for the creative side of inventing the name. Kudos.
 
-All beloved people that offered advice and time for testing the website. Biggest thanks to Kuba Kołaciński, Stijn Van De Vyver and Tomasz Rębas for their support (technical and mental alike) .
+All beloved people that offered advice and time for testing the website. Biggest thanks to Kuba Kołaciński, Stijn Van De Vyver, Tomasz Rębas and Tomasz Sroka for their support (technical and mental alike).
 
-[Code Institute](http://codeinstitute.net/) lessons, tutors and community. They were an enormous help during learning process and development this and all past projects.
+[Code Institute](http://codeinstitute.net/) lessons, tutors and community. They were an enormous help during the learning process and development this and all past projects.
 
 [Oluwaseun Owonikoko](https://ng.linkedin.com/in/oluwaseun-owonikoko-190318135) for mentoring and help provided during development and sense of humour. 
 
