@@ -21,4 +21,4 @@ requests==2.22.0
 s3transfer==0.2.1
 stripe==2.40.0
 swapper==1.1.1
-urllib3==1.25.7
+urllib3==1.26.5
